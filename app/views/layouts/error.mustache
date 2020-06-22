@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+{{> layout.head }}
+
+<body class="{{page.bodyclass}}">
+
+<!-- END PAGE CONTAINER -->
+<div class="container-xs-height bg-master-lighter full-height">
+	<div class="row-xs-height">
+		<div class="col-xs-height col-middle">
+			<div class="error-container text-center">
+				<h1 class="error-number">{{page.title}}</h1>
+				<h2 class="semi-bold">{{page.header}}</h2>
+				<p>{{{page.description}}}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- END PAGE CONTAINER -->
+
+
+{{> layout.footer}}
+
+</body>
+</html>

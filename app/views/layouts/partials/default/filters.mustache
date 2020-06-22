@@ -1,0 +1,132 @@
+    <!--START QUICKVIEW -->
+    <div class="quickview-wrapper   builder" id="builder">
+      <div class="p-l-30 p-r-30 ">
+
+        <a class="builder-close quickview-toggle pg-close" data-toggle="quickview" data-toggle-element="#builder" href="#"></a>
+        <a class="builder-toggle" data-toggle="quickview" data-toggle-element="#builder"><i class="pg pg-theme"></i></a>
+        <ul class="nav nav-tabs nav-tabs-simple nav-tabs-primary m-t-10">
+{{#page.filtering}}          <li class="active">
+            <a data-toggle="tab" href="#tabFilters">Фильтры</a>
+          </li>
+{{/page.filtering}}
+{{#page.exports}} <li>
+            <a data-toggle="tab" href="#tabExports">Экспорт</a>
+</li>
+{{/page.exports}}
+         <!--  <li>
+            <a data-toggle="tab" href="#tabContent">Content</a>
+          </li> -->
+        </ul>
+        <div class="tab-content m-t-20 m-b-30 p-l-10">
+
+{{#page.filtering}}
+          <div class="tab-pane active " id="tabFilters">
+          	<h3>
+            Фильтры
+          </h3>
+
+
+<form role="form" action="/urler" method="post">
+<input type="hidden" name="page" value="{{page.name}}"/>
+
+{{#datefrom}}
+<label>с даты:</label>
+<div id="datepicker-component" class="datepicker input-group date col-sm-8 m-b-0 m-t-0 p-t-0 p-b-5">
+
+                      <input type="text" value="{{filters.datefrom}}" name="datefrom" class="form-control "><span class="input-group-addon"><i
+                class="fa fa-calendar"></i></span>
+
+                    </div>
+{{/datefrom}}
+{{#dateto}}
+
+                    <label>по дату:</label>
+<div id="datepicker-component" class="datepicker input-group date col-sm-8 m-b-0 m-t-0 p-t-0 p-b-5">
+
+                      <input type="text" name="dateto" value="{{filters.dateto}}" class="form-control"><span class="input-group-addon"><i
+                class="fa fa-calendar"></i></span>
+                    </div>
+{{/dateto}}
+
+
+
+
+
+{{#group_id}}
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label>Group:</label>
+        <select name="group_id" class="select2 full-width filter" id="group_filter" data-init-plugin="select2ajax"  data-theme="bootstrap" data-width="100%" data-url="/select-ajax/groups/filter{{#filters.group_id}}/id/{{.}}{{/filters.group_id}}">
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+{{/group_id}}
+
+{{#gl_account_id}}
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label>GL account:</label>
+        <select name="gl_account_id" class="select2 full-width filter" id="gl_account_filter" data-init-plugin="select2ajax"  data-theme="bootstrap" data-width="100%" data-url="/select-ajax/gl_accounts/filter{{#filters.gl_account_id}}/id/{{.}}{{/filters.gl_account_id}}">
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+{{/gl_account_id}}
+
+{{#currency_id}}
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label>Currency:</label>
+        <select name="currency_id" class="select2 full-width filter" id="currency_filter" data-init-plugin="select2ajax"  data-theme="bootstrap" data-width="100%" data-url="/select-ajax/currencies/filter{{#filters.currency_id}}/id/{{.}}{{/filters.currency_id}}">
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+{{/currency_id}}
+
+<hr>
+<div class="btn-group">
+  <button class="btn btn-primary" type="submit">Apply</button><button class="btn " type="button" onclick="location.href='/{{page.name}}';" >Reset all</button>
+  </div>
+</form>
+
+
+
+
+          </div>
+
+{{/page.filtering}}
+          <div class="tab-pane " id="tabExports">
+
+              <h3>Экспорт</h3>
+
+                {{#page.exports}}
+                {{#excel}}
+                  <a href="{{page.url.path}}/excel">Скачать Excel</a>
+                {{/excel}}
+                {{/page.exports}}
+
+
+          </div>
+          <div class="tab-pane " id="tabContent">
+            <div class="scrollable">
+              <div class="p-l-10 p-r-50">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- END QUICKVIEW-->

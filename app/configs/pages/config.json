@@ -1,0 +1,8 @@
+{
+    "title": "Страница конфигурации",
+    "bodyclass": "fixed-header",
+    "hide_pagetop": true,
+    "plugins": [
+        "jsoneditor"
+    ]
+}

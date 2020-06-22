@@ -1,0 +1,25 @@
+{
+    "navigation": [
+        {
+            "title": "Запросы",
+            "icon" : "fa fa-asterisk",
+            "link" : "/requests"
+        },
+        {
+            "title": "Исходники",
+            "icon" : "fa fa-asterisk",
+            "link" : "/sources"
+        },
+        {
+            "title": "Результаты",
+            "icon" : "fa fa-asterisk",
+            "link" : "/results"
+        },
+        {
+            "title": "Группы",
+            "icon" : "fa fa-asterisk",
+            "link" : "/groups"
+        }
+    ],
+    "class_active":"open active"
+}

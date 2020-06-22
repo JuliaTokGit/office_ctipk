@@ -1,0 +1,8 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "{{site.url}}/schemas/id/styles",
+    "title": "стиль",
+    "description":"Список доступных css стилей для страницы",
+    "type": "string",
+    "enum": {{{styles}}}
+}

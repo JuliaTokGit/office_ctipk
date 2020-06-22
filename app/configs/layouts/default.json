@@ -1,0 +1,24 @@
+{
+
+    "plugins": [
+        "modernizr",
+        "moment",
+        "jquery-ui",
+        "boostrapv3",
+        "jquery-easy",
+        "font-awesome",
+        "unveil",
+        "bez",
+        "ioslist",
+        "imagesloaded",
+        "actual",
+        "scrollbar",
+        "select2",
+        "switchery",
+        "simple-line-icons",
+        "classie",
+        "tooltipster"
+    ],
+    "scripts": ["admin"],
+    "styles":["admin","pages-icons"]
+}

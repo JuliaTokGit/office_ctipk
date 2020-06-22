@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "{{site.url}}/schemas/id/test",
+    "title": "Тест",
+    "description":"Вопросы и ответы",
+    "type": "object",
+    "properties": {
+        "questions":{
+            "title":"Вопросы",
+            "type":"array",
+            "items":{
+                "$ref": "{{site.url}}/schemas/id/question"
+            }            
+        }
+    }
+}

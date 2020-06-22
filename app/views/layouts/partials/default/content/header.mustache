@@ -1,0 +1,21 @@
+<div class="container-fluid container-fixed-lg m-b-10 pageheader">
+
+                
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                  {{#breadcrumbs}}
+                  <li>
+                    <a class="active" href="{{link}}">{{title}}</a>
+                  </li>
+                  {{/breadcrumbs}}
+                </ul>
+                <!-- END BREADCRUMB -->
+                
+
+
+              {{#page.sup_header}}<h5>{{.}}</h5>{{/page.sup_header}}
+              {{^breadcrumbs}}{{^page.sup_header}}<h5>&nbsp;</h5>{{/page.sup_header}}{{/breadcrumbs}}
+              {{#page.header}}<h3 class="page-title">{{.}} {{#page.header_label}}<span class="label {{class}}" style="vertical-align: 40%;">{{name}}</span>{{/page.header_label}}</h3>{{/page.header}}
+              {{#page.sub_header}}<h5>{{.}}</h5>{{/page.sub_header}}
+
+</div>

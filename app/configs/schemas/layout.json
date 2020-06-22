@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "{{site.url}}/schemas/id/layout",
+    "title": "Шаблон",
+    "description":"Шаблон админки",
+    "type": "object",
+    "properties": {
+        "plugins": {
+            "title": "Frontend плагины",
+            "type": "array",
+            "items":{
+                "$ref": "{{site.url}}/schemas/id/plugins"
+            },
+            "uniqueItems":true
+        },
+        "scripts": {
+            "title": "js скрипты",
+            "type": "array",
+            "items":{
+                "$ref": "{{site.url}}/schemas/id/scripts"
+            },
+            "uniqueItems":true
+        },
+        "styles": {
+            "title": "css стили",
+            "type": "array",
+            "items":{
+                "$ref": "{{site.url}}/schemas/id/styles"
+            },
+            "uniqueItems":true
+        }
+    }
+}

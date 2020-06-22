@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteRule ^img/(.*)$   _img/img.php?src=$1 [QSA,NC,L]
+RewriteRule ^styles/(.*)$   _scss/scss.php?p=$1 [QSA,NC,L]
+RewriteRule ^min/(.*)$ _min/index.php?f=$1 [QSA,L]

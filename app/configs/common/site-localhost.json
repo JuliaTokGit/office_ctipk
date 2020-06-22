@@ -1,0 +1,41 @@
+{
+    "name": "Офис",
+    "title": "Офис",
+    "email": "shuricken@gmail.com",
+    "domain": "localhost",
+    "url": "http://localhost",
+    "protocol": "http",
+    "remote_jquery": true,
+    "layout": "default",
+    "path": "/var/www/html/public",
+    "templates": "/var/www/html/public/assets/upload/",
+    "session_store":"/tmp/office",
+    "cache": "/tmp/office/.cache",
+    "default_user_photo":"/images/profiles/default.jpg",
+    "connections":{
+      "default":{
+      	"driver" : "mysql",
+      	"host"      : "db",
+      	"database"  : "office",
+      	"username"  : "office",
+      	"password"  : "office",
+      	"charset"   : "utf8",
+      	"collation" : "utf8_unicode_ci",
+      	"prefix"    : "",
+      	"timezone"  : "+05:00",
+          "strict":false
+      },
+      "mongodb":{
+      	"driver" : "mongodb",
+      	"host"      : "mongo",
+      	"database"  : "office",
+      	"username"  : "root",
+      	"password"  : "example"
+      }
+    },
+    "mustache_helpers":["css-min-link","js-min-link","src","out-vars","generate-options"],
+    "debug": true,
+    "debugEmails": true,
+    "debugSms": true,
+    "hash_code":"Sa#k#3&e599U$Srr"
+}

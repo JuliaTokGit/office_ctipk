@@ -1,0 +1,7 @@
+{
+    "title": "500",
+    "header": "Случился технический сбой",
+    "description": "Страница которую вы искали не работает? <a href='#'>Cообщите нам об этом</a>",
+    "bodyclass": "fixed-header error-page",
+    "layout": "error"
+}

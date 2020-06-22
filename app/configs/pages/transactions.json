@@ -1,0 +1,45 @@
+{
+    "title": "Transactions",
+    "header": "Transactions",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes": ["dt-crud-modals","filters"],
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {},
+            "crud_modals":{
+                "titles":{
+                    "create":"Add transaction",
+                    "edit":"Edit transaction",
+                    "delete":"Delete transaction"
+                },
+                "fields": [
+
+                            {
+                                "label":"Data",
+                                "type":"textarea",
+                                "property": "data"
+                            },
+                            {
+                                "label":"Headers",
+                                "type":"textarea",
+                                "property": "headers"
+                            },
+                            {
+                                "label":"Idempotency key",
+                                "type":"text",
+                                "property": "idempotency_key"
+                            },
+                            {
+                                "label":"Document id",
+                                "type":"text",
+                                "property": "doc_id"
+                            }
+                        ],
+
+                "subheaders":{"delete":"Please confirm deletion \"<span data-obj=id></span>\" ?"}
+            }
+        }
+    }
+}

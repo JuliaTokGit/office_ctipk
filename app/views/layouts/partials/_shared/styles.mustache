@@ -1,0 +1,46 @@
+
+
+<!-- Stylesheets
+============================================= -->
+{{^site.debug}}
+{{! Продакшн }}
+{{{layout.plugins.styles|css-min-link}}}
+{{{page.plugins.styles|css-min-link}}}
+{{/site.debug}}
+
+{{#site.debug}}
+{{! Девелопмент }}
+{{#layout.plugins.styles}}
+<link rel="stylesheet" href="{{{path.assets}}}/{{{.}}}" />
+{{/layout.plugins.styles}}
+{{#page.plugins.styles}}
+<link rel="stylesheet" href="{{{path.assets}}}/{{{.}}}" />
+{{/page.plugins.styles}}
+{{/site.debug}}
+
+{{>layout.custom_styles}}
+
+{{^site.debug}}
+{{! Продакшн }}
+{{{layout.styles|css-min-link}}}
+{{{page.styles|css-min-link}}}
+{{/site.debug}}
+
+
+{{#site.debug}}
+{{! Девелопмент }}
+{{#layout.styles}}
+<link rel="stylesheet" href="{{{path.assets}}}/{{{.}}}" />
+{{/layout.styles}}
+{{#page.styles}}
+<link rel="stylesheet" href="{{{path.assets}}}/{{{.}}}" />
+{{/page.styles}}
+{{/site.debug}}
+
+
+{{#page.inline_styles}}
+<style>
+	{{{.}}}
+</style>
+{{/page.inline_styles}}
+

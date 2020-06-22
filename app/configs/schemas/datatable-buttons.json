@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "{{site.url}}/schemas/id/datatable-buttons",
+    "title": "Кнопки таблицы",
+    "description":"Различные действия над данными таблицы",
+    "type": "object",
+    "properties": {
+        "create":{
+            "type":"boolean",
+            "default": "true",
+            "title": "Cоздать"
+        },
+        "edit":{
+            "type":"boolean",
+            "default": "true",
+            "title": "Редактировать"
+        },
+        "delete":{
+            "type":"boolean",
+            "default": "true",
+            "title": "Удалить"
+        },
+        "link":{
+            "type":"boolean",
+            "default": "true",
+            "title": "Ссылка"
+        },
+        "down_link":{
+            "type":"boolean",
+            "default": "true",
+            "title": "Код для скачивания"
+        },
+        "reorder":{
+            "type":"boolean",
+            "default": "true",
+            "title": "Поменять порядок"
+        },
+        "search":{
+            "type":"boolean",
+            "default": "true",
+            "title": "Поиск"
+        }
+    }
+}

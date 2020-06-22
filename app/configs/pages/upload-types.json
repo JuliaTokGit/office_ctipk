@@ -1,0 +1,155 @@
+{
+	"title": "Типы файлов",
+    "header": "Типы файлов",
+	"bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true}
+        }
+    },
+    "modal": [
+        {
+            "title": "Добавить тип",
+            "id": "modalCreate",
+            "body": {
+                "data": [
+                    {
+                        "name": "done",
+                        "value": "create"
+                    }
+                ],
+                "class": "ajax-form",
+                "fields": [
+                    {
+                        "hidden": "action",
+                        "value": "create"
+                    },
+                    {
+                        "group_begin":"none"
+                    },
+                    {
+                        "label": "Имя типа",
+                        "text": "name",
+                        "columns":6
+                    },
+                    {
+                        "label": "Класс иконки",
+                        "text": "icon",
+                        "columns":6
+                    },
+                    {
+                        "group_end":"none"
+                    }
+                ],
+                "buttons": [
+                    {
+                        "type": "submit",
+                        "text": "Создать",
+                        "class": "btn-complete"
+                    }
+                ]
+            }
+        },
+        {
+            "title": "Редактировать тип",
+            "id": "modalEdit",
+            "body": {
+                "data": [
+                    {
+                        "name": "done",
+                        "value": "edit"
+                    }
+                ],
+                "class": "ajax-form",
+                "fields": [
+                    {
+                        "hidden": "id",
+                        "data": [
+                            {
+                                "name": "obj",
+                                "value": "id"
+                            }
+                        ]
+                    },
+                    {
+                        "hidden": "action",
+                        "value": "edit"
+                    },
+                    {
+                        "group_begin":"none"
+                    },
+                    {
+                        "label": "Имя типа",
+                        "text": "name",
+                        "data": [
+                            {
+                                "name": "obj",
+                                "value": "name"
+                            }
+                        ],
+                        "columns":6
+                    },
+                    {
+                        "label": "Класс иконки",
+                        "text": "icon",
+                        "data": [
+                            {
+                                "name": "obj",
+                                "value": "icon"
+                            }
+                        ],
+                        "columns":6
+                    },
+                    {
+                        "group_end":"none"
+                    }
+                ],
+                "buttons": [
+                    {
+                        "type": "submit",
+                        "text": "Сохранить",
+                        "class": "btn-primary"
+                    }
+                ]
+            }
+        },
+        {
+            "title": "Удалить тип",
+            "subheader": "Вы уверены что хотите удалить \"<span data-obj=name></span>\"?",
+            "id": "modalDelete",
+            "body": {
+                "data": [
+                    {
+                        "name": "done",
+                        "value": "del"
+                    }
+                ],
+                "class": "ajax-form",
+                "fields": [
+                    {
+                        "hidden": "action",
+                        "value": "delete"
+                    },
+                    {
+                        "hidden": "id",
+                        "data": [
+                            {
+                                "name": "obj",
+                                "value": "id"
+                            }
+                        ]
+                    }
+                ],
+                "buttons": [
+                    {
+                        "type": "submit",
+                        "text": "Удалить",
+                        "class": "btn-danger"
+                    }
+                ]
+            }
+        }
+    ]
+}

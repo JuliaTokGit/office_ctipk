@@ -1,0 +1,9 @@
+{
+    "title": "Разметка страницы",
+    "bodyclass": "fixed-header",
+    "hide_pagetop": true,
+    "plugins": [
+        "jsoneditor",
+        "trumbowyg"
+    ]
+}

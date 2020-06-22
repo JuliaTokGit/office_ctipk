@@ -1,0 +1,30 @@
+{
+	"admin":{
+
+		"pages":{
+			"news": true,
+			"options": true,
+			"tariffs":true,
+			"contacts":true,
+			"photos": true,
+			"uploads": true,
+			"uploads-add": true,
+			"users": true,
+			"activate-users": true,
+			"index": true,
+			"login":true,
+			"logout":true,
+			"register" : true,
+			"remind" : true,
+			"data" : true,
+			"urler" : true,
+			"range" : true,
+			"download" : true,
+			"select-ajax":true,
+			"error-404": true,
+			"error-500" : true
+		},
+
+		"navigation":"nav-admin"
+	}
+}

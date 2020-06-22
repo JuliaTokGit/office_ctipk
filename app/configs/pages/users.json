@@ -1,0 +1,111 @@
+{
+    "title": "Пользователи",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes":["dt-crud-modals"],
+    "plugins":["cropbox","inputmask"],
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"activate-users":true,"create":true,"edit":true,"delete":true,"reorder":true,"search":true },
+            "crud_modals":{
+                "titles":{
+                    "create":"Добавить пользователя",
+                    "edit":"Редактировать пользователя",
+                    "delete":"Удалить пользователя"
+                },
+                "fields": [ 
+                            {
+                                "type":"group_begin",
+                                "property": "none"
+                            },                  
+                            {
+                                "label": "Фамилия",
+                                "type":"text",
+                                "property": "lastname",
+                                "columns":6
+                            },
+                            {
+                                "label": "Имя",
+                                "type":"text",
+                                "property": "firstname",
+                                "columns":6
+                            },
+                            {
+                                "type":"group_end",
+                                "property": "none"
+                            },
+                            {
+                                "label": "Описание",
+                                "type":"text",
+                                "property": "description"
+                            },
+                            {
+                                "label": "Фото",
+                                "type":"file",
+                                "property": "upload_id"
+                            },
+                            {
+                                "type":"group_begin",
+                                "property": "none"
+                            }, 
+                            {
+                                "label": "Email",
+                                "type":"text",
+                                "property": "username",
+                                "columns":12
+                            },
+                            {
+                                "type":"group_end",
+                                "property": "none"
+                            },
+                            {
+                                "label": "Пароль",
+                                "type":"password",
+                                "property": "password"
+                            },
+                            {
+                                "type":"group_begin",
+                                "property": "none"
+                            },
+                            {
+                                "label":"Тип",
+                                "type":"select",
+                                "property": "user_type_id",
+                                "options": { 
+                                    "source": "user_types", 
+                                    "value": "id", 
+                                    "text": "name" 
+                                },
+                                "columns":8      
+                            },
+                            {
+                                "label":"Активация",
+                                "type":"select",
+                                "property": "active",
+                                "options": { 
+                                    "raw":[
+                                        {
+                                            "value": "0", 
+                                            "text": "Не активирован" 
+                                        },
+                                        {
+                                            "value": "1", 
+                                            "text": "Активирован" 
+                                        }
+                                    ]
+                                },
+                                "columns":4      
+                            },
+                            {
+                                "type":"group_end",
+                                "property": "none"
+                            }
+                        ],
+
+                "subheaders":{"delete":"Вы уверены что хотите удалить \"<span data-obj=fullname></span>\"?"}
+            }
+        }
+    }
+
+}

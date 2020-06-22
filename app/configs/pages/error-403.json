@@ -1,0 +1,7 @@
+{
+    "title": "403",
+    "header": "Недостаточно прав для доступа",
+    "description": "",
+    "bodyclass": "fixed-header error-page",
+    "layout": "error"
+}

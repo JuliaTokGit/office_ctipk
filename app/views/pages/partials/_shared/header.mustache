@@ -1,0 +1,27 @@
+{{^ page.jumbotron}}
+
+<div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+
+                {{#page.breadcrumbs}}
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                  {{#items}}
+                  <li>
+                    <a href="{{link}}" {{#active}}class="active"{{/active}}>{{title}}</a>
+                  </li>
+                  {{/items}}
+                </ul>
+                <!-- END BREADCRUMB -->
+                {{/page.breadcrumbs}}
+
+
+              {{#page.sup_header}}<h5>{{.}}</h5>{{/page.sup_header}}
+
+              {{#page.header}}<h3 class="page-title">{{.}}</h3>{{/page.header}}
+
+</div>
+
+{{/ page.jumbotron}}
+{{# page.jumbotron}}
+{{> page.jumbotron}}
+{{/ page.jumbotron}}

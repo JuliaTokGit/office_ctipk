@@ -1,0 +1,1708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!--Все простые типы данных-->
+	<include schemaLocation="P_CommonSimpleTypeAll_v01.xsd"/>
+	<!--КЛАССИФИКАТОРЫ:-->
+	<!--Классификатор назначений зданий-->
+	<include schemaLocation="dAssBuilding_v02.xsd"/>
+	<!--Справочник типов этажей-->
+	<include schemaLocation="dTypeStorey_v01.xsd"/>
+	<!--Справочник "Виды объектов недвижимости"-->
+	<include schemaLocation="dRealty_v04.xsd"/>
+	<!--Справочник "Категории земель"-->
+	<include schemaLocation="dCategories_v01.xsd"/>
+	<!--Справочник "Вид земельного участка"-->
+	<include schemaLocation="dParcels_v02.xsd"/>
+	<!--Справочник "Разрешенное использование"-->
+	<include schemaLocation="dUtilizations_v01.xsd"/>
+	<!--Справочник "Ограничения (обременения) прав"-->
+	<include schemaLocation="dEncumbrances_v04.xsd"/>
+	<!--Классификатор видов разрешенного использования земельных участков-->
+	<include schemaLocation="dAllowedUse_v02.xsd"/>
+	<!--Мероприятия государственного земельного надзора по соблюдению требований законодательства Российской Федерации-->
+	<include schemaLocation="dInspection_v01.xsd"/>
+	<!--Форма проведения проверки государственного земельного надзора-->
+	<include schemaLocation="dFormEvents_v01.xsd"/>
+	<!--Вид объекта культурного наследия-->
+	<include schemaLocation="dCultural_v01.xsd"/>
+	<!--ПОДСХЕМЫ:-->
+	<!--Подсхема АДРЕС-->
+	<include schemaLocation="_AddressOut_v05.xsd"/>
+	<!--Подсхема ДОКУМЕНТ-->
+	<include schemaLocation="_DocumentOut_v05.xsd"/>
+	<!--Подсхема КАДАСТРОВАЯ СТОИМОСТЬ-->
+	<include schemaLocation="_CadastralCostList_v02.xsd"/>
+	<!--Подсхема СВЕДЕНИЯ О ПРИРОДНЫХ ОБЪЕКТАХ-->
+	<include schemaLocation="_NaturalObjectsOut_v02.xsd"/>
+	<!--Подсхема ХАРАКТЕРИСТИКИ ОБЪЕКТОВ КАПИТАЛЬНОГО СТРОИТЕЛЬСТВА-->
+	<include schemaLocation="_ParametersOKSOut_v02.xsd"/>
+	<!--Подсхема НАЗНАЧЕНИЕ И ВИД ПОМЕЩЕНИЯ-->
+	<include schemaLocation="_AssignationFlat_v02.xsd"/>
+	<!--ВЕРСИЯ 04:-->
+	<element name="ListForRating">
+		<annotation>
+			<documentation>Перечень объектов недвижимости, подлежащих государственной кадастровой оценке</documentation>
+		</annotation>
+		<complexType>
+			<sequence>
+				<element name="ListInfo">
+					<annotation>
+						<documentation>Общие сведения о перечне</documentation>
+					</annotation>
+					<complexType>
+						<sequence>
+							<element name="Region" type="dRegionsRF">
+								<annotation>
+									<documentation>Код региона</documentation>
+								</annotation>
+							</element>
+							<element name="ObjectsType">
+								<annotation>
+									<documentation>Виды объектов недвижимости</documentation>
+								</annotation>
+								<complexType>
+									<sequence>
+										<element name="ObjectType" type="dRealty" maxOccurs="unbounded">
+											<annotation>
+												<documentation>Вид объекта недвижимости</documentation>
+											</annotation>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+							<element name="Categories" minOccurs="0">
+								<annotation>
+									<documentation>Категории земель</documentation>
+								</annotation>
+								<complexType>
+									<sequence>
+										<element name="Category" type="dCategories" maxOccurs="unbounded">
+											<annotation>
+												<documentation>Категория земель</documentation>
+											</annotation>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+							<element name="Quantity" type="nonNegativeInteger">
+								<annotation>
+									<documentation>Количество объектов недвижимости</documentation>
+								</annotation>
+							</element>
+						</sequence>
+						<attribute name="DateForm" type="date" use="required">
+							<annotation>
+								<documentation>Дата формирования перечня</documentation>
+							</annotation>
+						</attribute>
+						<attribute name="GUID" type="sGUID" use="required">
+							<annotation>
+								<documentation>Глобальный уникальный идентификатор перечня</documentation>
+							</annotation>
+						</attribute>
+					</complexType>
+				</element>
+				<element name="Objects">
+					<annotation>
+						<documentation>Перечень объектов недвижимости</documentation>
+					</annotation>
+					<complexType>
+						<sequence>
+							<element name="Buildings" minOccurs="0">
+								<annotation>
+									<documentation>Здания</documentation>
+								</annotation>
+								<complexType>
+									<sequence>
+										<element name="Building" type="tBuilding" maxOccurs="unbounded">
+											<annotation>
+												<documentation>Здание</documentation>
+											</annotation>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+							<element name="Constructions" minOccurs="0">
+								<annotation>
+									<documentation>Сооружения</documentation>
+								</annotation>
+								<complexType>
+									<sequence>
+										<element name="Construction" type="tConstruction" maxOccurs="unbounded">
+											<annotation>
+												<documentation>Сооружение</documentation>
+											</annotation>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+							<element name="Uncompleteds" minOccurs="0">
+								<annotation>
+									<documentation>Объекты незавершенного строительства</documentation>
+								</annotation>
+								<complexType>
+									<sequence>
+										<element name="Uncompleted" type="tUncompleted" maxOccurs="unbounded">
+											<annotation>
+												<documentation>Объект незавершенного строительства</documentation>
+											</annotation>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+							<element name="Flats" minOccurs="0">
+								<annotation>
+									<documentation>Помещения</documentation>
+								</annotation>
+								<complexType>
+									<sequence>
+										<element name="Flat" type="tFlat" maxOccurs="unbounded">
+											<annotation>
+												<documentation>Помещение</documentation>
+											</annotation>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+							<element name="CarParkingSpaces" minOccurs="0">
+								<annotation>
+									<documentation>Машино-места</documentation>
+								</annotation>
+								<complexType>
+									<sequence>
+										<element name="CarParkingSpace" type="tCarParkingSpace" maxOccurs="unbounded">
+											<annotation>
+												<documentation>Машино-место</documentation>
+											</annotation>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+							<element name="UnifiedRealEstateComplex" minOccurs="0">
+								<annotation>
+									<documentation>Единые недвижимые комплексы</documentation>
+								</annotation>
+								<complexType>
+									<sequence>
+										<element name="UnifiedComplex" type="tUnifiedComplex" maxOccurs="unbounded">
+											<annotation>
+												<documentation>Единый недвижимый комплекс</documentation>
+											</annotation>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+							<element name="Parcels" minOccurs="0">
+								<annotation>
+									<documentation>Земельные участки</documentation>
+								</annotation>
+								<complexType>
+									<sequence>
+										<element name="Parcel" type="tParcel" maxOccurs="unbounded">
+											<annotation>
+												<documentation>Земельный участок</documentation>
+											</annotation>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+			<attribute name="Version" type="string" use="required" fixed="04">
+				<annotation>
+					<documentation>Версия схемы</documentation>
+				</annotation>
+			</attribute>
+		</complexType>
+	</element>
+	<!--ЗДАНИЯ, СООРУЖЕНИЯ, ОНС, ПОМЕЩЕНИЯ, ЕНК:-->
+	<complexType name="tBuilding">
+		<annotation>
+			<documentation>Здание</documentation>
+		</annotation>
+		<sequence>
+			<element name="CadastralBlock" type="CadastralBlockType">
+				<annotation>
+					<documentation>Номер кадастрового квартала</documentation>
+				</annotation>
+			</element>
+			<element name="ParentCadastralNumbers" type="tCadastralNumbers" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер земельного участка (земельных участков), в пределах которого (которых) расположен данный объект недвижимости</documentation>
+				</annotation>
+			</element>
+			<element name="Name" type="s1000" minOccurs="0">
+				<annotation>
+					<documentation>Наименование</documentation>
+				</annotation>
+			</element>
+			<element name="ObjectType">
+				<annotation>
+					<documentation>Вид объекта недвижимости - Здание</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="dRealty">
+						<pattern value="002001002000"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="AssignationBuilding" type="dAssBuilding">
+				<annotation>
+					<documentation>Назначение здания</documentation>
+				</annotation>
+			</element>
+			<element name="ElementsConstruct" type="tElementsConstruct" minOccurs="0">
+				<annotation>
+					<documentation>Материал наружных стен здания</documentation>
+				</annotation>
+			</element>
+			<element name="ExploitationChar" type="tExploitationChar" minOccurs="0">
+				<annotation>
+					<documentation>Эксплуатационные характеристики</documentation>
+				</annotation>
+			</element>
+			<element name="Floors" type="tFloors" minOccurs="0">
+				<annotation>
+					<documentation>Количество этажей (в том числе подземных)</documentation>
+				</annotation>
+			</element>
+			<element name="Area" type="d21_1">
+				<annotation>
+					<documentation>Площадь в квадратных метрах с округлением до 0,1 квадратного метра</documentation>
+				</annotation>
+			</element>
+			<element name="Location" type="tAddress">
+				<annotation>
+					<documentation>Адрес (местоположение)</documentation>
+				</annotation>
+			</element>
+			<element name="ObjectPermittedUses" type="tObjectPermittedUses" minOccurs="0">
+				<annotation>
+					<documentation>Вид (виды) разрешенного использования</documentation>
+				</annotation>
+			</element>
+			<element name="CadastralCost" type="tCadastralCostExt" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о кадастровой стоимости</documentation>
+				</annotation>
+			</element>
+			<element name="SubBuildings" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о частях здания</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="SubBuilding" type="tSubBuildingFlat" maxOccurs="unbounded">
+							<annotation>
+								<documentation>Сведения о части здания</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="FlatsCadastralNumbers" type="tCadastralNumbers" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровые номера помещений, расположенных в объекте недвижимости</documentation>
+				</annotation>
+			</element>
+			<element name="CarParkingSpacesCadastralNumbers" type="tCadastralNumbers" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровые номера машино-мест, расположенных в объекте недвижимости</documentation>
+				</annotation>
+			</element>
+			<element name="UnitedCadastralNumber" type="tCadastralNumber" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер единого недвижимого комплекса, если объект недвижимости входит в состав единого недвижимого комплекса</documentation>
+				</annotation>
+			</element>
+			<element name="FacilityCadastralNumber" type="tFacilityCadastralNumber" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер и назначение предприятия как имущественного комплекса, если объект недвижимости входит в состав предприятия как имущественного комплекса</documentation>
+				</annotation>
+			</element>
+			<element name="CulturalHeritage" type="tCulturalHeritage" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о включении объекта недвижимости в единый государственный реестр объектов культурного наследия или об отнесении объекта недвижимости к выявленным объектам культурного наследия</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="CadastralNumber" type="CadastralNumberType" use="required">
+			<annotation>
+				<documentation>Кадастровый номер</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="DateCreated" type="date" use="required">
+			<annotation>
+				<documentation>Дата присвоения кадастрового номера</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="tConstruction">
+		<annotation>
+			<documentation>Сооружение</documentation>
+		</annotation>
+		<sequence>
+			<element name="CadastralBlock" type="CadastralBlockType">
+				<annotation>
+					<documentation>Номер кадастрового квартала</documentation>
+				</annotation>
+			</element>
+			<element name="ParentCadastralNumbers" type="tCadastralNumbers" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер земельного участка (земельных участков), в пределах которого (которых) расположен данный объект недвижимости</documentation>
+				</annotation>
+			</element>
+			<element name="Name" type="s1000" minOccurs="0">
+				<annotation>
+					<documentation>Наименование</documentation>
+				</annotation>
+			</element>
+			<element name="ObjectType">
+				<annotation>
+					<documentation>Вид объекта недвижимости - Сооружение</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="dRealty">
+						<pattern value="002001004000"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="AssignationName" type="s250">
+				<annotation>
+					<documentation>Назначение сооружения</documentation>
+				</annotation>
+			</element>
+			<element name="ExploitationChar" type="tExploitationChar" minOccurs="0">
+				<annotation>
+					<documentation>Эксплуатационные характеристики</documentation>
+				</annotation>
+			</element>
+			<element name="Floors" type="tFloors" minOccurs="0">
+				<annotation>
+					<documentation>Количество этажей (в том числе подземных)</documentation>
+				</annotation>
+			</element>
+			<element name="KeyParameters" type="tKeyParameters" minOccurs="0">
+				<annotation>
+					<documentation>Основные характеристики</documentation>
+				</annotation>
+			</element>
+			<element name="Location" type="tAddress">
+				<annotation>
+					<documentation>Адрес (местоположение)</documentation>
+				</annotation>
+			</element>
+			<element name="ObjectPermittedUses" type="tObjectPermittedUses" minOccurs="0">
+				<annotation>
+					<documentation>Вид (виды) разрешенного использования</documentation>
+				</annotation>
+			</element>
+			<element name="CadastralCost" type="tCadastralCostExt" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о кадастровой стоимости</documentation>
+				</annotation>
+			</element>
+			<element name="SubConstructions" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о частях сооружения</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="SubConstruction" type="tSubConstruction" maxOccurs="unbounded">
+							<annotation>
+								<documentation>Сведения о части сооружения</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="FlatsCadastralNumbers" type="tCadastralNumbers" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровые номера помещений, расположенных в объекте недвижимости</documentation>
+				</annotation>
+			</element>
+			<element name="CarParkingSpacesCadastralNumbers" type="tCadastralNumbers" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровые номера машино-мест, расположенных в объекте недвижимости</documentation>
+				</annotation>
+			</element>
+			<element name="UnitedCadastralNumber" type="tCadastralNumber" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер единого недвижимого комплекса, если объект недвижимости входит в состав единого недвижимого комплекса</documentation>
+				</annotation>
+			</element>
+			<element name="FacilityCadastralNumber" type="tFacilityCadastralNumber" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер и назначение предприятия как имущественного комплекса, если объект недвижимости входит в состав предприятия как имущественного комплекса</documentation>
+				</annotation>
+			</element>
+			<element name="CulturalHeritage" type="tCulturalHeritage" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о включении объекта недвижимости в единый государственный реестр объектов культурного наследия или об отнесении объекта недвижимости к выявленным объектам культурного наследия</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="CadastralNumber" type="CadastralNumberType" use="required">
+			<annotation>
+				<documentation>Кадастровый номер</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="DateCreated" type="date" use="required">
+			<annotation>
+				<documentation>Дата присвоения кадастрового номера</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="tUncompleted">
+		<annotation>
+			<documentation>Объект незавершенного строительства</documentation>
+		</annotation>
+		<sequence>
+			<element name="CadastralBlock" type="CadastralBlockType">
+				<annotation>
+					<documentation>Номер кадастрового квартала</documentation>
+				</annotation>
+			</element>
+			<element name="ParentCadastralNumbers" type="tCadastralNumbers" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер земельного участка (земельных участков), в пределах которого (которых) расположен данный объект недвижимости</documentation>
+				</annotation>
+			</element>
+			<element name="ObjectType">
+				<annotation>
+					<documentation>Вид объекта недвижимости - Объект незавершенного строительства</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="dRealty">
+						<pattern value="002001005000"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="AssignationName" type="s250" minOccurs="0">
+				<annotation>
+					<documentation>Проектируемое назначение объекта незавершенного строительства</documentation>
+				</annotation>
+			</element>
+			<element name="KeyParameters" type="tKeyParameters" minOccurs="0">
+				<annotation>
+					<documentation>Основные характеристики и их проектируемые значения</documentation>
+				</annotation>
+			</element>
+			<element name="Location" type="tAddress">
+				<annotation>
+					<documentation>Адрес (местоположение)</documentation>
+				</annotation>
+			</element>
+			<element name="CadastralCost" type="tCadastralCostExt" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о кадастровой стоимости</documentation>
+				</annotation>
+			</element>
+			<element name="DegreeReadiness" type="i_Min1Max99" minOccurs="0">
+				<annotation>
+					<documentation>Степень готовности в процентах</documentation>
+				</annotation>
+			</element>
+			<element name="FacilityCadastralNumber" type="tFacilityCadastralNumber" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер и назначение предприятия как имущественного комплекса, если объект недвижимости входит в состав предприятия как имущественного комплекса</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="CadastralNumber" type="CadastralNumberType" use="required">
+			<annotation>
+				<documentation>Кадастровый номер</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="DateCreated" type="date" use="required">
+			<annotation>
+				<documentation>Дата присвоения кадастрового номера</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="tFlat">
+		<annotation>
+			<documentation>Помещение</documentation>
+		</annotation>
+		<sequence>
+			<element name="CadastralBlock" type="CadastralBlockType">
+				<annotation>
+					<documentation>Номер кадастрового квартала</documentation>
+				</annotation>
+			</element>
+			<element name="ObjectType">
+				<annotation>
+					<documentation>Вид объекта недвижимости - Помещение</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="dRealty">
+						<pattern value="002001003000"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="CadastralNumberFlat" type="CadastralNumberType" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер квартиры, в которой расположена комната</documentation>
+				</annotation>
+			</element>
+			<choice>
+				<element name="CadastralNumberOKS" type="CadastralNumberType" minOccurs="0">
+					<annotation>
+						<documentation>Кадастровый номер здания или сооружения, в котором расположено помещение</documentation>
+					</annotation>
+				</element>
+				<element name="ParentOKS" type="tParentOKS" minOccurs="0">
+					<annotation>
+						<documentation>Характеристики объекта недвижимости, в котором расположено помещение</documentation>
+					</annotation>
+				</element>
+			</choice>
+			<element name="Name" type="s1000" minOccurs="0">
+				<annotation>
+					<documentation>Наименование</documentation>
+				</annotation>
+			</element>
+			<element name="Assignation" type="tAssignationFlatFull">
+				<annotation>
+					<documentation>Назначение и вид помещения</documentation>
+				</annotation>
+			</element>
+			<element name="Area" type="d21_1">
+				<annotation>
+					<documentation>Площадь в квадратных метрах</documentation>
+				</annotation>
+			</element>
+			<element name="PositionInObject" type="tPositionNoPlans" minOccurs="0">
+				<annotation>
+					<documentation>Местоположение в объекте недвижимости</documentation>
+				</annotation>
+			</element>
+			<element name="Location" type="tAddress">
+				<annotation>
+					<documentation>Адрес (местоположение)</documentation>
+				</annotation>
+			</element>
+			<element name="ObjectPermittedUses" type="tObjectPermittedUses" minOccurs="0">
+				<annotation>
+					<documentation>Вид (виды) разрешенного использования</documentation>
+				</annotation>
+			</element>
+			<element name="CadastralCost" type="tCadastralCostExt" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о кадастровой стоимости</documentation>
+				</annotation>
+			</element>
+			<element name="SubFlats" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о частях помещения</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="SubFlat" type="tSubBuildingFlat" maxOccurs="unbounded">
+							<annotation>
+								<documentation>Сведения о части помещения</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="UnitedCadastralNumber" type="tCadastralNumber" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер единого недвижимого комплекса, если объект недвижимости входит в состав единого недвижимого комплекса</documentation>
+				</annotation>
+			</element>
+			<element name="FacilityCadastralNumber" type="tFacilityCadastralNumber" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер и назначение предприятия как имущественного комплекса, если объект недвижимости входит в состав предприятия как имущественного комплекса</documentation>
+				</annotation>
+			</element>
+			<element name="CulturalHeritage" type="tCulturalHeritage" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о включении объекта недвижимости в единый государственный реестр объектов культурного наследия или об отнесении объекта недвижимости к выявленным объектам культурного наследия</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="CadastralNumber" type="CadastralNumberType" use="required">
+			<annotation>
+				<documentation>Кадастровый номер</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="DateCreated" type="date" use="required">
+			<annotation>
+				<documentation>Дата присвоения кадастрового номера</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="tCarParkingSpace">
+		<annotation>
+			<documentation>Машино-место</documentation>
+		</annotation>
+		<sequence>
+			<element name="CadastralBlock" type="CadastralBlockType">
+				<annotation>
+					<documentation>Номер кадастрового квартала</documentation>
+				</annotation>
+			</element>
+			<element name="ObjectType">
+				<annotation>
+					<documentation>Вид объекта недвижимости - Машино-место</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="dRealty">
+						<pattern value="002001009000"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<choice>
+				<element name="CadastralNumberOKS" type="CadastralNumberType" minOccurs="0">
+					<annotation>
+						<documentation>Кадастровый номер здания или сооружения, в котором расположено машино-место</documentation>
+					</annotation>
+				</element>
+				<element name="ParentOKS" type="tParentOKS" minOccurs="0">
+					<annotation>
+						<documentation>Характеристики объекта недвижимости, в котором расположено машино-место</documentation>
+					</annotation>
+				</element>
+			</choice>
+			<element name="Area" type="d21_1">
+				<annotation>
+					<documentation>Площадь в квадратных метрах</documentation>
+				</annotation>
+			</element>
+			<element name="PositionInObject" type="tLevel" minOccurs="0">
+				<annotation>
+					<documentation>Местоположение в объекте недвижимости</documentation>
+				</annotation>
+			</element>
+			<element name="Location" type="tAddress">
+				<annotation>
+					<documentation>Адрес (местоположение)</documentation>
+				</annotation>
+			</element>
+			<element name="CadastralCost" type="tCadastralCostExt" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о кадастровой стоимости</documentation>
+				</annotation>
+			</element>
+			<element name="UnitedCadastralNumber" type="tCadastralNumber" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер единого недвижимого комплекса, если объект недвижимости входит в состав единого недвижимого комплекса</documentation>
+				</annotation>
+			</element>
+			<element name="FacilityCadastralNumber" type="tFacilityCadastralNumber" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер и назначение предприятия как имущественного комплекса, если объект недвижимости входит в состав предприятия как имущественного комплекса</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="CadastralNumber" type="CadastralNumberType" use="required">
+			<annotation>
+				<documentation>Кадастровый номер</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="DateCreated" type="date" use="required">
+			<annotation>
+				<documentation>Дата присвоения кадастрового номера</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="tUnifiedComplex">
+		<annotation>
+			<documentation>Единый недвижимый комплекс (ЕНК)</documentation>
+		</annotation>
+		<sequence>
+			<element name="ParentCadastralNumbers" type="tCadastralNumber" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер земельного участка, если входящие в состав единого недвижимого комплекса объекты недвижимости расположены на одном земельном участке</documentation>
+				</annotation>
+			</element>
+			<element name="Name" type="s1000" minOccurs="0">
+				<annotation>
+					<documentation>Наименование единого недвижимого комплекса</documentation>
+				</annotation>
+			</element>
+			<element name="ObjectType">
+				<annotation>
+					<documentation>Вид объекта недвижимости - Единый недвижимый комплекс</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="dRealty">
+						<pattern value="002001008000"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="AssignationName" type="s250">
+				<annotation>
+					<documentation>Назначение единого недвижимого комплекса</documentation>
+				</annotation>
+			</element>
+			<element name="Locations" type="tAddress">
+				<annotation>
+					<documentation>Адрес (местоположение)</documentation>
+				</annotation>
+			</element>
+			<element name="CadastralCost" type="tCadastralCostExt" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о кадастровой стоимости</documentation>
+				</annotation>
+			</element>
+			<element name="FacilityCadastralNumber" type="tFacilityCadastralNumber" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер и назначение предприятия как имущественного комплекса, если объект недвижимости входит в состав предприятия как имущественного комплекса</documentation>
+				</annotation>
+			</element>
+			<element name="CompositionENK" type="tCadastralNumbers" minOccurs="0">
+				<annotation>
+					<documentation>Состав единого недвижимого комплекса (кадастровые номера объектов недвижимости)</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="CadastralNumber" type="CadastralNumberNull" use="required">
+			<annotation>
+				<documentation>Кадастровый номер</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="DateCreated" type="date" use="required">
+			<annotation>
+				<documentation>Дата присвоения кадастрового номера</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="tObjectPermittedUses">
+		<annotation>
+			<documentation>Вид (виды) разрешенного использования</documentation>
+		</annotation>
+		<sequence>
+			<element name="ObjectPermittedUse" type="sNe1000" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Вид разрешенного использования</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tParentOKS">
+		<annotation>
+			<documentation>Объект недвижимости (здание, сооружение), в котором расположено помещение, машино-место</documentation>
+		</annotation>
+		<sequence>
+			<element name="CadastralNumberOKS" type="CadastralNumberType">
+				<annotation>
+					<documentation>Кадастровый номер здания или сооружения</documentation>
+				</annotation>
+			</element>
+			<element name="ObjectType">
+				<annotation>
+					<documentation>Вид объекта недвижимости - здание или сооружение</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="dRealty">
+						<pattern value="002001002000"/>
+						<pattern value="002001004000"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<choice>
+				<element name="AssignationBuilding" type="dAssBuilding">
+					<annotation>
+						<documentation>Назначение здания</documentation>
+					</annotation>
+				</element>
+				<element name="AssignationName" type="s250">
+					<annotation>
+						<documentation>Назначение сооружения</documentation>
+					</annotation>
+				</element>
+			</choice>
+			<element name="ElementsConstruct" type="tElementsConstruct" minOccurs="0">
+				<annotation>
+					<documentation>Материал наружных стен здания</documentation>
+				</annotation>
+			</element>
+			<element name="ExploitationChar" type="tExploitationChar" minOccurs="0">
+				<annotation>
+					<documentation>Эксплуатационные характеристики</documentation>
+				</annotation>
+			</element>
+			<element name="Floors" type="tFloors" minOccurs="0">
+				<annotation>
+					<documentation>Количество этажей (в том числе подземных)</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<!--Местоположение в ОН-->
+	<complexType name="tPositionNoPlans">
+		<annotation>
+			<documentation>Расположение в пределах объекта недвижимости, имеющего или не имеющего этажи (без планов)</documentation>
+		</annotation>
+		<choice>
+			<element name="Position" type="tPosition">
+				<annotation>
+					<documentation>Расположение в пределах объекта, не имеющего этажи</documentation>
+				</annotation>
+			</element>
+			<element name="Levels" type="tLevelsNoPlans">
+				<annotation>
+					<documentation>Уровни (этажи) для объекта, имеющего этажность</documentation>
+				</annotation>
+			</element>
+		</choice>
+	</complexType>
+	<complexType name="tLevelsNoPlans">
+		<annotation>
+			<documentation>Уровни (этажи) для объекта, имеющего этажность (без планов)</documentation>
+		</annotation>
+		<sequence>
+			<element name="Level" type="tLevel" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Уровень (этаж)</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tPosition">
+		<annotation>
+			<documentation>Расположение в пределах этажа (части этажа)</documentation>
+		</annotation>
+		<attribute name="NumberOnPlan" type="s200">
+			<annotation>
+				<documentation>Номер на плане</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="Description" type="s1500">
+			<annotation>
+				<documentation>Описание расположения</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="tLevel">
+		<annotation>
+			<documentation>Уровень (этаж)</documentation>
+		</annotation>
+		<sequence>
+			<element name="Position" type="tPosition" minOccurs="0">
+				<annotation>
+					<documentation>Расположение в пределах этажа (части этажа)</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="Number" type="s200" use="required">
+			<annotation>
+				<documentation>Номер этажа</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="Type" type="dTypeStorey" use="required">
+			<annotation>
+				<documentation>Тип этажа</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<!--СВЕДЕНИЯ ОБ ОБЪЕКТАХ КУЛЬТУРНОГО НАСЛЕДИЯ-->
+	<complexType name="tCulturalHeritage">
+		<annotation>
+			<documentation>Сведения об объектах культурного наследия (памятниках истории и культуры) народов Российской Федерации</documentation>
+		</annotation>
+		<sequence>
+			<choice>
+				<element name="InclusionEGROKN" type="tInclusionEGROKN">
+					<annotation>
+						<documentation>Включение объекта недвижимости в ЕГРОКН</documentation>
+					</annotation>
+				</element>
+				<element name="AssignmentEGROKN" type="tAssignmentEGROKN">
+					<annotation>
+						<documentation>Отнесение объекта недвижимости к выявленным объектам культурного наследия</documentation>
+					</annotation>
+				</element>
+			</choice>
+			<element name="RequirementsEnsure" type="string" minOccurs="0">
+				<annotation>
+					<documentation>Требования к сохранению, содержанию и использованию, обеспечению доступа</documentation>
+				</annotation>
+			</element>
+			<element name="Document" type="tDocumentWithoutAppliedFile">
+				<annotation>
+					<documentation>Реквизиты соответствующего решения</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tAssignmentEGROKN">
+		<annotation>
+			<documentation>Сведения об отнесении объекта недвижимости к выявленным объектам культурного наследия, подлежащим государственной охране до принятия решения о включении его в ЕГРОКН</documentation>
+		</annotation>
+		<sequence>
+			<element name="RegNum" type="sNe40">
+				<annotation>
+					<documentation>Регистрационный номер учётной карты</documentation>
+				</annotation>
+			</element>
+			<element name="ObjCultural" type="dCultural">
+				<annotation>
+					<documentation>Вид объекта</documentation>
+				</annotation>
+			</element>
+			<element name="NameCultural" type="sNe255">
+				<annotation>
+					<documentation>Наименование</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tInclusionEGROKN">
+		<annotation>
+			<documentation>Сведения о включении объекта недвижимости в ЕГРОКН</documentation>
+		</annotation>
+		<sequence>
+			<element name="RegNum" type="sNe40">
+				<annotation>
+					<documentation>Регистрационный номер</documentation>
+				</annotation>
+			</element>
+			<element name="ObjCultural" type="dCultural">
+				<annotation>
+					<documentation>Вид объекта</documentation>
+				</annotation>
+			</element>
+			<element name="NameCultural" type="sNe255">
+				<annotation>
+					<documentation>Наименование</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<!--ЗЕМЕЛЬНЫЕ УЧАСТКИ:-->
+	<complexType name="tParcel">
+		<annotation>
+			<documentation>Земельный участок</documentation>
+		</annotation>
+		<sequence>
+			<element name="CadastralBlock" type="CadastralBlockType">
+				<annotation>
+					<documentation>Номер кадастрового квартала</documentation>
+				</annotation>
+			</element>
+			<element name="Name" type="dParcels">
+				<annotation>
+					<documentation>Наименование участка</documentation>
+				</annotation>
+			</element>
+			<element name="ObjectType">
+				<annotation>
+					<documentation>Вид объекта недвижимости - Земельный участок</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="dRealty">
+						<pattern value="002001001000"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="InnerCadastralNumbers" type="tCadastralNumbers" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровые номера объектов недвижимости, расположенных в пределах земельного участка</documentation>
+				</annotation>
+			</element>
+			<element name="Area" type="tAreaInaccuracy">
+				<annotation>
+					<documentation>Площадь</documentation>
+				</annotation>
+			</element>
+			<element name="Location" type="tLocation">
+				<annotation>
+					<documentation>Адрес (местоположение) земельного участка</documentation>
+				</annotation>
+			</element>
+			<element name="Category" type="dCategories">
+				<annotation>
+					<documentation>Категория земель</documentation>
+				</annotation>
+			</element>
+			<element name="Utilization" type="tUtilization">
+				<annotation>
+					<documentation>Разрешенное использование участка</documentation>
+				</annotation>
+			</element>
+			<element name="NaturalObjects" type="tNaturalObjects" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о природных объектах</documentation>
+				</annotation>
+			</element>
+			<element name="CadastralCost" type="tCadastralCostExt" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о кадастровой стоимости</documentation>
+				</annotation>
+			</element>
+			<element name="SubParcels" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о частях участка</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="SubParcel" type="tSubParcel" maxOccurs="unbounded">
+							<annotation>
+								<documentation>Сведения о части участка</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="FacilityCadastralNumber" type="tFacilityCadastralNumber" minOccurs="0">
+				<annotation>
+					<documentation>Кадастровый номер и назначение предприятия как имущественного комплекса, если объект недвижимости входит в состав предприятия как имущественного комплекса</documentation>
+				</annotation>
+			</element>
+			<element name="ZonesAndTerritories" type="tZonesAndTerritories" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о расположении земельного участка в границах зон, территорий</documentation>
+				</annotation>
+			</element>
+			<element name="GovernmentLandSupervision" type="tGovernmentLandSupervision" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о результатах проведения государственного земельного надзора</documentation>
+				</annotation>
+			</element>
+			<element name="SurveyingProject" type="tSurveyingProject" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о расположении земельного участка в границах территории, в отношении которой утвержден проект межевания территории</documentation>
+				</annotation>
+			</element>
+			<element name="HiredHouse" type="tHiredHouse" minOccurs="0">
+				<annotation>
+					<documentation>Сведения о создании (эксплуатации) на земельном участке наемного дома</documentation>
+				</annotation>
+			</element>
+			<element name="LimitedCirculation" type="tRightNumber" minOccurs="0">
+				<annotation>
+					<documentation>Сведения об ограничении оборотоспособности земельного участка в соответствии со статьей 11 Федерального закона от 1 мая 2016 г. № 119-ФЗ</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="CadastralNumber" type="CadastralNumberType" use="required">
+			<annotation>
+				<documentation>Кадастровый номер</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="DateCreated" type="date" use="required">
+			<annotation>
+				<documentation>Дата присвоения кадастрового номера</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="tUtilization">
+		<annotation>
+			<documentation>Разрешенное использование</documentation>
+		</annotation>
+		<attribute name="Utilization" type="dUtilizations" use="optional">
+			<annotation>
+				<documentation>Вид разрешенного использования в соответствии с ранее использовавшимся классификатором</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="ByDoc" type="s4000" use="optional">
+			<annotation>
+				<documentation>Вид использования участка по документу</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="LandUse" type="dAllowedUse">
+			<annotation>
+				<documentation>Вид разрешенного использования земельного участка в соответствии с классификатором, утвержденным приказом Минэкономразвития России от 01.09.2014 № 540</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="PermittedUseText" type="s4000">
+			<annotation>
+				<documentation>Разрешенное использование (текстовое описание)</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="tAreaInaccuracy">
+		<annotation>
+			<documentation>Площадь и погрешность вычисления</documentation>
+		</annotation>
+		<sequence>
+			<element name="Area" type="d20_2">
+				<annotation>
+					<documentation>Площадь в квадратных метрах</documentation>
+				</annotation>
+			</element>
+			<element name="Unit">
+				<annotation>
+					<documentation>Единица измерения - квадратный метр</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="string">
+						<pattern value="055"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="Inaccuracy" type="d20_2" minOccurs="0">
+				<annotation>
+					<documentation>Погрешность измерения</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tRightNumber">
+		<annotation>
+			<documentation>Номер регистрации</documentation>
+		</annotation>
+		<sequence>
+			<element name="RightNumber" type="s45">
+				<annotation>
+					<documentation>Номер регистрации</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tSurveyingProject">
+		<annotation>
+			<documentation>Сведения о расположении земельного участка в границах территории, в отношении которой утвержден проект межевания территории</documentation>
+		</annotation>
+		<sequence>
+			<element name="SurveyProjectNum" type="sSurveyProjectNumNull">
+				<annotation>
+					<documentation>Учетный номер утвержденного проекта межевания территории</documentation>
+				</annotation>
+			</element>
+			<element name="DecisionRequisites" type="tDocumentWithoutAppliedFile">
+				<annotation>
+					<documentation>Реквизиты решения</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<!--СВЕДЕНИЯ О НАЁМНОМ ДОМЕ-->
+	<complexType name="tHiredHouse">
+		<annotation>
+			<documentation>Сведения о наёмном доме</documentation>
+		</annotation>
+		<sequence>
+			<element name="UseHiredHouse">
+				<annotation>
+					<documentation>Вид использования наёмного дома</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="Коммерческое использование"/>
+						<enumeration value="Социальное использование"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<choice>
+				<element name="MunicipalHouse">
+					<annotation>
+						<documentation>Сведения о принятии акта и (или) заключении договора о предоставлении находящегося в государственной или муниципальной собственности участка под наемный дом</documentation>
+					</annotation>
+					<complexType>
+						<choice>
+							<element name="ActBuilding" type="boolean" fixed="true">
+								<annotation>
+									<documentation>Акт о предоставлении участка для строительства наемного дома</documentation>
+								</annotation>
+							</element>
+							<element name="ActDevelopment" type="boolean" fixed="true">
+								<annotation>
+									<documentation>Акт о предоставлении участка для освоения территории в целях строительства и эксплуатации наемного дома</documentation>
+								</annotation>
+							</element>
+							<element name="ContractBuilding" type="tContractHiredHouse">
+								<annotation>
+									<documentation>Договор о предоставлении участка для строительства наемного дома</documentation>
+								</annotation>
+							</element>
+							<element name="ContractDevelopment" type="tContractHiredHouse">
+								<annotation>
+									<documentation>Договор о предоставлении участка для освоения территории в целях строительства и эксплуатации наемного дома</documentation>
+								</annotation>
+							</element>
+						</choice>
+					</complexType>
+				</element>
+				<element name="OwnerHouse">
+					<annotation>
+						<documentation>Сведения о решении собственника земельного участка, находящегося в частной собственности, о строительстве наёмного дома либо о договоре об оказании поддержки для создания, эксплуатации наёмного дома</documentation>
+					</annotation>
+					<complexType>
+						<choice>
+							<element name="OwnerDecision" type="boolean" fixed="true">
+								<annotation>
+									<documentation>Решение собственника земельного участка, находящегося в частной собственности, о строительстве наемного дома</documentation>
+								</annotation>
+							</element>
+							<element name="ContractSupport" type="tContractHiredHouse">
+								<annotation>
+									<documentation>Договор о предоставлении поддержки для создания и эксплуатации наемного дома социального использования</documentation>
+								</annotation>
+							</element>
+						</choice>
+					</complexType>
+				</element>
+			</choice>
+			<element name="DocHiredHouse" type="tDocumentWithoutAppliedFile">
+				<annotation>
+					<documentation>Документ-основание</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tContractHiredHouse">
+		<annotation>
+			<documentation>Сведения о наименовании сторон для договора о наёмном доме</documentation>
+		</annotation>
+		<sequence>
+			<element name="ContractName" type="s4000">
+				<annotation>
+					<documentation>Наименование сторон договора</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<!--ГОСУДАРСТВЕННЫЙ ЗЕМЕЛЬНЫЙ НАДЗОР-->
+	<complexType name="tGovernmentLandSupervision">
+		<annotation>
+			<documentation>Сведения о результатах проведения государственного земельного надзора</documentation>
+		</annotation>
+		<sequence>
+			<element name="SupervisionEvent" type="tSupervisionEvent" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Сведения о результатах проведения государственного земельного надзора</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tSupervisionEvent">
+		<annotation>
+			<documentation>Надзорное мероприятие</documentation>
+		</annotation>
+		<sequence>
+			<element name="Agency" type="s1000">
+				<annotation>
+					<documentation>Наименование органа, проводившего мероприятие по государственному земельному надзору</documentation>
+				</annotation>
+			</element>
+			<element name="EventName" type="dInspection">
+				<annotation>
+					<documentation>Мероприятие государственного земельного надзора по соблюдению требований законодательства (плановая, внеплановая проверка, административное обследование)</documentation>
+				</annotation>
+			</element>
+			<element name="EventForm" type="dFormEvents" minOccurs="0">
+				<annotation>
+					<documentation>Форма проведения плановой или внеплановой проверки</documentation>
+				</annotation>
+			</element>
+			<element name="InspectionEnd" type="date">
+				<annotation>
+					<documentation>Дата окончания проверки</documentation>
+				</annotation>
+			</element>
+			<element name="ResultsEvent" type="tResultsEvent">
+				<annotation>
+					<documentation>Результаты проведенного мероприятия</documentation>
+				</annotation>
+			</element>
+			<element name="DocRequisites" type="tDocumentWithoutAppliedFile">
+				<annotation>
+					<documentation>Реквизиты оформленных документов</documentation>
+				</annotation>
+			</element>
+			<element name="Elimination" type="tEliminationType" minOccurs="0">
+				<annotation>
+					<documentation>Сведения об устранении выявленного нарушения</documentation>
+				</annotation>
+			</element>
+			<element name="EliminationDocRequisites" type="tDocumentWithoutAppliedFile" minOccurs="0">
+				<annotation>
+					<documentation>Реквизиты документа, содержащего сведения об устранении правонарушения</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tResultsEvent">
+		<annotation>
+			<documentation>Результаты проведенного мероприятия</documentation>
+		</annotation>
+		<sequence>
+			<element name="AvailabilityViolations" type="boolean">
+				<annotation>
+					<documentation>Наличие нарушения: правонарушение выявлено (1-true)/не выявлено (0-false)</documentation>
+				</annotation>
+			</element>
+			<element name="IdentifiedViolations" type="tIdentifiedViolations" minOccurs="0">
+				<annotation>
+					<documentation>Выявленное правонарушение</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tIdentifiedViolations">
+		<annotation>
+			<documentation>Выявленное правонарушение</documentation>
+		</annotation>
+		<sequence>
+			<element name="TypeViolations" type="s4000" minOccurs="0">
+				<annotation>
+					<documentation>Вид выявленного правонарушения</documentation>
+				</annotation>
+			</element>
+			<element name="SignViolations" type="s4000" minOccurs="0">
+				<annotation>
+					<documentation>Признаки выявленного правонарушения</documentation>
+				</annotation>
+			</element>
+			<element name="Area" type="d20_2" minOccurs="0">
+				<annotation>
+					<documentation>Площадь (в кв. м)</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tEliminationType">
+		<annotation>
+			<documentation>Сведения об устранении выявленного нарушения</documentation>
+		</annotation>
+		<sequence>
+			<element name="EliminationMark" type="boolean">
+				<annotation>
+					<documentation>Отметка об устранении выявленного нарушения: 1(true)-устранено</documentation>
+				</annotation>
+			</element>
+			<element name="EliminationAgency" type="s1000">
+				<annotation>
+					<documentation>Наименование органа, принявшего решение об устранении правонарушения</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<!--Адрес (местоположение) и уточнение местоположения участка-->
+	<complexType name="tLocation">
+		<annotation>
+			<documentation>Адрес (местоположение) земельного участка</documentation>
+		</annotation>
+		<sequence>
+			<element name="inBounds" type="sInBounds" minOccurs="0">
+				<annotation>
+					<documentation>В границах</documentation>
+				</annotation>
+			</element>
+			<element name="Placed" type="s6" minOccurs="0">
+				<annotation>
+					<documentation>Положение на ДКК</documentation>
+				</annotation>
+			</element>
+			<element name="Elaboration" type="tElaborationLocation" minOccurs="0">
+				<annotation>
+					<documentation>Уточнение местоположения</documentation>
+				</annotation>
+			</element>
+			<element name="Address" type="tAddress" minOccurs="0">
+				<annotation>
+					<documentation>Адрес (местоположение)</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tElaborationLocation">
+		<annotation>
+			<documentation>Уточнение местоположения</documentation>
+		</annotation>
+		<sequence>
+			<element name="ReferenceMark" type="s255" minOccurs="0">
+				<annotation>
+					<documentation>Наименование ориентира</documentation>
+				</annotation>
+			</element>
+			<element name="Distance" type="s255" minOccurs="0">
+				<annotation>
+					<documentation>Расстояние</documentation>
+				</annotation>
+			</element>
+			<element name="Direction" type="s255" minOccurs="0">
+				<annotation>
+					<documentation>Направление</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<!--СВЕДЕНИЯ О ЧАСТЯХ:-->
+	<complexType name="tSubBuildingFlat">
+		<annotation>
+			<documentation>Сведения о части здания, части помещения</documentation>
+		</annotation>
+		<sequence>
+			<element name="Area" type="d21_1">
+				<annotation>
+					<documentation>Площадь в квадратных метрах</documentation>
+				</annotation>
+			</element>
+			<element name="Encumbrances" type="tEncumbrancesOKS" minOccurs="0">
+				<annotation>
+					<documentation>Сведения об ограничениях (обременениях) прав</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="NumberRecord" type="s40" use="required">
+			<annotation>
+				<documentation>Учетный номер части</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="DateCreated" type="date">
+			<annotation>
+				<documentation>Дата внесения в ЕГРН сведений о части</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="tSubConstruction">
+		<annotation>
+			<documentation>Сведения о части сооружения</documentation>
+		</annotation>
+		<sequence>
+			<element name="KeyParameter" type="tKeyParameter" minOccurs="0">
+				<annotation>
+					<documentation>Основная характеристика</documentation>
+				</annotation>
+			</element>
+			<element name="Encumbrances" type="tEncumbrancesOKS" minOccurs="0">
+				<annotation>
+					<documentation>Сведения об ограничениях (обременениях) прав</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="NumberRecord" type="s40" use="required">
+			<annotation>
+				<documentation>Учетный номер части</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="DateCreated" type="date">
+			<annotation>
+				<documentation>Дата внесения в ЕГРН сведений о части</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="tSubParcel">
+		<annotation>
+			<documentation>Сведения о части земельного участка</documentation>
+		</annotation>
+		<sequence>
+			<element name="Area" type="tAreaInaccuracy">
+				<annotation>
+					<documentation>Площадь</documentation>
+				</annotation>
+			</element>
+			<element name="Encumbrances" type="tEncumbrancesZU" minOccurs="0">
+				<annotation>
+					<documentation>Сведения об ограничениях (обременениях) прав</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="NumberRecord" type="s40" use="required">
+			<annotation>
+				<documentation>Учетный номер части</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="DateCreated" type="date">
+			<annotation>
+				<documentation>Дата внесения в ЕГРН сведений о части</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<!--ОГРАНИЧЕНИЯ (ОБРЕМЕНЕНИЯ) ПРАВ:-->
+	<complexType name="tEncumbrancesOKS">
+		<annotation>
+			<documentation>Сведения об ограничениях (обременениях) здания, сооружения, помещения (части здания, сооружения, помещения)</documentation>
+		</annotation>
+		<sequence>
+			<element name="Encumbrance" type="tEncumbranceOKS" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Сведения об ограничении (обременении)</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tEncumbranceOKS">
+		<annotation>
+			<documentation>Ограничение (обременение) здания, сооружения, помещения (части здания, сооружения, помещения)</documentation>
+		</annotation>
+		<sequence>
+			<element name="Name" type="s4000" minOccurs="0">
+				<annotation>
+					<documentation>Содержание ограничения (обременения)</documentation>
+				</annotation>
+			</element>
+			<element name="Type" type="dEncumbrances">
+				<annotation>
+					<documentation>Код по справочнику</documentation>
+				</annotation>
+			</element>
+			<element name="Registration" type="tRegistration" minOccurs="0">
+				<annotation>
+					<documentation>Государственная регистрация ограничения (обременения)</documentation>
+				</annotation>
+			</element>
+			<element name="Document" type="tDocumentWithoutAppliedFile" minOccurs="0">
+				<annotation>
+					<documentation>Реквизиты документа, на основании которого возникает ограничение (обременение)</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tEncumbrancesZU">
+		<annotation>
+			<documentation>Сведения об ограничениях (обременениях) земельного участка, части земельного участка</documentation>
+		</annotation>
+		<sequence>
+			<element name="Encumbrance" type="tEncumbranceZU" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Сведения об ограничении (обременении)</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tEncumbranceZU">
+		<annotation>
+			<documentation>Ограничение (обременение) земельного участка, части земельного участка</documentation>
+		</annotation>
+		<sequence>
+			<element name="Name" type="s4000" minOccurs="0">
+				<annotation>
+					<documentation>Содержание ограничения (обременения)</documentation>
+				</annotation>
+			</element>
+			<element name="Type" type="dEncumbrances">
+				<annotation>
+					<documentation>Код по справочнику</documentation>
+				</annotation>
+			</element>
+			<choice>
+				<element name="AccountNumber" type="s255" minOccurs="0">
+					<annotation>
+						<documentation>Реестровый номер границы зоны, территории</documentation>
+					</annotation>
+				</element>
+				<element name="CadastralNumberRestriction" type="CadastralNumberType" minOccurs="0">
+					<annotation>
+						<documentation>Кадастровый номер ЗУ, в пользу которого установлен сервитут</documentation>
+					</annotation>
+				</element>
+			</choice>
+			<element name="Registration" type="tRegistration" minOccurs="0">
+				<annotation>
+					<documentation>Государственная регистрация ограничения (обременения)</documentation>
+				</annotation>
+			</element>
+			<element name="Document" type="tDocumentWithoutAppliedFile" minOccurs="0">
+				<annotation>
+					<documentation>Реквизиты документа, на основании которого возникает ограничение (обременение)</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tRegistration">
+		<annotation>
+			<documentation>Номер и дата государственной регистрации</documentation>
+		</annotation>
+		<sequence>
+			<element name="RightNumber" type="s45" minOccurs="0">
+				<annotation>
+					<documentation>Номер государственной регистрации</documentation>
+				</annotation>
+			</element>
+			<element name="RegistrationDate" type="date" minOccurs="0">
+				<annotation>
+					<documentation>Дата государственной регистрации</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<!--СВЕДЕНИЯ О ЗОНАХ, ТЕРРИТОРИЯХ-->
+	<complexType name="tZonesAndTerritories">
+		<annotation>
+			<documentation>Сведения о расположении земельного участка в границах зоны или территории</documentation>
+		</annotation>
+		<sequence>
+			<element name="ZoneAndTerritory" type="tZoneAndTerritory" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Сведения о расположении земельного участка в границах зоны или территории</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tZoneAndTerritory">
+		<annotation>
+			<documentation>Сведения о расположении земельного участка в границах зоны или территории</documentation>
+		</annotation>
+		<sequence>
+			<element name="Description" type="s1000" minOccurs="0">
+				<annotation>
+					<documentation>Наименование</documentation>
+				</annotation>
+			</element>
+			<element name="CodeZoneDoc" type="s255" minOccurs="0">
+				<annotation>
+					<documentation>Вид или наименование по документу</documentation>
+				</annotation>
+			</element>
+			<element name="AccountNumber" type="sNe50">
+				<annotation>
+					<documentation>Реестровый номер границы</documentation>
+				</annotation>
+			</element>
+			<element name="ContentRestrictions" type="s4000" minOccurs="0">
+				<annotation>
+					<documentation>Содержание ограничения</documentation>
+				</annotation>
+			</element>
+			<element name="FullPartly" type="boolean" minOccurs="0">
+				<annotation>
+					<documentation>Полностью входит в зону</documentation>
+				</annotation>
+			</element>
+			<element name="Document" type="tDocumentWithoutAppliedFile" minOccurs="0">
+				<annotation>
+					<documentation>Реквизиты решения</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<!--КАДАСТРОВЫЕ НОМЕРА-->
+	<complexType name="tCadastralNumbers">
+		<annotation>
+			<documentation>Кадастровые номера объектов недвижимости</documentation>
+		</annotation>
+		<sequence>
+			<element name="CadastralNumber" type="CadastralNumberType" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Кадастровый номер</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tCadastralNumber">
+		<annotation>
+			<documentation>Кадастровый номер объекта недвижимости</documentation>
+		</annotation>
+		<sequence>
+			<element name="CadastralNumber" type="CadastralNumberType">
+				<annotation>
+					<documentation>Кадастровый номер</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="tFacilityCadastralNumber">
+		<annotation>
+			<documentation>Кадастровый номер и назначение предприятия как имущественного комплекса, если объект недвижимости входит в состав предприятия как имущественного комплекса</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="tCadastralNumber">
+				<sequence>
+					<element name="Purpose" type="sNe4000" minOccurs="0">
+						<annotation>
+							<documentation>Назначение предприятия как имущественного комплекса</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+</schema>

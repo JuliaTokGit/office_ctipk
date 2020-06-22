@@ -1,0 +1,41 @@
+ <!-- START MOBILE CONTROLS -->
+        <div class="relative" style="margin: 0 30px 0 -30px; padding-right:40px;">
+          <!-- LEFT SIDE -->
+          <div class="pull-left full-height visible-sm visible-xs">
+            <!-- START ACTION BAR -->
+            <div class="header-inner">
+              <a href="#" class="btn-link toggle-sidebar visible-sm-inline-block visible-xs-inline-block padding-5" data-toggle="sidebar">
+                <span class="icon-set menu-hambuger"></span>
+              </a>
+            </div>
+            <!-- END ACTION BAR -->
+          </div>
+          <div class="pull-center hidden-md hidden-lg">
+            <div class="header-inner">
+              <div class="brand inline">
+                    {{#site.logo}}
+    <img {{{ site.logo | src }}}  alt="{{ site.logo.alt }}" width="{{ site.logo.width }}" height="{{ site.logo.height }}">
+    {{/site.logo}}
+    {{^site.logo}}
+    <h2 class="m-t-0 m-l-40">{{site.name}}</h2>
+    {{/site.logo}}
+              </div>
+            </div>
+          </div>
+          <!-- RIGHT SIDE -->
+          <div class="pull-right full-height visible-sm visible-xs">
+            {{# layout.quickview }}
+            <!-- START ACTION BAR -->
+            <div class="header-inner">
+              <a href="#" class="btn-link visible-xs-inline-block visible-sm-inline-block m-r-10" data-pages="horizontal-menu-toggle">
+                <span class="pg pg-arrow_minimize"></span>
+              </a>
+              <a href="#" class="btn-link visible-sm-inline-block visible-xs-inline-block" data-toggle="quickview" data-toggle-element="#quickview">
+                <span class="icon-set menu-hambuger-plus"></span>
+              </a>
+            </div>
+            <!-- END ACTION BAR -->
+            {{/ layout.quickview }}
+          </div>
+        </div>
+        <!-- END MOBILE CONTROLS -->

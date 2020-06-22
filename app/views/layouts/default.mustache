@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+{{> layout.head }}
+
+<body class="{{page.bodyclass}}">
+
+{{> layout.sidebar }}
+
+<!-- START PAGE-CONTAINER -->
+<div class="page-container">
+
+{{> layout.header }}
+
+<!-- PAGE CONTENT BEGINS -->
+<div class="page-content-wrapper">
+<!-- START PAGE CONTENT -->
+<div class="content">  
+
+{{> layout.pagetop }}
+
+<div class="container-fluid container-fixed-lg"> 
+
+{{> page.content }}
+
+</div>
+
+{{#page.modal}}
+{{>page.modal}}
+{{/page.modal}}
+
+{{> page.copyright}}
+</div>
+<!-- END PAGE CONTENT -->
+
+</div>
+<!-- PAGE CONTENT ENDS -->
+
+</div>
+<!-- END PAGE CONTAINER -->
+{{> layout.jsvars}}
+{{> layout.scripts}}
+
+</body>
+</html>

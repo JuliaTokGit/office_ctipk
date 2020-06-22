@@ -1,0 +1,8 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "{{site.url}}/schemas/id/plugins",
+    "title": "плагин",
+    "description":"Список доступных frontend плагинов для страницы",
+    "type": "string",
+    "enum": {{{plugins}}}
+}

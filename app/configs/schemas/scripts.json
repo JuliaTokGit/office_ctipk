@@ -1,0 +1,8 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "{{site.url}}/schemas/id/scripts",
+    "title": "скрипт",
+    "description":"Список доступных js скриптов для страницы",
+    "type": "string",
+    "enum": {{{scripts}}}
+}

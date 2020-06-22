@@ -1,0 +1,36 @@
+{
+    "includes": [
+        "datafilters"
+    ],
+    "objects": {
+        "users": {
+            "name": "User"
+        },
+        "uploads": {
+            "name": "Upload"
+        },
+        "upload-types": {
+            "name": "UploadType"
+        },
+        "pages": {
+            "name": "Spacewind\\Models\\PageDataAdm"
+        },
+        "requests": {
+            "name": "Request"
+        },
+        "sources": {
+            "name": "Source"
+        },
+        "results": {
+            "name": "Result"
+        },
+        "groups": {
+            "name": "Group"
+        }
+    },
+    "upload_targets": {
+        "uploads": "upload"
+    },
+    "title": "Страница работы с данными",
+    "_id": "data"
+}

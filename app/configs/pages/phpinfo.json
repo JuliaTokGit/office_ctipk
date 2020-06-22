@@ -1,0 +1,6 @@
+{
+    "title":"Информация о PHP",
+    "description": "phpinfo",
+    "jumbotron":false,
+    "bodyclass":"fixed-header"
+}

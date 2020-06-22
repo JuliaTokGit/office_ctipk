@@ -1,0 +1,73 @@
+      <!-- START Login Background Pic Wrapper-->
+      <div class="bg-pic">
+{{^page.coderain}}        
+        <img {{{ page.background-pic | src }}} alt="" style="opacity:.8;" class="lazy">
+        <!-- START Background Caption-->
+        <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
+          
+          {{#page.background-pic.header}}
+          <h2 class="semi-bold text-white">
+          {{.}}
+          </h2>
+          {{/page.background-pic.header}}
+          
+          {{#page.background-pic.descr}}
+          <p class="small">
+            {{.}}
+          </p>
+          {{/page.background-pic.descr}}
+        
+        </div>
+        <!-- END Background Caption-->
+{{/page.coderain}}
+{{#page.coderain}}
+           
+        <canvas id="c"></canvas>
+       
+        <script>
+        
+        var c = document.getElementById("c");
+        var ctx = c.getContext("2d");
+
+        
+        c.height = window.innerHeight;
+        c.width = window.innerWidth;
+
+        
+        var matrix = "ンワラヤマハナタサカアリミヒニチシキイルユムフヌツスクウレメヘネテセケエヲロヨモホ1234567890+*^&()%$#!";
+        
+        matrix = matrix.split("");
+
+        var font_size = 11;
+        var columns = c.width / font_size; 
+        
+        var drops = [];        
+        for(var x = 0; x < columns; x++)
+            drops[x] = 1; 
+
+        
+        function draw()
+        {            
+            ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+            ctx.fillRect(0, 0, c.width, c.height);
+
+            ctx.fillStyle = "#0F0"; 
+            ctx.font = font_size + "px arial";            
+            for( var i = 0; i < drops.length; i++ )
+            {
+                var text = matrix[ Math.floor( Math.random() * matrix.length ) ];                
+                ctx.fillText(text, i * font_size, drops[i] * font_size);
+
+                if( drops[i] * font_size > c.height && Math.random() > 0.975 )
+                    drops[i] = 0;
+                drops[i]++;
+            }
+        }
+
+        setInterval( draw, 35 );
+
+        </script>
+        {{/page.coderain}}
+        
+      </div>
+      <!-- END Login Background Pic Wrapper-->

@@ -1,0 +1,7 @@
+{
+    "title":"Обновление плагины",
+    "description": "Удалить все плагины, скачать необходимые плагины из хранилища",
+    "jumbotron":false,
+    "bodyclass":"fixed-header",
+    "vault":"http://assets.arx.ru"
+}

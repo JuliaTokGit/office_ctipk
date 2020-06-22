@@ -1,0 +1,88 @@
+<!-- START DATATABLE PANEL -->
+<div class="panel">
+
+	<div class="panel-heading">
+		<div class="panel-title">
+			{{panelTitle}}
+		</div>
+
+		{{#buttons}}
+		<div class="pull-right">
+			<div class="col-xs-12" id="buttons-container">
+				<div class="btn-group dt-buttons">
+
+					{{#activate-users}}
+					<a href="/activate-users" class="btn btn-complete" >Неактивированные</a>
+					{{/activate-users}}
+
+					{{#users}}
+					<a href="/users" class="btn btn-primary" >Все пользователи</a>
+					{{/users}}
+
+					{{#search}}
+					<button id="search" type="button" class="btn" data-tableid="#{{tableId}}" onclick="$('#search_block').css({'display':'inline-block'}).find('input').focus();"><i class="fa fa-search" data-toggle="tooltip" data-original-title="Search"></i><div id="search_block" style="display:none;"></div></button>
+					{{/search}}
+
+					{{#create}}
+					<button id="create" type="button" data-modal="#modalCreate" class="btn btn-modal" ><i class="fa fa-plus"  data-toggle="tooltip" data-original-title="Create"></i></button>
+					{{/create}}
+
+					{{#edit}}
+					<button id="edit" type="button" data-modal="#modalEdit" disabled class="btn btn-relative btn-modal"><i class="fa fa-pencil" data-toggle="tooltip" data-original-title="Edit"></i></button>
+					{{/edit}}
+
+
+					{{#archive}}
+					<button id="archive" type="button" data-modal="#modalArchive" disabled class="btn btn-relative btn-modal"><i class="fa fa-archive"  data-toggle="tooltip" data-original-title="Архивировать"></i></button>
+					{{/archive}}
+
+					{{#goactive}}
+					<button id="archive" type="button" data-modal="#modalArchive" disabled class="btn btn-relative btn-modal"><i class="fa fa-recycle"  data-toggle="tooltip" data-original-title="Извлечь из архива"></i></button>
+					{{/goactive}}
+
+					{{#delete}}
+					<button id="delete" type="button" data-modal="#modalDelete" disabled class="btn btn-relative btn-modal"><i class="fa fa-trash-o"  data-toggle="tooltip" data-original-title="Delete"></i></button>
+					{{/delete}}
+
+					{{#duplicate}}
+					<button id="duplicate" type="button" disabled class="btn btn-relative" data-tableid="#{{tableId}}"  data-dataurl="{{upload.url}}"><i class="fa fa-copy"  data-toggle="tooltip" data-original-title="Duplicate"></i></button>
+					{{/duplicate}}
+
+					{{#down_link}}
+					<button id="download" type="button" class="btn btn-relative" data-tableid="#{{tableId}}" disabled ><i class="fa fa-download" data-toggle="tooltip" data-original-title="Ссылка на скачивание"></i></button>
+					{{/down_link}}
+
+					{{#link}}
+					<button id="link" type="button" class="btn btn-relative"  data-tableid="#{{tableId}}" disabled ><i class="fa fa-link"  data-toggle="tooltip" data-original-title="Получить ссылку"></i></button>
+					{{/link}}
+
+
+
+					{{^serverside}}
+					{{#reorder}}
+					<button id="reorder" type="button" class="btn" data-tableid="#{{tableId}}"><i class="fa fa-sort"  data-toggle="tooltip" data-original-title="Reorder"></i></button>
+					{{/reorder}}
+					{{/serverside}}
+				</div>
+			</div>
+		</div>
+		{{/buttons}}
+		<div class="clearfix"></div>
+	</div>
+
+	<div class="panel-body">
+		<table class="table table-hover {{tableClass}} datatable" id="{{tableId}}{{^tableId}}datatable{{/tableId}}" data-id="{{tableId}}"  data-dataurl="{{dataUrl}}">
+		</table>
+	</div>
+
+</div>
+<!-- END DATATABLE PANEL -->
+
+{{#serverside}}
+<script>
+dt_options={
+	serverSide: true,
+	searchDelay: 0
+};
+</script>
+{{/serverside}}

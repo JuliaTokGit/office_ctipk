@@ -1,0 +1,37 @@
+{
+    "title": "Фото",
+    "header": "Загруженные фото",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes":["dt-crud-modals","filters"],
+    "quickview":true,
+    "filtering": {"user_id":true,"shop_id":true},
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true,"link":true,"down_link":true },
+            "crud_modals":{
+                "titles":{
+                    "create":"Добавить фото",
+                    "edit":"Редактировать фото",
+                    "delete":"Удалить фото"
+                },
+                "fields": [                   
+                            {
+                                "label": "Описание",
+                                "type":"text",
+                                "property": "description"
+                            },
+                            {   "label":"Файл", 
+                                "type":"file",
+                                "property":"file",
+                                "btn-text":"Выберите файл для загрузки",
+                                "accept":"*"
+                            }
+                        ],
+
+                "subheaders":{"delete":"Вы уверены что хотите удалить \"<span data-obj=filename></span>\"?"}
+            }
+        }
+    }
+}

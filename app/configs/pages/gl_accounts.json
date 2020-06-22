@@ -1,0 +1,87 @@
+{
+    "title": "GL Accounts",
+    "header": "GL Accounts",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes": ["dt-crud-modals","filters"],
+    "quickview":true,
+    "filtering": {"currency_id":true},
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true },
+            "crud_modals":{
+                "titles":{
+                    "create":"Add GL account",
+                    "edit":"Edit GL account",
+                    "delete":"Delete GL account"
+                },
+                "fields": [
+
+                            {
+                                "label":"Id",
+                                "type":"text",
+                                "property": "id"
+                            },
+                            {
+                                "label":"Name",
+                                "type":"text",
+                                "property": "name"
+                            },
+                            {
+                                "label":"Type",
+                                "type":"text",
+                                "property": "type"
+                            },
+                            {
+                                "label":"Description",
+                                "type":"textarea",
+                                "property": "description"
+                            },
+                            {
+                                "label":"Currency",
+                                "type":"select_ajax",
+                                "property": "currency_id",
+                                "url": "/select-ajax/currencies"
+                            },
+                            {
+                                "label":"Descreasing on",
+                                "type":"select",
+                                "property": "decreasing_on",
+                                "options": {
+                                    "raw":[
+                                        {
+                                            "value": "DEBIT",
+                                            "text": "DEBIT"
+                                        },
+                                        {
+                                            "value": "CREDIT",
+                                            "text": "CREDIT"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "label":"Can be only positive",
+                                "type":"select",
+                                "property": "only_positive",
+                                "options": {
+                                    "raw":[
+                                        {
+                                            "value": "1",
+                                            "text": "Yes"
+                                        },
+                                        {
+                                            "value": "0",
+                                            "text": "No"
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+
+                "subheaders":{"delete":"Please confirm deletion \"<span data-obj=name></span>\" ?"}
+            }
+        }
+    }
+}

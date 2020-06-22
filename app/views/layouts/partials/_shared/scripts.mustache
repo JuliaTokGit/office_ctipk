@@ -1,0 +1,34 @@
+{{> layout.jquery}}
+
+{{^site.debug}}
+{{! Продакшн }}
+{{{layout.plugins.scripts|js-min-link}}}
+{{{page.plugins.scripts|js-min-link}}}
+{{{layout.scripts|js-min-link}}}
+{{{page.scripts|js-min-link}}}
+{{/site.debug}}
+
+{{#site.debug}}
+{{! Девелопмент }}
+{{#layout.plugins.scripts}}
+<script src="{{path.assets}}/{{{.}}}"></script>
+{{/layout.plugins.scripts}}
+{{#page.plugins.scripts}}
+<script src="{{path.assets}}/{{{.}}}"></script>
+{{/page.plugins.scripts}}
+{{#layout.scripts}}
+<script src="{{path.assets}}/{{{.}}}"></script>
+{{/layout.scripts}}	
+{{#page.scripts}}
+<script src="{{path.assets}}/{{{.}}}"></script>
+{{/page.scripts}}
+{{/site.debug}}
+
+
+{{>layout.custom_scripts}}
+
+{{#page.inline_scripts}}
+<script type="text/javascript">
+  {{{page.inline_scripts}}}
+</script>
+{{/page.inline_scripts}}

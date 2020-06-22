@@ -1,0 +1,16 @@
+{
+    "title": "Авторизация",
+    "description": "Вход в личный кабинет",
+    "layout": "simple",
+    "bodyclass": "fixed-header",
+    "bottom-text": false,
+    "coderain":false,
+    "background-pic": {
+        "image": "/images/astronaut.jpg",
+        "header": "ЦТИПК",
+        "descr": "Управление приложением"
+    },
+    "plugins": [
+        "validate"
+    ]
+}

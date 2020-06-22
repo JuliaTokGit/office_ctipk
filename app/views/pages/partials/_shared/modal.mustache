@@ -1,0 +1,30 @@
+<div class="modal fade slide-down disable-scroll" id="{{id}}" tabindex="-1" role="dialog" aria-hidden="false">
+	<div class="modal-dialog {{#large}}modal-lg{{/large}}">
+		<div class="modal-content-wrapper">
+			<div class="modal-content">
+			<div class="modal-header clearfix text-left">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+					</button>
+					<h5>{{title}}</h5>
+					{{#subheader}}<p class="p-b-10">{{{.}}}</p>{{/subheader}}
+				</div>
+				<div class="modal-body">
+					{{#photomodal-multi}}
+					{{>page.photomodal-multi}}
+					{{/photomodal-multi}}
+
+					{{#photomodal}}
+					{{>page.photomodal}}
+					{{/photomodal}}
+					
+					{{#body}}
+					{{>page.form}}
+					{{/body}}
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+</div>
+<!-- /.modal-dialog -->       
+

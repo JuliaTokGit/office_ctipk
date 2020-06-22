@@ -1,0 +1,8 @@
+{
+    "title": "Главная",
+    "bodyclass": "fixed-header",
+    "layout":"default",
+    "includes":["filters"],
+    "quickview":true,
+    "filtering": {"client_id":true}
+}

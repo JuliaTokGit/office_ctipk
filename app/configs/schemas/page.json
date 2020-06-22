@@ -1,0 +1,92 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "{{site.url}}/schemas/id/page",
+    "title": "Страница",
+    "headerTemplate": "{{=<% %>=}}{{ self.title }}<%={{ }}=%>",
+    "description":"Страница основного сайта",
+    "type": "object",
+    "properties": {
+        "header": {
+            "title": "Заголовок",
+            "description": "Главный заголовок страницы, выводится крупно вверху страницы, если не задан, то по умолчанию заголовок берется из названия страницы",
+            "type": "string"
+        },
+        "title": {
+            "title": "Название страницы",
+            "description": "Cодержимое тега title",
+            "type": "string"
+        },
+        "description": {
+            "title": "Описание страницы",
+            "description": "Содержимое метатега description",
+            "type": "string"
+        },
+        "keywords": {
+            "title": "Поисковые слова",
+            "description": "Содержимое метатега keywords",
+            "type": "string"
+        },
+        "bodyclass": {
+            "title": "Css-класс body",
+            "type": "string"
+        },
+        "hide_pagetop": {
+            "title": "Скрыть заголовок",
+            "type": "boolean"
+        },
+        "hide_pagetop": {
+            "title": "Скрыть заголовок",
+            "type": "boolean"
+        },
+        "layout": {
+            "title":"Шаблон",
+            "$ref": "{{site.url}}/schemas/id/layouts"
+        },
+        "plugins": {
+            "title": "Frontend плагины",
+            "type": "array",
+            "items":{
+                "$ref": "{{site.url}}/schemas/id/plugins"
+            },
+            "uniqueItems":true
+        },
+        "scripts": {
+            "title": "js скрипты",
+            "type": "array",
+            "items":{
+                "$ref": "{{site.url}}/schemas/id/scripts"
+            },
+            "uniqueItems":true
+        },
+        "styles": {
+            "title": "css стили",
+            "type": "array",
+            "items":{
+                "$ref": "{{site.url}}/schemas/id/styles"
+            },
+            "uniqueItems":true
+        },
+        "buttons": {
+            "title": "Кнопки таблицы",
+            "$ref": "{{site.url}}/schemas/id/datatable-buttons"
+        },
+        "modal": {
+            "title": "Модалы",
+            "description": "Всплывающие окна",
+            "type": "array",
+            "items":{
+                "$ref": "{{site.url}}/schemas/id/modal"
+            }
+        },
+        
+        "includes": {
+            "title": "Backend дополнения",
+            "type": "array",
+            "items":{
+                "title": "дополнение",
+                "type":"string"
+            },
+            "uniqueItems":true
+        }
+    }
+}

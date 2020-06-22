@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "{{site.url}}/schemas/id/answer",
+    "title":"ответ",
+    "headerTemplate": "{{=<% %>=}}{{ self.answer }}<%={{ }}=%>",
+    "type":"object",
+    "properties":{
+        "answer":{
+            "title":"Текст ответа",
+            "type":"string"
+        },
+        "is_correct":{
+            "title":"Правильный ответ",
+            "type": "boolean"
+        }
+    }
+}

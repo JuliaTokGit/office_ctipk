@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "{{site.url}}/schemas/id/datatable-forms",
+    "title": "Формы действий таблицы",
+    "headerTemplate": "{{=<% %>=}}{{ self.title }}<%={{ }}=%>",
+    "description":"Формы действий над данными таблицы",
+    "type": "object",
+    "properties":{
+        "title":{            
+            "title":"Название формы",
+            "type":"string",
+            "default":"Создание сущности"
+        },
+        "data":{
+            "title":"Данные формы",
+            "type":"array"
+        },
+        "class":{
+            "title":"css-класс",
+            "type":"string",
+            "default":"ajax-form"                    
+        },
+        "fields":{
+            "title":"Поля формы",
+            "type":"array"
+        },
+        "buttons":{
+            "title":"Кнопки формы",
+            "type":"array",
+            "items":[
+                {
+                    "title":"кнопка",
+                    "headerTemplate": "{{=<% %>=}}{{ self.text }}<%={{ }}=%>",
+                    "type":"object",
+                    "properties":{
+                        "type":{
+                            "title":"Тип кнопки",
+                            "description":"Свойство type в теге button",
+                            "default":"submit",
+                            "type":"string"
+                        },
+                        "text":{
+                            "title":"Текст кнопки",
+                            "default":"Создать",
+                            "type":"string"
+                        },
+                        "class":{
+                            "title":"css-класс кнопки",
+                            "default":"btn-complete",
+                            "type":"string"
+                        }
+                    }
+                }
+            ]
+        }
+
+    }
+}

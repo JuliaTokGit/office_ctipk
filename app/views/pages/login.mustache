@@ -1,0 +1,79 @@
+
+<!-- START PAGE-CONTAINER -->
+<div class="login-wrapper lt-bg-color">
+
+{{> page.background-pic}}
+
+
+<!-- START Login Right Container-->
+<div class="login-container bg-white">
+	<div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
+		{{#site.logo}}
+		<img {{{ site.logo | src }}}  alt="{{ site.logo.alt }}" width="246" height="22">
+		{{/site.logo}}
+		{{^site.logo}}
+		<h1>{{site.name}}</h1>
+		{{/site.logo}}
+		<p class="p-t-35">{{page.guide}}</p>
+		<!-- START Login Form -->
+		<form id="form-login" class="p-t-15" role="form"  method="POST">
+		<input type="hidden" name="auth_oper" value="login"/>
+			<!-- START Form Control-->
+			<div class="form-group form-group-default">
+				<label>E-mail</label>
+				<div class="controls">
+					<input id="username" type="email" name="auth_username" placeholder="Ваш e-mail" class="form-control" required>
+				</div>
+			</div>
+			<!-- END Form Control-->
+			<!-- START Form Control-->
+			<div class="form-group form-group-default">
+				<label>Пароль</label>
+				<div class="controls">
+					<input type="password" class="form-control" name="auth_password" placeholder="" required>
+				</div>
+			</div>
+			<!-- START Form Control-->
+	
+					<div class="checkbox ">
+						<input type="checkbox" value="1" id="checkbox1" name="auth_remember">
+						<label for="checkbox1">Запомнить меня</label>
+					</div>
+	
+			<!-- END Form Control-->
+
+			<div class="row">
+				<div class="col-xs-4">
+					<button class="btn btn-primary btn-cons m-t-10" type="submit">Вход</button>
+				</div>
+				<div class="col-xs-8 text-right p-t-20 p-r-20">
+					<a href="/register" class="text-info"><i>Регистрация в системе</i></a>
+				</div>
+			</div>
+
+			
+		</form>
+		{{#user.message.success}}
+		<br/>
+<div class="alert alert-info" role="alert">
+                      <button class="close" data-dismiss="alert"></button>
+                      {{{.}}}
+</div>
+{{/user.message.success}}
+		<!--END Login Form-->
+		{{#user.message.error}}
+		<br/>
+<div class="alert alert-danger" role="alert">
+                      <button class="close" data-dismiss="alert"></button>
+                      <strong>Ошибка: </strong>{{{.}}}
+</div>
+{{/user.message.error}}
+		{{#page.bottom-text}}
+		{{>login.bottom-text}}
+		{{/page.bottom-text}}
+	</div>
+</div>
+<!-- END Login Right Container-->
+
+</div>
+<!-- END PAGE CONTAINER -->

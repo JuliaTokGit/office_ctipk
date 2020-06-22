@@ -1,0 +1,17 @@
+{
+    "scripts": {
+        "admin": "js/pages.js",
+    	"main": "js/main.js",
+        "social": "vendor/pages/js/pages.social.min.js",
+    	"blocks": "js/blocks.js",
+        "photomodal": "js/photomodal.js",
+        "photomodal-multi": "js/photomodal-multi.js",
+    	"datatables": ["js/modals.js","js/datatables.default.js","js/datatables.formatters.js","js/datatables.js","js/datatables.imagecrop.js"],
+        "datatables-expandable":"js/datatables.expandable.js",
+        "formatters": "js/formatters.js"
+    },
+    "styles": {
+        "pages-icons": "css/pages-icons.css",
+        "admin": "css/admin.css"
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+{{> layout.head }}
+
+<body class="{{page.bodyclass}}">
+
+{{> layout.sidebar }}
+
+<!-- START PAGE-CONTAINER -->
+<div class="page-container">
+
+{{> layout.header }}
+
+<!-- PAGE CONTENT BEGINS -->
+<div class="page-content-wrapper">
+<!-- START PAGE CONTENT -->
+<div class="content">  
+
+{{^ page.hide_pagetop}}
+{{# page.jumbotron}}
+{{> layout.content.jumbotron}}
+{{/ page.jumbotron}}
+{{^ page.jumbotron}}
+{{> layout.content.header-with-range}}
+{{/ page.jumbotron}}
+{{/ page.hide_pagetop}}
+
+<div class="container-fluid container-fixed-lg"> 
+
+{{> page.content }}
+
+</div>
+
+{{#page.modal}}
+{{>page.modal}}
+{{/page.modal}}
+
+
+{{> page.copyright}}
+</div>
+<!-- END PAGE CONTENT -->
+
+</div>
+<!-- PAGE CONTENT ENDS -->
+
+</div>
+<!-- END PAGE CONTAINER -->
+
+
+
+{{# page.quickview }}
+{{> layout.filters }}
+{{/ page.quickview }}
+
+{{> layout.jsvars}}
+{{> layout.scripts}}
+
+{{#page.serverside}}
+<script>
+dt_options={
+	serverSide: true,
+	searchDelay: 0
+};
+</script>
+{{/page.serverside}}
+
+</body>
+</html>

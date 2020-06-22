@@ -1,0 +1,37 @@
+{
+    "title": "Paysheet statuses",
+    "header": "Paysheet statuses",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes": ["dt-crud-modals","filters"],
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true },
+            "crud_modals":{
+                "titles":{
+                    "create":"Add paysheet status",
+                    "edit":"Edit paysheet status",
+                    "delete":"Delete paysheet status"
+                },
+                "fields": [
+
+                            {
+                                "label": "Name",
+                                "type":"text",
+                                "property": "name"
+                            },
+                            {
+                                "label": "Sequence",
+                                "property": "sequence",
+                                "type":"number",
+                                "min":1,
+                                "default":1
+                            }
+                        ],
+
+                "subheaders":{"delete":"Please confirm deletion \"<span data-obj=name></span>\"?"}
+            }
+        }
+    }
+}

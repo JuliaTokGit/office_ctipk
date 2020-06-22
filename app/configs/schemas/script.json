@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "{{site.url}}/schemas/id/script",
+    "description":"Маппинг скриптов (связывание названия с файлами)",
+     "anyOf": [
+        {
+            "type": "string"
+        }, 
+        {
+            "type": "array",
+            "items": {
+            	"type":"string"
+            }
+        }
+    ]
+}

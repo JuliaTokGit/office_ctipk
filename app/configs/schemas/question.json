@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "{{site.url}}/schemas/id/question",
+    "title":"вопрос",
+    "headerTemplate": "{{=<% %>=}}{{ self.text }}<%={{ }}=%>",
+    "type":"object",
+    "properties":{
+        "text":{
+            "title":"Текст вопроса",
+            "type":"string"
+        },
+        "answers":{
+            "title":"Варианты ответов",                            
+            "type":"array",
+            "items":{
+                "$ref": "{{site.url}}/schemas/id/answer"   
+            }            
+        }
+    }
+}

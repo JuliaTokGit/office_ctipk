@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "{{site.url}}/schemas/id/modal",
+    "title": "модал",
+    "headerTemplate": "{{=<% %>=}}{{ self.title }}<%={{ }}=%>",
+    "type": "object",
+    "properties": {
+        "title": {
+            "title": "Заголовок",
+            "type": "string"
+        },
+        "id": {
+            "title": "Идентификатор",
+            "description": "Нужен для вызова этого модала",
+            "type": "string"
+        },
+        "body": {
+            "$ref": "{{site.url}}/schemas/id/datatable-forms"
+        }
+    },
+    "required": [ "id" ]
+}

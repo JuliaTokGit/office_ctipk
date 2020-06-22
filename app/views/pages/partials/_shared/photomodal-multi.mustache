@@ -1,0 +1,78 @@
+<div class="panel panel-transparent">
+	<ul class="nav nav-tabs nav-tabs-linetriangle" data-init-reponsive-tabs="dropdownfx">
+		<li class="active">
+			<a id="tab_load_photo" data-toggle="tab" href="#load"><span>Загрузка фото</span></a>
+		</li>
+
+		<li>
+			<a id="tab_all_photo" data-toggle="tab" href="#photolink"><span>Все фотографии</span></a>
+		</li>
+	</ul>
+	<div class="tab-content">
+	<div class="tab-pane active" id="load">
+	<form role="form" class="ajax-form" action="{{upload.url}}" data-done="uploaded">
+			<input type="hidden" name="action" value="{{upload.action}}"/>
+			{{#upload.linkage}}<input type="hidden" name="{{name}}" value="{{value}}" data-obj="id"/>{{/upload.linkage}}
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="form-group">
+					<label>Файл</label>
+					<span class="btn btn-default btn-file  form-control">
+						<span class='text'>Выберите файл для загрузки</span><input type="file" name="file" accept="image/*" />
+					</span>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="form-group">
+					<label>Описание файла</label>
+					<input type="text" name="description" class="form-control" value="">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="progressed"  style="display:none;">
+					<p>Идет загрузка фото: <strong><span id="percentage"></span>%</strong></p>
+					<div class="progress">
+			            <div class="progress-bar"></div>
+			        </div>
+			    </div>
+			</div>
+			<div class="col-sm-4 m-t-10 sm-m-t-10">
+				<button type="submit" class="btn btn-complete btn-block m-t-5 progressed">Загрузить</button>
+			</div>
+		</div>
+	</form>
+
+	</div>
+	<div class="tab-pane" id="photolink">
+
+		<form role="form" class="ajax-form" data-done="photolinked" data-tableid="#default">
+			<input type="hidden" name="action" value="edit"/>
+			<input type="hidden" name="id" value="" data-obj="id"/>
+			<div class="row">
+				<div class="col-sm-7">
+					<div class="form-group">
+						<label>Привязанные фото</label>
+						<div id="photos" class="connectedSortable"></div>
+					</div>
+					<div id="photos-list"></div>
+				</div>
+				<div class="col-sm-5 m-t-40 sm-m-t-10">
+					<p class="small">Для привязки фото, перетащите его из доступных фото в привязанные. Для сохранения состояния привязанных фото, нажмите кнопку "Сохранить". </p><p class="small">После загрузки фотографии, также необходимо сохранять состояние</p>
+					<button type="submit" class="btn btn-complete btn-block m-t-5">Сохранить</button>
+				</div>
+				<div class="col-sm-12">
+					<div class="form-group m-t-20">
+						<label>Все доступные фото</label>
+						<div id="available_photos" class="connectedSortable"></div>
+					</div>
+					
+					<div id="all_photos" style="display:none;"></div>
+				</div>			
+			</div>
+		</form> 
+
+	</div>
+	</div>
+</div>

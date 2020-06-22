@@ -1,0 +1,28 @@
+<!-- START User Info-->
+<div class="visible-lg visible-md m-t-10">
+	<div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
+		<span class="semi-bold">{{user.firstname}}</span> <span class="text-master">{{user.lastname}}</span>
+	</div>
+	<div class="dropdown pull-right">
+		<button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<span class="thumbnail-wrapper d32 circular inline m-t-5">
+				<img src="{{#user.photo}}{{path.assets}}/img/{{filename}}{{/user.photo}}{{^user.photo}}{{path.assets}}{{site.default_user_photo}}{{/user.photo }}" width="32" height="32">
+			</span>
+		</button>
+		<ul class="dropdown-menu profile-dropdown" role="menu">
+			<li><a href="#"><i class="pg-settings_small"></i> Settings</a>
+			</li>
+<!-- 			<li><a href="#"><i class="pg-outdent"></i> Feedback</a>
+			</li>
+			<li><a href="#"><i class="pg-signals"></i> Help</a>
+			</li>
+ -->			<li class="bg-master-lighter">
+				<a href="{{path.base}}/logout" class="clearfix">
+					<span class="pull-left">Log out</span>
+					<span class="pull-right"><i class="pg-power"></i></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- END User Info-->

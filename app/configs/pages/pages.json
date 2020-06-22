@@ -1,0 +1,11 @@
+{
+    "title": "Страницы",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "panelTitle":"Список страниц сайта"
+        }
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "name": "Офис",
+    "title": "Офис",
+    "email": "shuricken@gmail.com",
+    "domain": "office.ctipk.ru",
+    "url": "http://office.ctipk.ru",
+    "protocol": "http",
+    "remote_jquery": true,
+    "layout": "default",
+    "path": "/var/www/office.ctipk.ru",
+    "templates": "/var/www/office.ctipk.ru/assets/upload/",
+    "session_store":"/tmp/office",
+    "cache": "/tmp/office/.cache",
+    "default_user_photo":"/images/profiles/default.jpg",
+    "connections":{
+      "default":{
+      	"driver" : "mysql",
+      	"host"      : "localhost",
+      	"database"  : "office",
+      	"username"  : "office",
+        "password"  : "@lvbybcnhfnjh",
+      	"password1"  : "fq1qn271ghnwTUpi",
+      	"charset"   : "utf8",
+      	"collation" : "utf8_unicode_ci",
+      	"prefix"    : "",
+      	"timezone"  : "+05:00",
+          "strict":false
+      },
+      "mongodb":{
+      	"driver" : "mongodb",
+      	"host"      : "localhost",
+      	"database"  : "office"
+      }
+    },
+    "mustache_helpers":["css-min-link","js-min-link","src","out-vars","generate-options"],
+    "debug": true,
+    "debugEmails": true,
+    "debugSms": true,
+    "hash_code":"Sa#k#3&e599U$Srr"
+}

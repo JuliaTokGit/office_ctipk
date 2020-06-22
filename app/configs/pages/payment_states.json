@@ -1,0 +1,40 @@
+{
+    "title": "Payment states",
+    "header": "Payment states",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes": ["dt-crud-modals","filters"],
+    "quickview":true,
+    "filtering": {"gl_account_id":true,"currency_id":true},
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true},
+            "crud_modals":{
+                "titles":{
+                    "create":"Add payment state",
+                    "edit":"Edit payment state",
+                    "delete":"Delete payment state"
+                },
+                "fields": [
+
+                            {
+                                "label": "Name",
+                                "type":"text",
+                                "property": "name"
+                            },
+                            {
+                                "label": "Sequence",
+                                "property": "sequence",
+                                "type":"number",
+                                "min":1,
+                                "default":1
+                            }
+
+                        ],
+
+                "subheaders":{"delete":"Please confirm deletion \"<span data-obj=uuid></span>\" ?"}
+            }
+        }
+    }
+}

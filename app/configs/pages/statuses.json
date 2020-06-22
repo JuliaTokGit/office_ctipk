@@ -1,0 +1,37 @@
+{
+    "title": "Document statuses",
+    "header": "Document statuses",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes": ["dt-crud-modals","filters"],
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true },
+            "crud_modals":{
+                "titles":{
+                    "create":"Add document status",
+                    "edit":"Edit document status",
+                    "delete":"Delete document status"
+                },
+                "fields": [
+
+                            {
+                                "label": "Name",
+                                "type":"text",
+                                "property": "name"
+                            },
+                            {
+                                "label": "Sequence",
+                                "property": "sequence",
+                                "type":"number",
+                                "min":1,
+                                "default":1
+                            }
+                        ],
+
+                "subheaders":{"delete":"Please confirm deletion \"<span data-obj=name></span>\"?"}
+            }
+        }
+    }
+}

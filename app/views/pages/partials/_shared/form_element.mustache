@@ -1,0 +1,33 @@
+{{^group_begin}}{{^group_end}}
+{{^hidden}}
+{{^columns}}
+<div class="form-group">
+	<div class="row">
+		<div class="col-sm-12">
+{{/columns}}
+{{#columns}}
+		<div class="col-sm-{{.}}">
+{{/columns}}
+
+{{>page.form_field}}	
+
+		</div>
+{{^columns}}
+	</div>
+</div>
+{{/columns}}
+{{/hidden}}
+{{#hidden}}
+	<input type="hidden" name="{{hidden}}" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}"/>
+{{/hidden}}
+{{/group_end}}{{/group_begin}}
+
+{{#group_begin}}
+	<div class="form-group">
+		<div class="row">
+{{/group_begin}}
+
+{{#group_end}}
+		</div>
+	</div>
+{{/group_end}}

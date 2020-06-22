@@ -1,0 +1,11 @@
+{
+    "title": "Восстановление пароля",
+    "description": "Восстановление забытого пароля",
+    "guide":"",
+    "layout": "simple",
+    "bodyclass": "fixed-header",
+    "plugins": [
+        "validate",
+        "inputmask"
+    ]
+}

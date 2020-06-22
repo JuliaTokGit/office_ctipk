@@ -1,0 +1,70 @@
+{
+    "scripts": {
+        "modernizr": "plugins/modernizr.js",
+        "moment": "plugins/moment/moment-with-locales.js",
+        "jquery-ui": "plugins/jquery-ui/jquery-ui.min.js",
+        "boostrapv3": "plugins/boostrapv3/js/bootstrap.min.js",
+        "jquery-easy": "plugins/jquery/jquery-easy.js",
+        "bez": "plugins/jquery-bez/jquery.bez.min.js",
+        "actual": "plugins/jquery-actual/jquery.actual.min.js",
+        "scrollbar": "plugins/jquery-scrollbar/jquery.scrollbar.min.js",
+        "select2": "plugins/select2/select2.min.js",
+        "switchery": "plugins/switchery/js/switchery.min.js",
+        "classie": "plugins/classie/classie.js",
+        "chosen": "plugins/chosen/chosen.jquery.min.js",
+        "datatables": [
+            "plugins/datatables/datatables.min.js",
+            "plugins/datatables/jquery-datatable-bootstrap_.js"
+        ],
+        "summernote": "plugins/summernote/js/summernote.js",
+        "datepicker": [
+            "plugins/bootstrap-datepicker/js/bootstrap-datepicker.js",
+            "plugins/bootstrap-datepicker/js/locales/bootstrap-datepicker.ru.js"
+        ],
+        "lightbox": "plugins/lightbox/js/lightbox.min.js",
+        "tooltipster": "plugins/tooltipster/js/tooltipster.bundle.min.js",
+        "daterangepicker": "plugins/bootstrap-daterangepicker/daterangepicker.js",
+        "unveil": "plugins/jquery-unveil/jquery.unveil.min.js",
+        "ioslist": "plugins/jquery-ios-list/jquery.ioslist.min.js",
+        "imagesloaded": "plugins/imagesloaded/imagesloaded.pkgd.min.js",
+        "pace": "plugins/pace/pace.min.js",
+        "cropbox": "plugins/cropbox/cropbox-min.js",
+        "jsoneditor": [
+            "plugins/jsoneditor/jsoneditor.min.js",
+            "plugins/jsoneditor/jsoneditor.lang.ru.js"
+        ],
+        "validate": "plugins/jquery-validation/js/jquery.validate.min.js",
+        "trumbowyg": [
+            "plugins/trumbowyg/trumbowyg.js",
+            "plugins/trumbowyg/langs/ru.min.js"
+        ],
+        "elessar": "plugins/elessar/elessar.js",
+        "inputmask": "plugins/Inputmask-3.x/dist/jquery.inputmask.bundle.js"
+    },
+    "styles": {
+        "boostrapv3": "plugins/boostrapv3/css/bootstrap.min.css",
+        "font-awesome": "plugins/font-awesome/css/font-awesome.css",
+        "scrollbar": "plugins/jquery-scrollbar/jquery.scrollbar.css",
+        "select2": [
+            "plugins/select2/select2.min.css",
+            "plugins/select2/select2-bootstrap.css"
+        ],
+        "switchery": "plugins/switchery/css/switchery.min.css",
+        "simple-line-icons": "plugins/simple-line-icons/simple-line-icons.css",
+        "chosen": "plugins/chosen/chosen.css",
+        "datatables": [
+            "plugins/datatables/datatables.min.css",
+            "plugins/datatables/dataTables.bootstrap.css"
+        ],
+        "summernote": "plugins/summernote/css/summernote.css",
+        "datepicker": "plugins/bootstrap-datepicker/css/datepicker3.css",
+        "lightbox": "plugins/lightbox/css/lightbox.min.css",
+        "tooltipster": "plugins/tooltipster/css/tooltipster.bundle.min.css",
+        "daterangepicker": "plugins/bootstrap-daterangepicker/daterangepicker.css",
+        "pace": "plugins/pace/pace-theme-flash.css",
+        "trumbowyg": "plugins/trumbowyg/ui/trumbowyg.css",
+        "elessar": [
+            "plugins/elessar/elessar.css"
+        ]
+    }
+}

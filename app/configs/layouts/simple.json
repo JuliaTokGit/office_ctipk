@@ -1,0 +1,23 @@
+{
+    "search": false,
+    "header-buttons-and-notification": false,
+    "quickview": false,
+    "plugins": [
+        "pace",
+        "modernizr",
+        "jquery-ui",
+        "boostrapv3",
+        "jquery-easy",
+        "font-awesome",
+        "unveil",
+        "bez",
+        "ioslist",
+        "actual",
+        "classie",
+        "scrollbar",
+        "select2",
+        "switchery"
+    ],
+    "scripts": [ "admin" ],
+    "styles":["admin","pages-icons"]
+}

@@ -1,0 +1,59 @@
+{{#collection_list}}
+<!-- START PANEL -->
+<div class="panel panel-transparent">
+  <div class="panel-heading">
+    <div class="panel-title">Конфиги
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-hover table-condensed" id="condensedTable">
+        <thead>
+          <tr>
+            <th style="width:30%">Имя</th>
+            <th style="width:30%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#configs}}
+          <tr>
+            <td class="v-align-middle semi-bold">{{_id}}</td>
+            <td class="v-align-middle"><a class="btn btn-small" href="{{site.url}}/config/{{app_name}}/{{collection_name}}/item/{{_id}}">Редактировать</a></td>
+          </tr>
+          {{/configs}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- END PANEL -->
+{{/collection_list}}
+{{^collection_list}}
+<!-- START PANEL -->
+<div class="panel panel-transparent">
+  <div class="panel-heading">
+    <div class="panel-title">Редактировать настройки конфига {{id}}
+    </div>
+  </div>
+  <div class="panel-body">
+  	
+
+  	<div id='json_editor'>
+      <div class="loading">
+      <p class="small hint-text">Идёт загрузка конфигурации</p>
+      <div class="progress">
+      <div class="progress-bar-indeterminate" style="display: block;">
+      </div>
+      </div>
+    </div>
+      
+  	<script>
+  		config={{{config}}};
+      app_name="{{app_name}}";
+      collection_name="{{collection_name}}";
+      id="{{id}}";
+  	</script>
+  </div>
+</div>
+<!-- END PANEL -->
+{{/collection_list}}

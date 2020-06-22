@@ -1,0 +1,7 @@
+{
+    "title": "404",
+    "header": "Извините, мы не можем найти такую страницу",
+    "description": "Страница которую вы искали не найдена? <a href='#'>Cообщите нам об этом</a>",
+    "bodyclass": "fixed-header error-page",
+    "layout": "error"
+}

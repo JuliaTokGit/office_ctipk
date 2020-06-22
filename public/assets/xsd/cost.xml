@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LandValuation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<eDocument CodeType="004" Date="2020-01-27" Version="02">
+  <Sender Kod="59" Name="ГБУ ЦТИ ПК" Date_Upload="2020-01-27" FIO="Орлов Александр Федосеевич" E_Mail="info@ctipk.ru"/>
+  <Recipient Name="ФЕДЕРАЛЬНАЯ КАДАСТРОВАЯ ПАЛАТА РОСРЕЕСТРА ПО ПЕРМСКОМУ КРАЮ"/>
+</eDocument>
+<Package>
+<Federal CadastralNumber="00">
+<Cadastral_Regions>
+</Cadastral_Regions>
+</Federal>
+</Package>
+</LandValuation>

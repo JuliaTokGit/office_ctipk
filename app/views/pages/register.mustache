@@ -1,0 +1,90 @@
+    <div class="register-container full-height">
+      <div class="container-sm-height full-height">
+        <div class="row row-sm-height">
+          <div class="col-sm-12 col-sm-height col-middle p-b-60">
+            {{#site.logo}}
+		<img {{{ site.logo | src }}}  alt="{{ site.logo.alt }}" width="{{ site.logo.width }}" height="{{ site.logo.height }}">
+		{{/site.logo}}
+		{{^site.logo}}
+		<h1>{{site.name}}</h1>
+		{{/site.logo}}
+
+            <h3>{{page.description}}</h3>
+            <p>{{page.guide}}</p>
+            
+
+            <form id="form-register" class="p-t-15" role="form" method="POST">
+            	<input type="hidden" name="auth_oper" value="signup"/>
+{{^user.registered}}
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group form-group-default">
+                    <label>Имя</label>
+                    <input type="text" name="auth_firstname" placeholder="Иван" class="form-control" required data-msg-required="Необходимо заполнить имя"/>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group form-group-default">
+                    <label>Фамилия</label>
+                    <input type="text" name="auth_lastname" placeholder="Иванов" class="form-control" required data-msg-required="Необходимо заполнить фамилию"/>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group form-group-default">
+                    <label>Email</label>
+                    <input type="email" name="auth_username" placeholder="Этот адрес будет использоваться для входа." class="form-control" required data-msg-required="Необходимо указать рабочий email"/>                  
+                  </div>
+                </div>
+                
+              </div>
+
+                
+              
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group form-group-default">
+                    <label>Пароль</label>
+                    <input type="password" name="auth_password" placeholder="Минимум 6 знаков" class="form-control" required data-msg-required="Необходимо заполнить пароль"/>
+                  </div>
+                </div>
+              </div>
+
+{{/user.registered}}
+
+{{#user.message}}
+{{#success}}
+<div class="alert alert-info m-b-10" role="alert">
+                      <button class="close" data-dismiss="alert"></button>
+                      {{{.}}}
+</div>
+{{/success}}
+{{#error}}
+<div class="alert alert-danger m-b-10" role="alert">
+                      <button class="close" data-dismiss="alert"></button>
+                      {{{.}}}
+</div>
+{{/error}}
+{{/user.message}}
+
+
+			<div class="row">
+				<div class="col-xs-6">
+					{{^user.registered}}
+          <button class="btn btn-primary btn-cons m-t-10" type="submit">Зарегистрироваться</button>
+          {{/user.registered}}
+				</div>
+				<div class="col-xs-6 text-right p-t-20 p-r-20">
+					<a href="/" class="text-info"><i>Вернуться на страницу входа</i></a>
+				</div>
+			</div>
+
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+

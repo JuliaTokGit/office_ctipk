@@ -1,0 +1,8 @@
+{
+    "title": "Разметка шаблона",
+    "bodyclass": "fixed-header",
+    "hide_pagetop": true,
+    "plugins": [
+        "jsoneditor"
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "name": "ctipk/office",
+    "description": "Админка для приложения офис ЦТИПК",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Alex Shlyakhov",
+            "email": "shuricken@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://libs.arx.ru"
+        }
+    ],
+    "require": {
+        "ccampbell/chromephp": "^4.1",
+        "spacewind/libs": "dev-master",
+        "spacewind/models": "dev-master",
+        "nategood/httpful": "^0.2.20",
+        "mos/cimage": "^0.7.20",
+        "mrclay/minify": "^3.0",
+        "phpoffice/phpspreadsheet": "^1.8",        
+        "phpoffice/phpword": "^0.16.0",
+        "krustnic/docx-merge": "^1.0",
+        "shuchkin/simplexlsx": "^0.8.13",
+        "jenssegers/mongodb": "^3.6",
+        "larapack/dd": "^1.1",
+        "ramsey/uuid": "^4.0"
+    },
+    "autoload": {
+        "classmap": [
+            "app/models/"
+        ]
+    }
+}

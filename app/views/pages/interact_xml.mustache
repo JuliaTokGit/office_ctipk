@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+{{#request}}
+<iRLT1:interact_entry_realty guid="{{guid}}" version="01"
+  xmlns:DocAtt1="urn://x-artefacts-rosreestr-ru/commons/complex-types/document-requisites-and-attachment/1.0.1"
+  xmlns:iRLT1="urn://x-artefacts-rosreestr-ru/interact/interact-entry-realty/1.0.1">
+  <iRLT1:document>
+    <DocAtt1:document_code>558501030500</DocAtt1:document_code>
+    <DocAtt1:document_name>Акт определения кадастровой стоимости объектов недвижимости</DocAtt1:document_name>
+    <DocAtt1:document_number>{{number}}</DocAtt1:document_number>
+    <DocAtt1:document_date>{{date}}</DocAtt1:document_date>
+    <DocAtt1:document_issuer>Государственное бюджетное учреждение Пермского края 'Центр технической инвентаризации и
+      кадастровой оценки Пермского края'</DocAtt1:document_issuer>
+  </iRLT1:document>
+  <iRLT1:objects>
+{{#vals}}    <iRLT1:object>
+      <iRLT1:cad_number>{{cadastral_number}}</iRLT1:cad_number>
+      <iRLT1:type>{{type}}</iRLT1:type>
+      <iRLT1:information_object>
+        <iRLT1:cost>
+          <iRLT1:value>{{cadastral_cost}}</iRLT1:value>
+          <iRLT1:cost_index>{{specific_cadastral_cost}}</iRLT1:cost_index>
+          <iRLT1:determination_date>{{determination_date}}</iRLT1:determination_date>
+          <iRLT1:approvement_date>{{date}}</iRLT1:approvement_date>
+        </iRLT1:cost>
+      </iRLT1:information_object>
+    </iRLT1:object>
+    {{/vals}}
+  </iRLT1:objects>
+</iRLT1:interact_entry_realty>
+{{/request}}

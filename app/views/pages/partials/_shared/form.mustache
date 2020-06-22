@@ -1,0 +1,19 @@
+<form role="form" {{#data}}data-{{name}}="{{value}}" {{/data}} class="{{class}}" {{#action}}action="{{.}}"{{/action}}>
+
+{{#fields}}
+{{>page.form_element}}		
+{{/fields}}
+
+
+<div class="row">
+  <div class="col-sm-8">
+  </div>
+  <div class="col-sm-4 m-t-10 sm-m-t-10">
+      
+{{#buttons}}
+ <button type="{{type}}" class="btn {{class}} btn-block m-t-5">{{text}}</button>
+{{/buttons}}
+
+  </div>
+</div>
+</form> 

@@ -1,0 +1,34 @@
+{
+    "title": "Группы",
+    "header": "Группы",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes": ["dt-crud-modals","filters"],
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true },
+            "crud_modals":{
+                "titles":{
+                    "create":"Добавить группу",
+                    "edit":"Редактировать группу",
+                    "delete":"Удалить группу"
+                },
+                "fields": [
+
+                    {
+                        "label": "id",
+                        "type":"text",
+                        "property": "id"
+                    },{
+                                "label": "Имя",
+                                "type":"text",
+                                "property": "name"
+                            }
+                        ],
+
+                "subheaders":{"delete":"Please confirm deletion \"<span data-obj=name></span>\"?"}
+            }
+        }
+    }
+}

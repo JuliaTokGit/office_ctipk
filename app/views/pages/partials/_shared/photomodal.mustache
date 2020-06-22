@@ -1,0 +1,55 @@
+<div class="row">
+	<div class="col-sm-3 b-r b-grey">
+		<div class="form-group">
+			<label>Привязанное фото</label>
+			<div id="photos" class="connectedSortable singlephoto"></div>
+		</div>
+	</div>
+	<form role="form" class="ajax-form" action="{{upload.url}}" data-done="uploaded">
+	<input type="hidden" name="action" value="{{upload.action}}"/>
+	{{#upload.linkage}}<input type="hidden" name="{{name}}" value="{{value}}" data-obj="id"/>{{/upload.linkage}}
+	<div class="col-sm-9">
+		<div class="form-group">
+			<label>Файл</label>
+			<span class="btn btn-default btn-file  form-control">
+				<span class='text'>Выберите файл для загрузки</span><input type="file" name="file" accept="image/*" />
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Описание файла</label>
+			<input type="text" name="description" class="form-control" value="">
+		</div>
+		<div class="progressed" style="display:none;">
+			<p>Идет загрузка фото: <strong><span id="percentage"></span>%</strong></p>
+			<div class="progress">
+	            <div class="progress-bar"></div>
+	        </div>
+	    </div>
+		<button type="submit" class="btn btn-complete btn-block m-t-30 progressed">Загрузить</button>
+	</div>
+	</form>
+</div>
+	
+
+
+		<form role="form" class="ajax-form" data-done="photolinked">
+			<input type="hidden" name="action" value="edit"/>
+			<input type="hidden" name="id" value="" data-obj="id"/>
+
+
+			<div class="form-group m-t-20">
+				<label>Все доступные фото</label>
+				<div id="available_photos" class="connectedSortable"></div>
+			</div>
+			
+			<div id="all_photos" style="display:none;"></div>
+
+			<div class="row">
+				<div class="col-sm-8">
+					<div id="photos-list"></div>
+				</div>
+				<div class="col-sm-4 m-t-10 sm-m-t-10">
+					<button type="submit" class="btn btn-complete btn-block m-t-5">Сохранить</button>
+				</div>
+			</div>
+		</form> 

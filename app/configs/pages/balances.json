@@ -1,0 +1,50 @@
+{
+    "title": "Balances",
+    "header": "Balances",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes": ["dt-crud-modals","filters"],
+    "quickview":true,
+    "filtering": {"gl_account_id":true,"currency_id":true},
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {},
+            "crud_modals":{
+                "titles":{
+                    "create":"Add balance",
+                    "edit":"Edit balance",
+                    "delete":"Delete balance"
+                },
+                "fields": [
+
+                            {
+                                "label":"Account",
+                                "type":"text",
+                                "property": "account_id"
+                            },
+                            {
+                                "label":"Amount",
+                                "type":"text",
+                                "property": "amount"
+                            },
+                            {
+                                "label": "Currency",
+                                "type":"select_ajax",
+                                "property": "currency_code",
+                                "url":"/select-ajax/currencies"
+                            },
+                            {
+                                "label": "GL Account",
+                                "type":"select_ajax",
+                                "property": "gl_account_id",
+                                "url":"/select-ajax/gl_accounts"
+                            }
+
+                        ],
+
+                "subheaders":{"delete":"Please confirm deletion \"<span data-obj=uuid></span>\" ?"}
+            }
+        }
+    }
+}

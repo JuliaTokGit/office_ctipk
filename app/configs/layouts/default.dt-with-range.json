@@ -1,0 +1,28 @@
+{
+
+    "plugins": [
+        "modernizr",
+        "moment",
+        "jquery-ui",
+        "boostrapv3",
+        "jquery-easy",
+        "font-awesome",
+        "bez",
+        "actual",
+        "scrollbar",
+        "select2",
+        "switchery",
+        "simple-line-icons",
+        "classie",
+        "chosen",
+        "datatables",
+        "summernote",
+        "datepicker",
+        "lightbox",
+        "tooltipster",
+        "daterangepicker"
+    ],
+    "scripts": [ "admin", "datatables","main"],
+    "styles":["admin","pages-icons"]
+
+}

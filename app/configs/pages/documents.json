@@ -1,0 +1,37 @@
+{
+    "title": "Documents",
+    "header": "Documents",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes": ["dt-crud-modals","filters"],
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true },
+            "crud_modals":{
+                "titles":{
+                    "create":"Add documents",
+                    "edit":"Edit documents",
+                    "delete":"Delete documents"
+                },
+                "fields": [
+
+                            {
+                                "label":"Type",
+                                "type":"select_ajax",
+                                "property": "type_id",
+                                "url":"/select-ajax/document_types"
+                            },
+                            {
+                                "label": "Data",
+                                "type":"textarea",
+                                "property": "data"
+                            }
+
+                        ],
+
+                "subheaders":{"delete":"Please confirm deletion \"<span data-obj=uuid></span>\" ?"}
+            }
+        }
+    }
+}
