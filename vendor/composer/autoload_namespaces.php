@@ -9,6 +9,7 @@ return array(
     'Props\\' => array($vendorDir . '/mrclay/props-dic/src'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'Mustache' => array($vendorDir . '/mustache/mustache/src'),
+    'Jenssegers\\Mongodb' => array($vendorDir . '/jenssegers/mongodb/src'),
     'JSMin\\' => array($vendorDir . '/mrclay/jsmin-php/src'),
     'Httpful' => array($vendorDir . '/nategood/httpful/src'),
     'ChromePhp' => array($vendorDir . '/ccampbell/chromephp'),
