@@ -135,7 +135,7 @@ $page = new Page();
 
 
 
-if (!in_array($page->name, ['login', 'register', 'remind', 'migrations']) && !$user->logged) {
+if (!in_array($page->name, ['login', 'register', 'remind', 'migrate']) && !$user->logged) {
     $page = new Page('login');
 }
 

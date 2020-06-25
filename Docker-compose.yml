@@ -17,7 +17,7 @@ services:
     networks:
       backend:
         aliases:
-          - spacewind-app
+          - office-app
 
   mysql-db-office:
     image: mysql:5.7
