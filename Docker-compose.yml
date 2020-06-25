@@ -25,7 +25,7 @@ services:
     restart: always
     volumes:
       - ./run/var:/var/lib/mysql
-      - ./init.sql:/data/application/init.sql
+      - ./run/init.sql:/data/application/init.sql
     environment:
       - MYSQL_ROOT_PASSWORD=securerootpassword
       - MYSQL_DATABASE=office
