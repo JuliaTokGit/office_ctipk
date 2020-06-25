@@ -15,6 +15,7 @@
         }
     ],
     "require": {
+        "cartalyst/sentinel": "2.0.*",
         "ccampbell/chromephp": "^4.1",
         "spacewind/libs": "dev-master",
         "spacewind/models": "dev-master",
