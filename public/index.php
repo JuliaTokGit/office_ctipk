@@ -12,6 +12,7 @@ use Spacewind\Page;
 use Spacewind\Layout;
 use Spacewind\Navigator;
 use Spacewind\CustomLoader;
+// use Cartalyst\Sentinel\Native\Facades\Sentinel;
 
 /*
 
@@ -122,8 +123,10 @@ $db::connection()->enableQueryLog();
 // define('PERMISSION_UPDATE_OWNED', 32);  // "Only Own" Scope
 // define('PERMISSION_DELETE_OWNED', 64);  // "Only Own" Scope
 //
-$user = $container->make(Auth::class)->setSalt($site->hash_code)->init($_POST);
-$user = $user->loadRelation('type')->loadRelation('photo');
+// $user = $container->make(Auth::class)->setSalt($site->hash_code)->init($_POST);
+// $user = $user->loadRelation('type')->loadRelation('photo');
+
+$container->sentinel = (new \Cartalyst\Sentinel\Native\Facades\Sentinel())->getSentinel();
 
 /*
 
@@ -135,20 +138,20 @@ $page = new Page();
 
 
 
-if (!in_array($page->name, ['login', 'register', 'remind', 'migrate']) && !$user->logged) {
-    $page = new Page('login');
-}
+// if (!in_array($page->name, ['login', 'register', 'remind', 'migrate']) && !$user->logged) {
+//     $page = new Page('login');
+// }
 
-if ($user->logged && empty($configs->access->{$user->type->str_id}->pages->{$page->name}) && $user->type->id > 0) {
-    // Если страница не в списке разрешенных и не юзер не админ посылаем.
-    exit(header($_SERVER['SERVER_PROTOCOL'].' 403 Forbidden'));
-}
+// if ($user->logged && empty($configs->access->{$user->type->str_id}->pages->{$page->name}) && $user->type->id > 0) {
+//     // Если страница не в списке разрешенных и не юзер не админ посылаем.
+//     exit(header($_SERVER['SERVER_PROTOCOL'].' 403 Forbidden'));
+// }
 
-if (($user->logged) && !empty($configs->access->{$user->type->str_id}->navigation)) {
-    $navigation = new Navigator($configs->{$configs->access->{$user->type->str_id}->navigation});
-} else {
+// if (($user->logged) && !empty($configs->access->{$user->type->str_id}->navigation)) {
+//     $navigation = new Navigator($configs->{$configs->access->{$user->type->str_id}->navigation});
+// } else {
     $navigation = new Navigator($configs->nav);
-}
+// }
 
 $nav = $navigation->create($page);
 $layout = new Layout($page->layout);
@@ -167,7 +170,7 @@ date_default_timezone_set('Europe/Moscow');
 
 $context = array(
     'page' => $page,
-    'user' => $user,
+    // 'user' => $user,
     'layout' => $layout,
     'nav' => $navigation,
     'path' => $path,

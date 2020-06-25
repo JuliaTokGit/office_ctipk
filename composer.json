@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "cartalyst/sentinel": "2.0.*",
+        "cartalyst/sentinel": "*.*",
         "ccampbell/chromephp": "^4.1",
         "spacewind/libs": "dev-master",
         "spacewind/models": "dev-master",
@@ -26,9 +26,10 @@
         "phpoffice/phpword": "^0.16.0",
         "krustnic/docx-merge": "^1.0",
         "shuchkin/simplexlsx": "^0.8.13",
-        "jenssegers/mongodb": "^3.6",
+        "jenssegers/mongodb": "*.*",
         "larapack/dd": "^1.1",
-        "ramsey/uuid": "^4.0"
+        "ramsey/uuid": "^4.0",
+        "symfony/http-foundation": "^5.1"
     },
     "autoload": {
         "classmap": [

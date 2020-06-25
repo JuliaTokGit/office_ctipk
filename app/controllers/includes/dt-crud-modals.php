@@ -18,7 +18,7 @@ foreach ($page->datatables as $dt) {
         'fields' => [['hidden' => 'action', 'value' => 'create']],
         'buttons' => [[
             'type' => 'submit',
-            'text' => 'Create',
+            'text' => 'Создать',
             'class' => 'btn-complete',
         ]],
     ];
@@ -29,7 +29,7 @@ foreach ($page->datatables as $dt) {
         'fields' => [['hidden' => 'action', 'value' => 'edit']],
         'buttons' => [[
             'type' => 'submit',
-            'text' => 'Save',
+            'text' => 'Сохранить',
             'class' => 'btn-primary',
         ]],
     ];
@@ -40,7 +40,7 @@ foreach ($page->datatables as $dt) {
         'fields' => [['hidden' => 'action', 'value' => 'delete']],
         'buttons' => [[
             'type' => 'submit',
-            'text' => 'Delete',
+            'text' => 'Удалить',
             'class' => 'btn-danger',
         ]],
     ];

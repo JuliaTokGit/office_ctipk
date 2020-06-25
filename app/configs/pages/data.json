@@ -15,17 +15,8 @@
         "pages": {
             "name": "Spacewind\\Models\\PageDataAdm"
         },
-        "requests": {
-            "name": "Request"
-        },
-        "sources": {
-            "name": "Source"
-        },
-        "results": {
-            "name": "Result"
-        },
-        "groups": {
-            "name": "Group"
+        "forms": {
+            "name": "Form"
         }
     },
     "upload_targets": {

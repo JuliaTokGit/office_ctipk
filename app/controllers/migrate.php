@@ -1,8 +1,90 @@
 <?php
 
 use Illuminate\Database\Capsule\Manager as DB;
+use Illuminate\Database\Schema\Blueprint as Blueprint;
 
 $migrations = [];
+
+$migrations['1'] = function () {
+    $info="Миграция Sentinel";
+    DB::schema()->create('activations', function (Blueprint $table) {
+        $table->increments('id');
+        $table->integer('user_id')->unsigned();
+        $table->string('code');
+        $table->boolean('completed')->default(0);
+        $table->timestamp('completed_at')->nullable();
+        $table->timestamps();
+
+        $table->engine = 'InnoDB';
+    });
+
+    DB::schema()->create('persistences', function (Blueprint $table) {
+        $table->increments('id');
+        $table->integer('user_id')->unsigned();
+        $table->string('code');
+        $table->timestamps();
+
+        $table->engine = 'InnoDB';
+        $table->unique('code');
+    });
+
+    DB::schema()->create('reminders', function (Blueprint $table) {
+        $table->increments('id');
+        $table->integer('user_id')->unsigned();
+        $table->string('code');
+        $table->boolean('completed')->default(0);
+        $table->timestamp('completed_at')->nullable();
+        $table->timestamps();
+
+        $table->engine = 'InnoDB';
+    });
+
+    DB::schema()->create('roles', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('slug');
+        $table->string('name');
+        $table->text('permissions')->nullable();
+        $table->timestamps();
+
+        $table->engine = 'InnoDB';
+        $table->unique('slug');
+    });
+
+    DB::schema()->create('role_users', function (Blueprint $table) {
+        $table->integer('user_id')->unsigned();
+        $table->integer('role_id')->unsigned();
+        $table->nullableTimestamps();
+
+        $table->engine = 'InnoDB';
+        $table->primary(['user_id', 'role_id']);
+    });
+
+    DB::schema()->create('throttle', function (Blueprint $table) {
+        $table->increments('id');
+        $table->integer('user_id')->unsigned()->nullable();
+        $table->string('type');
+        $table->string('ip')->nullable();
+        $table->timestamps();
+
+        $table->engine = 'InnoDB';
+        $table->index('user_id');
+    });
+
+    DB::schema()->create('users', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('email');
+        $table->string('password');
+        $table->text('permissions')->nullable();
+        $table->timestamp('last_login')->nullable();
+        $table->string('first_name')->nullable();
+        $table->string('last_name')->nullable();
+        $table->timestamps();
+
+        $table->engine = 'InnoDB';
+        $table->unique('email');
+    });
+    return $info;
+};
 
 $migrations['201907141'] = function () {
     $info="Таблица для ChangeLog (Лог изменений в базе реализованный через trait Logged)";
@@ -19,80 +101,6 @@ $migrations['201907141'] = function () {
     return $info;
 };
 
-$migrations['201907142'] = function () {
-    $info="Таблица для UserType ";
-    DB::schema()->create('user_types', function ($table) {
-        $table->unsignedInteger('id')->unique();
-        $table->string('name');
-        $table->string('str_id')->index();
-    });
-    return $info;
-};
-
-$migrations['201907143'] = function () {
-    $info="Заполняем UserType ";
-    UserType::create(['id' => 0, 'name' => 'Разработчик', 'str_id' => 'developer']);
-    UserType::create(['id' => 1, 'name' => 'Администратор', 'str_id' => 'admin']);
-    return $info;
-};
-
-$migrations['201907144'] = function () {
-    $info="Таблица для User ";
-    DB::schema()->create('users', function ($table) {
-        $table->increments('id');
-        $table->string('username')->index();
-        $table->string('password');
-        $table->string('firstname');
-        $table->string('lastname');
-        $table->string('description');
-        $table->unsignedInteger('upload_id')->nullable;
-        $table->unsignedInteger('user_type_id')->default(1);
-        $table->unsignedInteger('sequence')->index();
-        $table->boolean('active');
-        $table->timestamps();
-    });
-    return $info;
-};
-
-$migrations['201907145'] = function () {
-    $info="Таблица для UserRememberHash ";
-    DB::schema()->create('user_remember_hashes', function ($table) {
-        $table->increments('id');
-        $table->unsignedInteger('user_id')->index();
-        $table->string('hash')->index();
-        $table->timestamps();
-    });
-    return $info;
-};
-
-$migrations['201907146'] = function () use ($user) {
-    $info="Добавляем дефолтного юзера и логинимся под ним";
-    User::create([
-        'lastname' => 'System',
-        'username' => 'spacewind@arx.ru',
-        'password' => $user->hashPassword('spacewind'),
-        'user_type_id' => 0, 'active' => true,
-    ]);
-    $user = $user->init([
-            'auth_username' => 'spacewind@arx.ru',
-            'auth_password' => 'spacewind',
-            'auth_oper' => 'login',
-            ]);
-    $user = $user->loadRelation('type');
-    return $info;
-};
-
-$migrations['201907147'] = function () use ($user) {
-    $info="Добавляем тестового юзера";
-    User::create([
-        'firstname'=>'Тестовый',
-        'lastname' => 'пользователь',
-        'username' => 'user@arx.ru',
-        'password' => $user->hashPassword('test'),
-        'user_type_id' => 0, 'active' => true,
-    ]);
-    return $info;
-};
 
 $migrations['201907148'] = function () {
     $info="Таблица для UploadType (Типы файлов)";
@@ -143,6 +151,7 @@ $migrations['20200625'] = function () {
     $info="Таблица для Form ";
     DB::schema()->create('forms', function ($table) {
         $table->increments('id');
+        $table->text('name');
         $table->string('data_url');
         $table->text('data');
         $table->timestamps();

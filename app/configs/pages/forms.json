@@ -1,0 +1,40 @@
+{
+    "title": "Формы",
+    "header": "Формы",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes": ["dt-crud-modals","filters"],
+    "quickview":false,
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true },
+            "crud_modals":{
+                "titles":{
+                    "create":"Добавить форму",
+                    "edit":"Редактировать форму",
+                    "delete":"Удалить форму"
+                },
+                "fields": [
+                    {
+                        "label":"Название",
+                        "type":"text",
+                        "property": "name"
+                    },
+                            {
+                                "label":"URL",
+                                "type":"text",
+                                "property": "data_url"
+                            },
+                            {
+                                "label":"Данные",
+                                "type":"textarea",
+                                "property": "data"
+                            }
+                        ],
+
+                "subheaders":{"delete":"Please confirm deletion \"<span data-obj=name></span>\" ?"}
+            }
+        }
+    }
+}

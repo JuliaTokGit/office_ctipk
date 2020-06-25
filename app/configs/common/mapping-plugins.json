@@ -39,7 +39,8 @@
             "plugins/trumbowyg/langs/ru.min.js"
         ],
         "elessar": "plugins/elessar/elessar.js",
-        "inputmask": "plugins/Inputmask-3.x/dist/jquery.inputmask.bundle.js"
+        "inputmask": "plugins/Inputmask-3.x/dist/jquery.inputmask.bundle.js",
+        "formbuilder":"plugins/formbuilder/form-builder.min.js"
     },
     "styles": {
         "boostrapv3": "plugins/boostrapv3/css/bootstrap.min.css",

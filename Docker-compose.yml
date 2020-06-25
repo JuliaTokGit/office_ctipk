@@ -22,7 +22,7 @@ services:
   mysql-db-office:
     image: mysql:5.7
     container_name: mysql-db-office
-    command: --init-file /data/application/init.sql
+    restart: always
     volumes:
       - ./run/var:/var/lib/mysql
       - ./init.sql:/data/application/init.sql
@@ -31,6 +31,7 @@ services:
       - MYSQL_DATABASE=office
       - MYSQL_USER=office
       - MYSQL_PASSWORD=office
+    command: --init-file /data/application/init.sql
     networks:
       backend:
         aliases:

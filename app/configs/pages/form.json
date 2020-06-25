@@ -1,0 +1,7 @@
+{
+    "title": "Редактирование формы",
+    "bodyclass": "fixed-header",    
+    "plugins": [        
+        "formbuilder"
+    ]
+}
