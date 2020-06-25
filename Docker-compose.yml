@@ -22,8 +22,10 @@ services:
   mysql-db-office:
     image: mysql:5.7
     container_name: mysql-db-office
+    command: --init-file /data/application/init.sql
     volumes:
       - ./run/var:/var/lib/mysql
+      - ./init.sql:/data/application/init.sql
     environment:
       - MYSQL_ROOT_PASSWORD=securerootpassword
       - MYSQL_DATABASE=office

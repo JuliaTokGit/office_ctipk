@@ -33,5 +33,5 @@ desktop.ini
 *.glue
 /vendor/
 composer.lock
-
+run/var/*
 *.lock
