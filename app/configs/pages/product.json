@@ -1,0 +1,8 @@
+{
+    "title": "Заявка",
+    "bodyclass": "fixed-header",
+    "hide_pagetop": true, 
+    "plugins": [        
+        "formrender"
+    ]
+}

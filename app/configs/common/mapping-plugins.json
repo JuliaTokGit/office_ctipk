@@ -40,7 +40,8 @@
         ],
         "elessar": "plugins/elessar/elessar.js",
         "inputmask": "plugins/Inputmask-3.x/dist/jquery.inputmask.bundle.js",
-        "formbuilder":"plugins/formbuilder/form-builder.min.js"
+        "formbuilder":"plugins/formbuilder/form-builder.min.js",
+        "formrender":"plugins/formbuilder/form-render.min.js"
     },
     "styles": {
         "boostrapv3": "plugins/boostrapv3/css/bootstrap.min.css",
