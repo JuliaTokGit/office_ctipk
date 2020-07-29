@@ -25,10 +25,10 @@ function create($input, $class)
                 $record->touch();
                 $sequence = 0;
                 foreach ($input[$cross] as $posted) {
-                    $record->$cross()->attach([$posted]);
+                    $record->$cross()->attach([$posted => ['sequence' => $sequence++]]);
                 }
             }
-         }
+        }
     }
 
     if (isset($class->linkages)) {
@@ -197,7 +197,7 @@ if (isset($class)) {
                             $record->touch();
                             $sequence = 0;
                             foreach ($_POST[$cross] as $posted) {
-                                $record->$cross()->attach([$posted]);
+                                $record->$cross()->attach([$posted => ['sequence' => $sequence++]]);
                             }
                         }
                     }
@@ -244,8 +244,7 @@ if (isset($class)) {
                 break;
 
             case 'delete':
-                
-                $class->find($_POST['id'])->delete();
+                $class->whereId($_POST['id'])->first()->delete();
                 break;
 
             case 'reorder':
@@ -277,11 +276,11 @@ if (isset($class)) {
         }
 
         if (!isset($class->filesdb)) {
-            foreach ($filters as $filter => $value) {                
-                if ($class->getConnection()->getSchemaBuilder()->hasColumn($class->getTable(), $filter) && !is_subclass_of($class,'Jenssegers\Mongodb\Eloquent\Model')) {
+            foreach ($filters as $filter => $value) {
+                if ($db::schema()->hasColumn($class->getTable(), $filter)) {
                     $data = $data->where($filter, $value);
                     $total = $total->where($filter, $value);
-                } else {                    
+                } else {
                     if (isset($datafilters[$filter]) && is_callable($datafilters[$filter])) {
                         $data = $datafilters[$filter]($value, $data);
                         $total = $datafilters[$filter]($value, $total);
@@ -289,6 +288,20 @@ if (isset($class)) {
                 }
             }
         }
+
+        // dd($_GET);
+
+        if (!empty($_GET['search']['value'])) {
+            $data = $data->where(function ($q){
+                foreach ($_GET['columns'] as $column) {
+                    if ($column['searchable']=='true'){
+                        $q = $q->orWhere($column['name'],'like','%'.$_GET['search']['value'].'%');
+                    }
+                }
+            });
+        }
+
+
 
         if (!empty($_GET['length'])) {
             $limit = (int)$_GET['length'];
@@ -305,6 +318,7 @@ if (isset($class)) {
         if (!empty($_GET['order'])) {
             $data = $data->orderBy($_GET['columns'][$_GET['order'][0]['column']]['name'], $_GET['order'][0]['dir']);
         }
+        
         // print_r($data->toSql());
         // die();
         $result['data'] = $data->get();

@@ -1,0 +1,13 @@
+{
+    "title": "Заявки",
+    "header": "Заявки",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes": ["filters"],
+    "quickview":false,
+    "datatables":{
+        "default":{
+            "tableId":"default"
+        }
+    }
+}

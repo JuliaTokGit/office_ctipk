@@ -1,0 +1,38 @@
+{
+    "title": "Заявка",
+    "header": "Заявка",    
+    "bodyclass": "fixed-header",
+    "layout": "default",
+    "includes": [],
+    "scripts": ["datatables"],
+    "quickview":false,
+    "forms":[
+        {            
+            "method":"POST",
+            "fields": [
+                {                    
+                    "type":"hidden",
+                    "property": "action",
+                    "value":"edit"
+                },
+                {
+                    "label":"Заказчик",
+                    "type":"text",
+                    "property": "Заказчик"
+                },
+                {
+                    "label":"Номер Заявки",
+                    "type":"text",
+                    "property": "Номер_Заявки"
+                }
+            ],
+            "buttons":[
+                {
+                    "type":"submit",
+                    "class":"btn btn-success",
+                    "text":"Сохранить"
+                }
+            ]
+        }
+    ]    
+}

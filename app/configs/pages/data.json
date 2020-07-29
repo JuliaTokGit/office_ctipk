@@ -17,6 +17,9 @@
         },
         "forms": {
             "name": "Form"
+        },
+        "orders": {
+            "name": "Order"
         }
     },
     "upload_targets": {

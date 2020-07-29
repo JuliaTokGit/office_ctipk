@@ -1,0 +1,8 @@
+{
+    "title": "Новая заявка",
+    "header": "Новая заявка",    
+    "bodyclass": "fixed-header",
+    "layout": "default",
+    "includes": [],
+    "quickview":false
+}

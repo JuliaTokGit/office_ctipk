@@ -21,7 +21,24 @@ RUN apt-get install -y \
     mc \
     libcurl4-openssl-dev \
     pkg-config \
-    libssl-dev
+    libssl-dev 
+
+RUN apt-get install -y gnupg
+
+RUN apt-get update \
+    && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+    && curl https://packages.microsoft.com/config/debian/10/prod.list \
+        > /etc/apt/sources.list.d/mssql-release.list \
+    && apt-get install -y --no-install-recommends \
+        locales \
+        apt-transport-https \
+    && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
+    && locale-gen \
+    && apt-get update \
+    && ACCEPT_EULA=Y apt-get -y --no-install-recommends install \
+        unixodbc-dev \
+        msodbcsql17
+
 
 RUN pecl install mongodb \
     &&  echo "extension=mongodb" > /usr/local/etc/php/conf.d/mongo.ini
@@ -51,6 +68,8 @@ RUN docker-php-ext-install \
     sodium \
     gd
 
+RUN pecl install sqlsrv pdo_sqlsrv xdebug \
+    && docker-php-ext-enable sqlsrv pdo_sqlsrv xdebug
 
 # 5. we need a user with the same UID/GID with host user
 # so when we execute CLI commands, all the host file's ownership remains intact
@@ -61,6 +80,6 @@ RUN mkdir -p /home/devuser/.composer && \
     chown -R devuser:devuser /home/devuser
 
 # 6. composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-USER www-data
-RUN composer install --prefer-source --no-interaction
+# COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# USER www-data
+# RUN composer install --prefer-source --no-interaction

@@ -4,6 +4,16 @@
             "title": "Формы",
             "icon" : "fa fa-asterisk",
             "link" : "/forms"
+        },
+        {
+            "title": "Заявки",
+            "icon" : "fa fa-asterisk",
+            "link" : "/orders"
+        },
+        {
+            "title": "Новая заявка",
+            "icon" : "fa fa-asterisk",
+            "link" : "/new-order"
         }
     ],
     "class_active":"open active"
