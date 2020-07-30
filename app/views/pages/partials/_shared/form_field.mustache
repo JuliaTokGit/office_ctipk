@@ -24,6 +24,11 @@
 	<span class="help">{{help}}</span>
 	<input type="text" name="{{phone}}" placeholder="+7(999) 999-9999" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control phone" value="{{value}}">
 {{/phone}}
+{{#email}}
+    <label>{{label}}</label>
+    <span class="help">{{help}}</span>
+    <input type="text" name="{{email}}" placeholder="example@mail.com" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control email" value="{{value}}">
+{{/email}}
 
 {{#summernote}}
 	<div class="summernote-wrapper"> <label>{{label}}</label>

@@ -7,6 +7,11 @@
         "requests":{
             "name" : "Request",
             "text" : "name"
+        },
+        "activity_types":{
+            "name" : "ActivityType",
+            "text" : "Наименование",
+            "id": "Код_Записи"
         }
     },
     "title": "Выдача данных для селектов",

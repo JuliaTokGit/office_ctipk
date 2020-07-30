@@ -79,7 +79,7 @@ RUN useradd -G www-data,root -u $uid -d /home/devuser devuser
 RUN mkdir -p /home/devuser/.composer && \
     chown -R devuser:devuser /home/devuser
 
-# 6. composer
+6. composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-# USER www-data
-# RUN composer install --prefer-source --no-interaction
+USER www-data
+RUN composer install --prefer-source --no-interaction
