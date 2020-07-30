@@ -4,7 +4,7 @@
     "bodyclass": "fixed-header",
     "layout": "default",
     "includes": [],
-    "scripts": ["datatables"],
+    "scripts": ["modals"],
     "quickview":false,
     "forms":[
         {            
