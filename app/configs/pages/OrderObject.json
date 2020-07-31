@@ -1,5 +1,20 @@
 [
   {
+    "label": "Код БТИ",
+    "type": "select",
+    "property": "Код_БТИ",
+    "ColumnDataType": "int",
+    "options": {
+      "raw": [{
+        "value": "1",
+        "text": "Портал"
+      },{
+        "value": "2",
+        "text": "Мфц"
+      }]
+    }
+  },
+  {
     "label": "Код заявки",
     "type": "number",
     "property": "Код_Заявки",
@@ -134,7 +149,7 @@
     "ColumnDataType": "int"
   },
   {
-    "label": "Дата оплаты",
+    "label": "Дата доплаты",
     "type": "date",
     "property": "Дата_Доплата",
     "ColumnDataType": "datetime"
@@ -242,7 +257,7 @@
     "ColumnDataType": "nvarchar"
   },
   {
-    "label": "Дата оплаты договора",
+    "label": "Дата оплаты для договора",
     "type": "date",
     "property": "Дата_Оплаты_Дог",
     "ColumnDataType": "datetime"
