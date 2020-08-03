@@ -4,6 +4,7 @@
     "bodyclass": "fixed-header",
     "layout": "default",
     "includes": [],
+    "plugins":["datepicker"],
     "scripts": ["modals"],
     "quickview":false,
     "forms":[
@@ -62,9 +63,8 @@
                 },
                 {
                     "label": "Дата заявки",
-                    "type": "date",
+                    "type": "datepickermssql",
                     "property": "Дата_Заявки",
-
                     "ColumnDataType": "datetime"
                 },
                 {

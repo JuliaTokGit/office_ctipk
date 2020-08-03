@@ -364,6 +364,19 @@
         });
     }
 
+
+    Pages.prototype.initDatepickerMssqlPlugin = function() {
+        $.fn.datepicker && $('[data-init-plugin="datepickermssql"]').each(function() {
+            $(this).datepicker({
+                format: 'yyyy-mm-dd',
+                // todayHighlight:true, 
+                language: 'ru'
+            }).on('changeDate', function(e){
+                $(this).datepicker('hide');
+            })
+        });
+    }
+
     /** @function initSelect2Plugin
     * @description Initialize select2 dropdown
     * @requires select2.js
@@ -633,6 +646,7 @@
         // init plugins
         this.initTooltipPlugin();
         this.initDatepickerPlugin();
+        this.initDatepickerMssqlPlugin();
         this.initSelect2Plugin();
         this.initTooltipsterPlugin();
         this.initSelect2AjaxPlugin();
