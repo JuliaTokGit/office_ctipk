@@ -221,7 +221,7 @@
     "ColumnDataType": "nvarchar"
   },
   {
-    "label": "Служебный телефон",
+    "label": "Сотовый телефон",
     "type": "phone",
     "property": "ТелефонС",
     "ColumnDataType": "nvarchar"
@@ -368,7 +368,7 @@
     "ColumnDataType": "nvarchar"
   },
   {
-    "label": "Дата выдачи в акте для бухгалтеров",
+    "label": "Дата выдачи паспорта",
     "type": "date",
     "property": "Дата_Выдачи",
     "ColumnDataType": "datetime"
