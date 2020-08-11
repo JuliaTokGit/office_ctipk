@@ -29,7 +29,7 @@ class Order extends Model
     protected $dateFormat = 'Y-m-d H:i:s.v';
 
     public function getДатаЗаявкиAttribute($value){
-        return empty($value)?'':empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
     public function getДатаРожденияAttribute($value){
