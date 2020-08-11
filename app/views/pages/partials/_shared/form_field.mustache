@@ -72,11 +72,20 @@
 	<input type="date" name="{{date}}" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control">
 {{/date}}
 
+{{#datetime}}
+	<label>{{label}}</label>
+	<input type="datetime-local" name="{{datetime}}" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control">
+{{/datetime}}
+
 {{#datepicker}}
 	<label>{{label}}</label>
-	<input type="text" name="{{datepicker}}" data-init-plugin="datepicker" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control datepicker" >
+	<input type="text" name="{{datepicker}}" data-init-plugin="datepicker" data-format="YYYY-MM-DD" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control datepicker" >
 {{/datepicker}}
 
+{{#datepickermssql}}
+	<label>{{label}}</label>
+	<input type="text" name="{{datepickermssql}}" data-init-plugin="datepickermssql" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control datepicker" >
+{{/datepickermssql}}
 
 {{#file}}
 	<label>{{label}}</label>
