@@ -29,54 +29,54 @@ class Order extends Model
     protected $dateFormat = 'Y-m-d H:i:s.v';
 
     public function getДатаЗаявкиAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
     public function getДатаРожденияAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
     public function getДатаОплатаAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
     public function getДатаДоплатаAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
     public function getДатаТехникAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
     public function getДатаИсполненияAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
     public function getДатаЗаданияAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
     public function getДатаАрхивAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
     public function getДатаОплатыДогAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
     
     public function getДатаВыдачиAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
     public function getДатаВыдачиЗаказчикуAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
     public function getДатаДоговораAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
     public function getДатаПереносаAttribute($value){
-        return Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
+        return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 }
