@@ -16,6 +16,10 @@ if (isset($page->filters_bulk[0][1]) && $page->filters_bulk[0][1] == 'filter') {
     $result->results[] = (object) ['id' => '', 'text' => 'All'];
 }
 
+foreach ($filters as &$filter) {
+    $filter=urldecode($filter);
+}
+
 //Подгружаем параметры из конфига
 $object = $page->objects->{$name};
 
@@ -34,7 +38,7 @@ if (isset($class)) {
     } elseif (isset($filters['text'])) {
         // print_r($class->where($text, urldecode($filters['text']))->first());
         // die();
-        $selected = $class->where($text, urldecode($filters['text']))->first()->{$id};
+        $selected = $class->where($text, $filters['text'])->first()->{$id};
         // print_r($selected);
         // die();
         $items = $class->all();
@@ -62,7 +66,7 @@ echo json_encode($result);
 function addItems($items, &$list)
 {
     global $id, $text, $selected;
-    foreach ($items as $item) {
+    foreach ($items as $item) {        
         if (isset($selected) && $selected == $item->{$id}) {            
             $list[] = (object) ['id' => $item->{$id}, 'text' => $item->{$text}, 'selected' => true];
         } else {
