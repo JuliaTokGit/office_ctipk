@@ -2,7 +2,7 @@ boolselect = function ( data, type, full, meta )
 { return data==1?'Да':'Нет'; }
 
 show_edit = function ( data, type, full, meta )
-{return `<a href="/order/id/${data}" type="button" class="btn btn-primary">Редактировать</a>`}
+{return `<a href="/order/id/${data}" type="button" class="btn btn-primary">Редактировать</a><a href="/delete-order/id/${data}" type="button" class="btn btn-primary">Удалить</a>`}
 
 columns=[
     { data: "Код_Заявки", "name":"Код_Заявки",  visible:false,  },
