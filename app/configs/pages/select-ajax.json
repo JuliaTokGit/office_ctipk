@@ -14,7 +14,7 @@
             "id": "Код_Записи"
         },
         "issued_by": {
-            "name": "IssuedBy",
+            "name": "Issueder",
             "text": "Наименование",
             "id": "Код_Записи"
         }
