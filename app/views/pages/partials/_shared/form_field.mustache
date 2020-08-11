@@ -20,7 +20,7 @@
 {{/number}}
 
 {{#phone}}
-	<label>{{label}}</label>yes
+	<label>{{label}}</label>
 
 	<span class="help">{{help}}</span>
 	<input type="text" name="{{phone}}" placeholder="+7(999) 999-9999" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control phone" value="{{value}}">
@@ -58,6 +58,9 @@
 		{{{ options | generate-buttons }}}
 	</div>
 {{/button-list}}
+{{#button}}
+    <button type="{{type}}" class="btn {{class}} btn-block m-t-5">{{text}}</button>
+{{/button}}
 
 {{#password}}
 	<label>{{label}}</label>

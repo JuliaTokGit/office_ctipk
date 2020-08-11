@@ -11,7 +11,7 @@
   "forms": [
     {
       "method": "POST",
-      "title": "title",
+      "title": "Информация о заявке",
       "fields": [
         {
           "type": "group_begin",
@@ -34,29 +34,29 @@
           "type": "group_end",
           "property": "none"
         },
+
         {
           "type": "group_begin",
-          "property": "none"
+          "property": "none",
+          "columns": 3
         },
         {
           "label": "Номер заявки",
           "type": "number",
           "property": "Номер_Заявки",
-          "columns": 3,
           "ColumnDataType": "int"
         },
         {
           "label": "Номер запроса",
           "type": "text",
           "property": "Номер_Запроса",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
         },
+
         {
           "label": "Вид заявки",
           "type": "number",
           "property": "Вид_Инвентаризации",
-          "columns": 3,
           "ColumnDataType": "int"
         },
         {
@@ -65,41 +65,81 @@
         },
         {
           "type": "group_begin",
-          "property": "none"
+          "property": "none",
+          "columns": 3
         },
         {
           "label": "Дата оформления",
           "type": "date",
           "property": "Дата_Заявки",
-          "columns": 3,
+          "ColumnDataType": "datetime"
+        },
+
+        {
+          "label": "Дата оформления",
+          "type": "date",
+          "property": "Дата_Заявки",
           "ColumnDataType": "datetime"
         },
         {
           "label": "Дата оплаты",
           "type": "date",
           "property": "Дата_Оплата",
-          "columns": 3,
           "ColumnDataType": "datetime"
+        },
+        {
+          "type": "group_end",
+          "property": "none",
+          "columns": 3
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 3
         },
         {
           "label": "Срок исполнения заявки",
           "type": "number",
           "property": "Срок",
-          "columns": 3,
           "ColumnDataType": "smallint"
         },
         {
           "label": "Дата исполнения",
           "type": "date",
           "property": "Дата_Исполнения",
-          "columns": 3,
           "ColumnDataType": "datetime"
         },
         {
           "label": "Дата выхода техника",
           "type": "date",
           "property": "Дата_Техник",
-          "columns": 3,
+          "ColumnDataType": "datetime"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 3
+        },
+        {
+          "label": "Дата оплаты для договора",
+          "type": "date",
+          "property": "Дата_Оплаты_Дог",
+          "ColumnDataType": "datetime"
+        },
+        {
+          "label": "Дата сдачи в архив",
+          "type": "date",
+          "property": "Дата_Архив",
+          "ColumnDataType": "datetime"
+        },
+        {
+          "label": "Дата выдачи заказчику",
+          "type": "date",
+          "property": "Дата_Выдачи_Заказчику",
           "ColumnDataType": "datetime"
         },
         {
@@ -123,48 +163,19 @@
     {
       "fields": [
         {
-          "type": "group_begin",
-          "property": "none"
-        },
-        {
-          "label": "Дата оплаты для договора",
-          "type": "date",
-          "property": "Дата_Оплаты_Дог",
-          "columns": 3,
-          "ColumnDataType": "datetime"
-        },
-        {
-          "label": "Дата сдачи в архив",
-          "type": "date",
-          "property": "Дата_Архив",
-          "columns": 3,
-          "ColumnDataType": "datetime"
-        },
-        {
-          "label": "Дата выдачи заказчику",
-          "type": "date",
-          "property": "Дата_Выдачи_Заказчику",
-          "columns": 3,
-          "ColumnDataType": "datetime"
-        },
-        {
-          "type": "group_end",
-          "property": "none"
-        },
-        {
-          "type": "group_begin",
-          "property": "none"
-        },
-        {
           "label": "Комплексная заявка",
-          "type": "number",
+          "type": "select",
           "property": "Признак_Компл",
-          "columns": 3,
-          "ColumnDataType": "smallint"
-        },
-        {
-          "type": "group_end",
-          "property": "none"
+          "ColumnDataType": "smallint",
+          "options": {
+            "raw": [{
+              "value": "1",
+              "text": "Комплексная"
+            },{
+              "value": "2",
+              "text": "Обычная"
+            }]
+          }
         }
       ],
       "buttons": [
@@ -191,6 +202,7 @@
       ]
     },
     {
+      "title": "Информация о заказчике(Физ. лица)",
       "fields": [
         {
           "type": "group_begin",
@@ -205,35 +217,42 @@
           "label": "Фамилия",
           "type": "text",
           "property": "Фамилия",
-          "columns": 3,
+          "columns": 4,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "Имя",
           "type": "text",
           "property": "Имя",
-          "columns": 3,
+          "columns": 4,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "Отчество",
           "type": "text",
           "property": "Отчество",
-          "columns": 3,
+          "columns": 4,
           "ColumnDataType": "nvarchar"
         },
         {
-          "type": "group_end",
-          "property": "none"
+          "label": "Дата Рождения",
+          "type": "date",
+          "property": "Дата_Рождения",
+          "columns": 3,
+          "ColumnDataType": "datetime"
         },
         {
           "label": "В лице, на основании",
           "type": "text",
           "property": "В_Лице",
-          "columns": 3,
+          "columns": 4,
           "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
         }
-      ],
+        ],
       "buttons": [
         {
           "type": "submit",
@@ -244,13 +263,7 @@
     },
     {
       "fields": [
-        {
-          "label": "Дата Рождения",
-          "type": "date",
-          "property": "Дата_Рождения",
-          "columns": 3,
-          "ColumnDataType": "datetime"
-        },
+
         {
           "type": "group_begin",
           "property": "none"
@@ -314,16 +327,17 @@
     {
       "fields": [
         {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
           "label": "Собственник",
           "type": "text",
           "property": "Собственник",
           "columns": 3,
           "ColumnDataType": "nvarchar"
         },
-        {
-          "type": "group_begin",
-          "property": "none"
-        },
+
         {
           "label": "СНИЛС",
           "type": "number",
@@ -373,8 +387,13 @@
         }
       ]
     },
-    {
+    {"title": "Информация о заказчике (Юр. лица)",
       "fields": [
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 12
+        },
         {
           "type": "hidden",
           "property": "action",
@@ -384,15 +403,17 @@
           "label": "Заказчик",
           "type": "text",
           "property": "Заказчик",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "В лице, на основании",
           "type": "text",
           "property": "В_Лице",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
         }
       ],
       "buttons": [
@@ -406,46 +427,115 @@
     {
       "fields": [
         {
-          "label": "Отметка о конкурсе/Логическое, флажок",
-          "type": "number",
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
+          "label": "Конкурс",
+          "type": "select",
           "property": "Отметка_Конкурс",
-          "columns": 1,
-          "ColumnDataType": "bit"
+          "columns": 4,
+          "ColumnDataType": "bit",
+          "options": {
+            "raw": [{
+              "value": "0",
+              "text": "Нет"
+            },{
+              "value": "1",
+              "text": "Да"
+            }]
+          }
         },
         {
           "label": "Идентификатор договора",
           "type": "text",
           "property": "Идент_Договор",
-          "columns": 3,
+          "columns": 4,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "Дата регистрации",
           "type": "date",
           "property": "Дата_Рождения",
-          "columns": 3,
+          "columns": 4,
           "ColumnDataType": "datetime"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
+          "label": "Вид договора",
+          "type": "select",
+          "property": "Вид_Договора",
+          "columns": 4,
+          "ColumnDataType": "int",
+          "options": {
+            "raw": [{
+              "value": "1",
+              "text": "Договор №"
+            },{
+              "value": "2",
+              "text": "Мун. контракт №"
+            },
+              {
+                "value": "3",
+                "text": "Гос. контракт №"
+              },
+              {
+                "value": "4",
+                "text": "Договор возмездного выполнения работ"
+              }]
+          }
+        },
+        {
+          "label": "Номер договора",
+          "type": "text",
+          "property": "Ном_Договора",
+          "columns": 4,
+          "ColumnDataType": "nvarchar"
         },
         {
           "label": "Дата договора",
           "type": "date",
           "property": "Дата_Договора",
-          "columns": 3,
+          "columns": 4,
           "ColumnDataType": "datetime"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 6
         },
         {
           "label": "Юридичесский адрес",
           "type": "text",
           "property": "Выдан",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "Почтовый адрес",
           "type": "text",
           "property": "Прописка",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Собственник",
+          "type": "text",
+          "property": "Собственник",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
         }
       ],
       "buttons": [
@@ -459,81 +549,82 @@
     {
       "fields": [
         {
-          "label": "Собственник",
-          "type": "text",
-          "property": "Собственник",
-          "columns": 3,
-          "ColumnDataType": "nvarchar"
+          "type": "group_begin",
+          "property": "none",
+          "columns": 3
         },
         {
           "label": "СНИЛС",
           "type": "number",
           "property": "СНИЛС",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "ИНН",
           "type": "number",
           "property": "ИНН",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "КПП",
           "type": "number",
           "property": "КПП",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "БИК",
           "type": "number",
           "property": "БИК",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "Расчетный счет",
           "type": "number",
           "property": "РС",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 3
         },
         {
           "label": "Корреспонденский счет",
           "type": "number",
           "property": "КС",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "ОГРН",
           "type": "number",
           "property": "Номер",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "Телефон заказчика",
           "type": "phone",
           "property": "ТелефонС",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "Телефон представителя",
           "type": "phone",
           "property": "ТелефонР",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
         },
         {
           "label": "Адрес электронной почты",
           "type": "email",
           "property": "ЭлПочта",
-          "columns": 3,
           "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
         }
       ]
     },
