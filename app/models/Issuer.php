@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Database\Eloquent\Model;
 
-class Issueder extends Model
+class Issuer extends Model
 {
     protected $connection='mssql';
     protected $table = 'Справочник_Кем_Выдан_Паспорт';

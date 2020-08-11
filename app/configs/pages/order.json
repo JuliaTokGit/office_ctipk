@@ -296,7 +296,6 @@
           "type": "select_ajax_mod",
           "property": "Выдан",
           "url": "/select-ajax/issued_by",
-          "filter":"text",
           "search": "true",
           "columns": 12
         },
