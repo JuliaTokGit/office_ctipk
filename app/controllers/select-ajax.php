@@ -22,7 +22,7 @@ $object = $page->objects->{$name};
 if (!isset($object->denied) || !in_array($user->type->str_id, $object->denied)) {
     // $name=$object->name;
     $class = new $object->name();
-    $selected = $filters->id ?? null;
+    $selected = $filters['id'] ?? null;
     $id = $object->id ?? 'id';
     $text = $object->text ?? 'name';
 }
@@ -31,6 +31,13 @@ if (!isset($object->denied) || !in_array($user->type->str_id, $object->denied)) 
 if (isset($class)) {
     if (isset($filters['user_type_id'])) {
         $items = $class->where('user_type_id', $filters['user_type_id'])->get();
+    } elseif (isset($filters['text'])) {
+        // print_r($class->where($text, urldecode($filters['text']))->first());
+        // die();
+        $selected = $class->where($text, urldecode($filters['text']))->first()->{$id};
+        // print_r($selected);
+        // die();
+        $items = $class->all();
     } elseif (isset($filters['active'])){
         $items = $class->where('active', $filters['active'])->get();
     } else {
@@ -56,7 +63,7 @@ function addItems($items, &$list)
 {
     global $id, $text, $selected;
     foreach ($items as $item) {
-        if (isset($selected) && $selected == $item->{$id}) {
+        if (isset($selected) && $selected == $item->{$id}) {            
             $list[] = (object) ['id' => $item->{$id}, 'text' => $item->{$text}, 'selected' => true];
         } else {
             $list[] = (object) ['id' => $item->{$id}, 'text' => $item->{$text}];

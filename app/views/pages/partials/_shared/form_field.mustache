@@ -39,7 +39,7 @@
 
 {{#select}}
 	<label>{{label}}</label>
-	<select name="{{select}}{{#multiple}}[]{{/multiple}}" class="select2 full-width" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2" data-theme="bootstrap" data-width="100%" {{#multiple}} multiple {{/multiple}}  {{^search}}data-disable-search="true"{{/search}}>
+	<select name="{{select}}{{#multiple}}[]{{/multiple}}" class="select2 full-width {{class}}" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2" data-theme="bootstrap" data-width="100%" {{#multiple}} multiple {{/multiple}}  {{^search}}data-disable-search="true"{{/search}} data-value="{{value}}">
 		{{{ options | generate-options }}}
 	</select>
 {{/select}}
@@ -50,6 +50,11 @@
 	</select>
 {{/select_ajax}}
 
+{{#select_ajax_mod}}
+	<label>{{label}}</label>
+	<select name="{{select_ajax_mod}}" class="select2 full-width" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2ajax" data-theme="bootstrap" data-width="100%" data-url="{{url}}//{{#filter}}{{.}}{{/filter}}{{^filter}}id{{/filter}}/{{value}}"{{^search}}data-disable-search="true"{{/search}}>
+	</select>
+{{/select_ajax_mod}}
 
 {{#button-list}}
 	<label>{{label}}</label>

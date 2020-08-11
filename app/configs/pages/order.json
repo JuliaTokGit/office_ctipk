@@ -19,7 +19,7 @@
         },
         {
           "label": "Вид деятельности",
-          "type": "select_ajax",
+          "type": "select_ajax_mod",
           "property": "Вид_Деятельности",
           "url": "/select-ajax/activity_types",
           "search": "true",
@@ -166,8 +166,10 @@
           "label": "Комплексная заявка",
           "type": "select",
           "property": "Признак_Компл",
+          "class":"select_load",
           "ColumnDataType": "smallint",
           "options": {
+            "null_value":true,
             "raw": [{
               "value": "1",
               "text": "Комплексная"
@@ -291,9 +293,10 @@
         },
         {
           "label": "Кем выдан",
-          "type": "select_ajax",
+          "type": "select_ajax_mod",
           "property": "Выдан",
           "url": "/select-ajax/issued_by",
+          "filter":"text",
           "search": "true",
           "columns": 12
         },
