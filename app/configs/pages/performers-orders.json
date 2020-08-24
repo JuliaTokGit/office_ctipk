@@ -1,0 +1,39 @@
+{
+    "title": "Исполнители по видам работ",
+    "header": "Исполнители по видам работ",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes":["dt-crud-modals"],
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true},
+            "crud_modals":{
+                "titles":{
+                    "create":"Добавить",
+                    "edit":"Редактировать",
+                    "delete":"Удалить"
+                },
+                "fields": [
+                    {
+                        "label": "Код переноса",
+                        "type":"text",
+                        "property": "Код_Переноса"
+                    },
+                    {
+                        "label": "Код заявки",
+                        "type":"text",
+                        "property": "Код_Заявки"
+                    },
+                    {
+                        "label": "Код переноса",
+                        "type":"text",
+                        "property": "Код_Переноса"
+                    }
+                ],
+
+                "subheaders":{"delete":"Вы уверены что хотите удалить \"<span data-obj=filename></span>\"?"}
+            }
+        }
+    }
+}

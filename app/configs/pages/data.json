@@ -20,6 +20,18 @@
         },
         "orders": {
             "name": "Order"
+        },
+        "transfer-orders": {
+            "name": "TransferOrder"
+        },
+        "departure-technicists": {
+            "name":"Order"
+        },
+        "performers-orders": {
+            "name": "PerformersOrders"
+        },
+        "agreement": {
+            "name": "Agreement"
         }
     },
     "upload_targets": {

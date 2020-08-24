@@ -74,13 +74,6 @@
           "property": "Дата_Заявки",
           "ColumnDataType": "datetime"
         },
-
-        {
-          "label": "Дата оформления",
-          "type": "date",
-          "property": "Дата_Заявки",
-          "ColumnDataType": "datetime"
-        },
         {
           "label": "Дата оплаты",
           "type": "date",
@@ -143,6 +136,12 @@
           "ColumnDataType": "datetime"
         },
         {
+          "type": "button",
+          "property":"" ,
+          "class": "btn btn-success",
+          "text": "Перенос заявки"
+        },
+        {
           "type": "group_end",
           "property": "none"
         }
@@ -161,7 +160,13 @@
       ]
     },
     {
+      "method": "POST",
       "fields": [
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
         {
           "label": "Комплексная заявка",
           "type": "select",
@@ -172,10 +177,10 @@
             "null_value":true,
             "raw": [{
               "value": "1",
-              "text": "Комплексная"
+              "text": "Обычная"
             },{
               "value": "2",
-              "text": "Обычная"
+              "text": "Комплексная"
             }]
           }
         }
@@ -204,6 +209,7 @@
       ]
     },
     {
+      "method": "POST",
       "title": "Информация о заказчике(Физ. лица)",
       "fields": [
         {
@@ -264,8 +270,13 @@
       ]
     },
     {
+      "method": "POST",
       "fields": [
-
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
         {
           "type": "group_begin",
           "property": "none"
@@ -296,6 +307,7 @@
           "type": "select_ajax_mod",
           "property": "Выдан",
           "url": "/select-ajax/issued_by",
+          "filter":"text",
           "search": "true",
           "columns": 12
         },
@@ -327,7 +339,13 @@
       ]
     },
     {
+      "method": "POST",
       "fields": [
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
         {
           "type": "group_begin",
           "property": "none"
@@ -389,7 +407,9 @@
         }
       ]
     },
-    {"title": "Информация о заказчике (Юр. лица)",
+    {
+      "method": "POST",
+      "title": "Информация о заказчике (Юр. лица)",
       "fields": [
         {
           "type": "group_begin",
@@ -427,7 +447,13 @@
       ]
     },
     {
+      "method": "POST",
       "fields": [
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
         {
           "type": "group_begin",
           "property": "none"
@@ -549,7 +575,13 @@
       ]
     },
     {
+      "method": "POST",
       "fields": [
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
         {
           "type": "group_begin",
           "property": "none",
@@ -631,6 +663,7 @@
       ]
     },
     {
+      "method": "POST",
       "title": "Сведения об объекте",
       "fields": [
         {
@@ -655,7 +688,13 @@
       ]
     },
     {
+      "method": "POST",
       "fields": [
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
         {
           "label": "Перечень работ",
           "type": "text",

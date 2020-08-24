@@ -1,0 +1,13 @@
+{
+    "title": "Журнал выездов",
+    "header": "Журнал выездов",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes": ["filters"],
+    "quickview":false,
+    "datatables":{
+        "default":{
+            "tableId":"default"
+        }
+    }
+}
