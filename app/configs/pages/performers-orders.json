@@ -15,21 +15,17 @@
                     "delete":"Удалить"
                 },
                 "fields": [
-                    {
-                        "label": "Код переноса",
-                        "type":"text",
-                        "property": "Код_Переноса"
-                    },
-                    {
-                        "label": "Код заявки",
-                        "type":"text",
-                        "property": "Код_Заявки"
-                    },
-                    {
-                        "label": "Код переноса",
-                        "type":"text",
-                        "property": "Код_Переноса"
-                    }
+                    { "property": "Код_Исполнителя", "type":"number", "label":"Код исполнителя"},
+                    { "property": "Код_Заявки", "type":"number","label":"Код заявки"},
+                    { "property": "Исполнитель", "type":"text", "label":"Исполнитель"},
+                    { "property": "Вид_Работы", "type":"number", "label":"Вид Работы"},
+                    { "property": "Вид_Инвентаризации", "type":"text", "label":"Вид инвентаризации"},
+                    { "property": "Наименование_Работы", "type":"text", "label":"Наименование работы"},
+                    { "property": "Примечание", "type":"text", "label":"Примечание"},
+                    { "property": "Процент_Выручка", "type":"number", "label":"Процент"},
+                    { "property": "Доля_Выручка", "type":"number", "label":"Доля" },
+                    {"property": "Адрес_Объекта", "type":"text","label": "Адрес объекта" },
+                    {"property":"Отдел","type":"Отдел","label": "number"}
                 ],
 
                 "subheaders":{"delete":"Вы уверены что хотите удалить \"<span data-obj=filename></span>\"?"}

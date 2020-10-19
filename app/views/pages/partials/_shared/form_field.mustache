@@ -1,3 +1,11 @@
+{{#title_block}}
+    <h3>{{title}}</h3>
+{{/title_block}}
+{{#combo_performers}}
+        <button formaction="{{url}}" type="submit" class="btn {{class}} btn-block m-t-5">{{name}}</button>
+{{/combo_performers}}
+
+
 {{#text}}
 	<label>{{label}}</label>
 	<span class="help">{{help}}</span>
@@ -109,7 +117,7 @@
 	</span>
 	<input type="text" class="form-control daterangepicker" name="{{daterangepicker}}"  value="{{value}}" />
 {{/daterangepicker}}
-
+{{tumbler}}
 {{#image}}
 <style>
 .imageBox {

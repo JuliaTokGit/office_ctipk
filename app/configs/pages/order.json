@@ -11,8 +11,13 @@
   "forms": [
     {
       "method": "POST",
-      "title": "Информация о заявке",
       "fields": [
+
+        {
+          "title": "Информация о заявке",
+          "type": "title_block",
+          "property": ""
+        },
         {
           "type": "group_begin",
           "property": "none"
@@ -34,7 +39,6 @@
           "type": "group_end",
           "property": "none"
         },
-
         {
           "type": "group_begin",
           "property": "none",
@@ -52,7 +56,6 @@
           "property": "Номер_Запроса",
           "ColumnDataType": "nvarchar"
         },
-
         {
           "label": "Вид заявки",
           "type": "number",
@@ -136,13 +139,13 @@
           "ColumnDataType": "datetime"
         },
         {
-          "type": "button",
-          "property":"" ,
-          "class": "btn btn-success",
-          "text": "Перенос заявки"
+          "type": "group_end",
+          "property": "none"
         },
         {
-          "type": "group_end",
+          "type": "combo_performers",
+          "url": "phpinfo",
+          "name": "test",
           "property": "none"
         }
       ],
@@ -159,6 +162,7 @@
         }
       ]
     },
+
     {
       "method": "POST",
       "fields": [
@@ -171,17 +175,20 @@
           "label": "Комплексная заявка",
           "type": "select",
           "property": "Признак_Компл",
-          "class":"select_load",
+          "class": "select_load",
           "ColumnDataType": "smallint",
           "options": {
-            "null_value":true,
-            "raw": [{
-              "value": "1",
-              "text": "Обычная"
-            },{
-              "value": "2",
-              "text": "Комплексная"
-            }]
+            "null_value": true,
+            "raw": [
+              {
+                "value": "1",
+                "text": "Обычная"
+              },
+              {
+                "value": "2",
+                "text": "Комплексная"
+              }
+            ]
           }
         }
       ],
@@ -210,8 +217,43 @@
     },
     {
       "method": "POST",
-      "title": "Информация о заказчике(Физ. лица)",
+      "radio":
+
+        {
+          "options":[
+            {
+              "text":"Физическое лицо",
+              "value": "#fiz",
+              "id": "fizid",
+              "checked":true
+            },
+            {
+              "text":"Юридическое лицо",
+              "value": "#ur",
+              "id": "urid"
+            }
+          ]
+        }
+      ,
       "fields": [
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "id": "fiz",
+      "class": "switched_forms",
+      "style": "",
+      "fields": [
+        {
+          "title": "Информация о заказчике(Физ. лица)",
+          "type": "",
+          "property": ""
+        },
         {
           "type": "group_begin",
           "property": "none"
@@ -259,23 +301,6 @@
         {
           "type": "group_end",
           "property": "none"
-        }
-        ],
-      "buttons": [
-        {
-          "type": "submit",
-          "class": "btn btn-success",
-          "text": "Справочник представителей"
-        }
-      ]
-    },
-    {
-      "method": "POST",
-      "fields": [
-        {
-          "type": "hidden",
-          "property": "action",
-          "value": "edit"
         },
         {
           "type": "group_begin",
@@ -307,7 +332,7 @@
           "type": "select_ajax_mod",
           "property": "Выдан",
           "url": "/select-ajax/issued_by",
-          "filter":"text",
+          "filter": "text",
           "search": "true",
           "columns": 12
         },
@@ -328,23 +353,6 @@
         {
           "type": "group_end",
           "property": "none"
-        }
-      ],
-      "buttons": [
-        {
-          "type": "submit",
-          "class": "btn btn-success",
-          "text": "Адрес"
-        }
-      ]
-    },
-    {
-      "method": "POST",
-      "fields": [
-        {
-          "type": "hidden",
-          "property": "action",
-          "value": "edit"
         },
         {
           "type": "group_begin",
@@ -357,7 +365,6 @@
           "columns": 3,
           "ColumnDataType": "nvarchar"
         },
-
         {
           "label": "СНИЛС",
           "type": "number",
@@ -405,12 +412,31 @@
           "type": "group_end",
           "property": "none"
         }
+      ],
+      "buttons": [
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Справочник представителей"
+        },
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Адрес"
+        }
       ]
     },
     {
       "method": "POST",
-      "title": "Информация о заказчике (Юр. лица)",
+      "class": "switched_forms",
+      "style": "display:none",
+      "id": "ur",
       "fields": [
+        {
+          "title": "Информация о заказчике (Юр. лица)",
+          "type": "",
+          "property": ""
+        },
         {
           "type": "group_begin",
           "property": "none",
@@ -436,23 +462,6 @@
         {
           "type": "group_end",
           "property": "none"
-        }
-      ],
-      "buttons": [
-        {
-          "type": "submit",
-          "class": "btn btn-success",
-          "text": "Справочник представителей"
-        }
-      ]
-    },
-    {
-      "method": "POST",
-      "fields": [
-        {
-          "type": "hidden",
-          "property": "action",
-          "value": "edit"
         },
         {
           "type": "group_begin",
@@ -465,13 +474,16 @@
           "columns": 4,
           "ColumnDataType": "bit",
           "options": {
-            "raw": [{
-              "value": "0",
-              "text": "Нет"
-            },{
-              "value": "1",
-              "text": "Да"
-            }]
+            "raw": [
+              {
+                "value": "0",
+                "text": "Нет"
+              },
+              {
+                "value": "1",
+                "text": "Да"
+              }
+            ]
           }
         },
         {
@@ -503,13 +515,15 @@
           "columns": 4,
           "ColumnDataType": "int",
           "options": {
-            "raw": [{
-              "value": "1",
-              "text": "Договор №"
-            },{
-              "value": "2",
-              "text": "Мун. контракт №"
-            },
+            "raw": [
+              {
+                "value": "1",
+                "text": "Договор №"
+              },
+              {
+                "value": "2",
+                "text": "Мун. контракт №"
+              },
               {
                 "value": "3",
                 "text": "Гос. контракт №"
@@ -517,7 +531,8 @@
               {
                 "value": "4",
                 "text": "Договор возмездного выполнения работ"
-              }]
+              }
+            ]
           }
         },
         {
@@ -564,23 +579,6 @@
         {
           "type": "group_end",
           "property": "none"
-        }
-      ],
-      "buttons": [
-        {
-          "type": "submit",
-          "class": "btn btn-success",
-          "text": "Адрес"
-        }
-      ]
-    },
-    {
-      "method": "POST",
-      "fields": [
-        {
-          "type": "hidden",
-          "property": "action",
-          "value": "edit"
         },
         {
           "type": "group_begin",
@@ -660,12 +658,30 @@
           "type": "group_end",
           "property": "none"
         }
+      ],
+      "buttons": [
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Справочник представителей"
+        },
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Адрес"
+        }
       ]
     },
+
+
     {
       "method": "POST",
-      "title": "Сведения об объекте",
       "fields": [
+        {
+          "title": "Сведения об объекте",
+          "type": "",
+          "property": ""
+        },
         {
           "type": "hidden",
           "property": "action",

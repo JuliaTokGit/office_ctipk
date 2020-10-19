@@ -1,7 +1,22 @@
-<h3>{{title}}</h3>
-<form role="form" {{#data}}data-{{name}}="{{value}}" {{/data}} class="{{class}}" {{#action}}action="{{.}}"{{/action}} {{#method}}method="{{.}}"{{/method}}>
 
-{{#fields}}
+
+{{#checkbox}}
+<input type="checkbox" class="form-check-input" >
+<label class="form-check-label" >{{text}}</label>
+{{/checkbox}}
+
+{{#radio}}
+<div class="form-check"> {{#options}}
+    <input class="form-check-input" type="radio" name="exampleRadios" id="{{id}}" value="{{value}}" {{#checked}}checked="checked"{{/checked}}>
+    <label class="form-check-label" for="{{id}}">
+        {{text}}
+    </label>
+{{/options}}
+</div>
+{{/radio}}
+
+<form role="form" {{#data}}data-{{name}}="{{value}}" {{/data}} class="{{class}}" style="{{style}}" {{#action}}action="{{.}}"{{/action}} {{#method}}method="{{.}}"{{/method}} {{#id}}id="{{.}}"{{/id}}>
+{{#fields}}д
 {{>page.form_element}}		
 {{/fields}}
 
