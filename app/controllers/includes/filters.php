@@ -66,3 +66,9 @@ if (isset($filters['gl_account_id'])) {
     hideInput('gl_account_id', $gl_account->id);
     $separator = ' | ';
 }
+
+if (isset($filters['order_id'])) {
+    $context['page']->sub_header .= $separator.'Заявка: '.$filters['order_id']??''.' ';
+    hideInput('Код_Заявки', $filters['order_id']);
+    $separator = ' | ';
+}

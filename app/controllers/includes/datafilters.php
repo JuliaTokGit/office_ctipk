@@ -55,5 +55,8 @@ $datafilters=[
 	// 'group_id'=>function($value,$query){
 	// 	return $query->where('group_id',$value);
 	// },
+	'order_id'=>function($value,$query){
+		return $query->where('Код_Заявки',$value);
+	},
 
 ];
