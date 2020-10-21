@@ -22,7 +22,7 @@
             "name": "Order"
         },
         "transfer-orders": {
-            "name": "TransferOrder"
+            "name": "TransferOrders"
         },
         "departure-technicists": {
             "name":"Order"
@@ -32,6 +32,12 @@
         },
         "agreement": {
             "name": "Agreement"
+        },
+        "table-users": {
+            "name": "TableUsers"
+        },
+        "table-works-orders": {
+            "name": "TableWorksOrders"
         }
     },
     "upload_targets": {

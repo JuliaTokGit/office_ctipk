@@ -6,7 +6,7 @@ class TransferOrders extends Model
     protected $connection='mssql';
     protected $table = 'Таблица_Перенос_Заявки';
     protected $primaryKey = 'Код_Переноса';
-    protected $title = 'Перенос';
+    protected $title = 'Перенос заявки';
     protected $hidden = ['upsize_ts'];
     protected $guarded = ['Код_Переноса'];
     public $timestamps = false;

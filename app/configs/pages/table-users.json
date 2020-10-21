@@ -1,0 +1,50 @@
+{
+    "title": "Пользователи",
+    "header": "Пользователи",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes":["dt-crud-modals"],
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true},
+            "crud_modals":{
+                "titles":{
+                    "create":"Добавить",
+                    "edit":"Редактировать",
+                    "delete":"Удалить"
+                },
+                "fields": [
+                    { "property": "Код", "type":"number", "label":"Код"},
+                    { "property": "ФИО", "type":"text", "label":"ФИО"},
+                    { "property": "Цех", "type":"number", "label":"Цех"},
+                    { "property": "ПраваДоступа", "type":"number", "label":"Права доступа"},
+                    { "property": "ПраваСоздания", "type":"number", "label":"Права создания"},
+                    { "property": "ПраваПредвСчета", "type":"number", "label":"Права предварительного счета"},
+                    { "property": "Пароль", "type":"text", "label":"Пароль"},
+                    { "property": "План", "type":"number", "label":"План"},
+                    { "property": "Оклад", "type":"number", "label":"Оклад"},
+                    { "property": "Категория", "type":"number", "label":"Категория"},
+                    { "property": "Должность_В_Группе", "type":"number", "label":"Должность в группе"},
+                    { "property": "ПраваДатаИсполнения", "type":"number", "label":"Права на дату исполнения"},
+                    { "property": "ПраваСозданияАкта", "type":"number", "label":"Права на создание акта"},
+                    { "property": "Контроль_Техпланов", "type":"number", "label":"Контроль техпланов"},
+                    { "property": "Бригада", "type":"text", "label":"Бригада"},
+                    { "property": "Код_Табель", "type":"number", "label":"Код_Табель"},
+                    { "property": "ПраваБухг", "type":"number", "label":"ПраваБухг"},
+                    { "property": "Удален", "type":"number", "label":"Удален"},
+                    { "property": "ФИО_ОтвЛицо", "type":"text", "label":"ФИО_ОтвЛицо"},
+                    { "property": "Телефон_ОтвЛицо", "type":"phone", "label":"Телефон_ОтвЛицо"},
+                    { "property": "Отдел", "type":"text", "label":"Отдел"},
+                    { "property": "ПраваСоздания_Запрос", "type":"text", "label":"ПраваСоздания_Запрос"},
+                    { "property": "Номер_Справки", "type":"number", "label":"Номер_Справки"},
+                    { "property": "Неделя", "type":"number", "label":"Неделя"},
+                    { "property": "ПраваВедИсп", "type":"number", "label":"ПраваВедИсп"},
+                    { "property": "ЭлПочта_ОтвЛицо", "type":"text", "label":"ЭлПочта_ОтвЛицо"}
+                ],
+
+                "subheaders":{"delete":"Вы уверены что хотите удалить \"<span data-obj=filename></span>\"?"}
+            }
+        }
+    }
+}

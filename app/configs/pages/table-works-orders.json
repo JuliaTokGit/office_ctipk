@@ -1,0 +1,71 @@
+{
+  "title": "Работы_Заявки",
+  "header": "Работы_Заявки",
+  "bodyclass": "fixed-header",
+  "layout": "default.datatables",
+  "includes": [
+    "dt-crud-modals"
+  ],
+  "datatables": {
+    "default": {
+      "tableId": "default",
+      "buttons": {
+        "create": true,
+        "edit": true,
+        "delete": true
+      },
+      "crud_modals": {
+        "titles": {
+          "create": "Добавить",
+          "edit": "Редактировать",
+          "delete": "Удалить"
+        },
+        "fields": [
+          {
+            "property": "Исполнитель",
+            "type": "number",
+            "label": "Исполнитель из таблицы Пользователи"
+          },
+          {
+            "property": "Код_Работы",
+            "type": "number",
+            "label": "Код_Работы"
+          },
+          {
+            "property": "Наименование",
+            "type": "text",
+            "label": "Наименование"
+          },
+          {
+            "property": "Перв_Тек",
+            "type": "number",
+            "label": "Перв_Тек"
+          },
+          {
+            "property": "КО",
+            "type": "number",
+            "label": "КО"
+          },
+          {
+            "property": "Стоимость",
+            "type": "number",
+            "label": "Стоимость"
+          },
+          {
+            "property": "Адрес_Объекта",
+            "type": "text",
+            "label": "Адрес_Объекта"
+          },
+          {
+            "property": "Код_Док",
+            "type": "number",
+            "label": "Код_Док"
+          }
+        ],
+        "subheaders": {
+          "delete": "Вы уверены что хотите удалить \"<span data-obj=filename></span>\"?"
+        }
+      }
+    }
+  }
+}

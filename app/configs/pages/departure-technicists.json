@@ -3,11 +3,31 @@
     "header": "Журнал выездов",
     "bodyclass": "fixed-header",
     "layout": "default.datatables",
-    "includes": ["filters"],
-    "quickview":false,
+    "includes":["dt-crud-modals"],
     "datatables":{
         "default":{
-            "tableId":"default"
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true},
+            "crud_modals":{
+                "titles":{
+                    "create":"Добавить",
+                    "edit":"Редактировать",
+                    "delete":"Удалить"
+                },
+                "fields": [
+
+                    { "property": "Дата_Техник", "type":"date", "label":"Дата"},
+                    { "property": "Местонахождение_Обьекта", "type":"text", "label":"Местонахождение"},
+                    { "property": "Исполнитель", "type":"text", "label":"Исполнитель"},
+                    { "property": "Номер_Заявки", "type":"text", "label":"Номер заявки"},
+                    { "property": "Вид_Деятельности", "type":"text", "label":"Наименование"},
+                    { "property": "ТелефонР", "type":"phone", "label":"Телефон представителя"},
+                    { "property": "ТелефонС", "type":"phone", "label":"Телефон заказчика"}
+
+                ],
+
+                "subheaders":{"delete":"Вы уверены что хотите удалить \"<span data-obj=filename></span>\"?"}
+            }
         }
     }
 }

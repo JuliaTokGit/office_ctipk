@@ -1,477 +1,731 @@
-[
-  {
-    "label": "Код БТИ",
-    "type": "select",
-    "property": "Код_БТИ",
-    "ColumnDataType": "int",
-    "options": {
-      "raw": [{
-        "value": "1",
-        "text": "Портал"
-      },{
-        "value": "2",
-        "text": "Мфц"
-      }]
+{
+  "title": "Заявка",
+  "header": "Заявка",
+  "bodyclass": "fixed-header",
+  "layout": "default",
+  "includes": [],
+  "scripts": [
+    "modals"
+  ],
+  "quickview": false,
+  "forms": [
+    {
+      "method": "POST",
+      "fields": [
+
+        {
+          "title": "Информация о заявке",
+          "type": "title_block",
+          "property": ""
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
+          "label": "Вид деятельности",
+          "type": "select_ajax_mod",
+          "property": "Вид_Деятельности",
+          "url": "/select-ajax/activity_types",
+          "search": "true",
+          "columns": 12
+        },
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 3
+        },
+        {
+          "label": "Номер заявки",
+          "type": "number",
+          "property": "Номер_Заявки",
+          "ColumnDataType": "int"
+        },
+        {
+          "label": "Номер запроса",
+          "type": "text",
+          "property": "Номер_Запроса",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Вид заявки",
+          "type": "number",
+          "property": "Вид_Инвентаризации",
+          "ColumnDataType": "int"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 3
+        },
+        {
+          "label": "Дата оформления",
+          "type": "date",
+          "property": "Дата_Заявки",
+          "ColumnDataType": "datetime"
+        },
+        {
+          "label": "Дата оплаты",
+          "type": "date",
+          "property": "Дата_Оплата",
+          "ColumnDataType": "datetime"
+        },
+        {
+          "type": "group_end",
+          "property": "none",
+          "columns": 3
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 3
+        },
+        {
+          "label": "Срок исполнения заявки",
+          "type": "number",
+          "property": "Срок",
+          "ColumnDataType": "smallint"
+        },
+        {
+          "label": "Дата исполнения",
+          "type": "date",
+          "property": "Дата_Исполнения",
+          "ColumnDataType": "datetime"
+        },
+        {
+          "label": "Дата выхода техника",
+          "type": "date",
+          "property": "Дата_Техник",
+          "ColumnDataType": "datetime"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 3
+        },
+        {
+          "label": "Дата оплаты для договора",
+          "type": "date",
+          "property": "Дата_Оплаты_Дог",
+          "ColumnDataType": "datetime"
+        },
+        {
+          "label": "Дата сдачи в архив",
+          "type": "date",
+          "property": "Дата_Архив",
+          "ColumnDataType": "datetime"
+        },
+        {
+          "label": "Дата выдачи заказчику",
+          "type": "date",
+          "property": "Дата_Выдачи_Заказчику",
+          "ColumnDataType": "datetime"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "combo_performers",
+          "url": "phpinfo",
+          "name": "test",
+          "property": "none"
+        }
+      ],
+      "buttons": [
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Перенос заявки"
+        },
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Журнал выездов"
+        }
+      ]
+    },
+
+    {
+      "method": "POST",
+      "fields": [
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
+        {
+          "label": "Комплексная заявка",
+          "type": "select",
+          "property": "Признак_Компл",
+          "class": "select_load",
+          "ColumnDataType": "smallint",
+          "options": {
+            "null_value": true,
+            "raw": [
+              {
+                "value": "1",
+                "text": "Обычная"
+              },
+              {
+                "value": "2",
+                "text": "Комплексная"
+              }
+            ]
+          }
+        }
+      ],
+      "buttons": [
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Этапы комплексной заявки"
+        },
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "По соглашению"
+        },
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Исполнители по видам работ"
+        },
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Отделы исполнители"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "radio":
+
+      {
+        "options":[
+          {
+            "text":"Физическое лицо",
+            "value": "#fiz",
+            "id": "fizid",
+            "checked":true
+          },
+          {
+            "text":"Юридическое лицо",
+            "value": "#ur",
+            "id": "urid"
+          }
+        ]
+      }
+    ,
+      "fields": [
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "id": "fiz",
+      "class": "switched_forms",
+      "style": "",
+      "fields": [
+        {
+          "title": "Информация о заказчике(Физ. лица)",
+          "type": "",
+          "property": ""
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
+        {
+          "label": "Фамилия",
+          "type": "text",
+          "property": "Фамилия",
+          "columns": 4,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Имя",
+          "type": "text",
+          "property": "Имя",
+          "columns": 4,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Отчество",
+          "type": "text",
+          "property": "Отчество",
+          "columns": 4,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Дата Рождения",
+          "type": "date",
+          "property": "Дата_Рождения",
+          "columns": 3,
+          "ColumnDataType": "datetime"
+        },
+        {
+          "label": "В лице, на основании",
+          "type": "text",
+          "property": "В_Лице",
+          "columns": 4,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
+          "label": "Вид документа",
+          "type": "text",
+          "property": "КС",
+          "columns": 3,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Серия паспорта",
+          "type": "number",
+          "property": "Серия",
+          "columns": 3,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Номер паспорта",
+          "type": "number",
+          "property": "Номер",
+          "columns": 3,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Кем выдан",
+          "type": "select_ajax_mod",
+          "property": "Выдан",
+          "url": "/select-ajax/issued_by",
+          "filter": "text",
+          "search": "true",
+          "columns": 12
+        },
+        {
+          "label": "Дата выдачи паспорта",
+          "type": "date",
+          "property": "Дата_Выдачи",
+          "columns": 3,
+          "ColumnDataType": "datetime"
+        },
+        {
+          "label": "Адрес регистрации",
+          "type": "text",
+          "property": "Прописка",
+          "columns": 3,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
+          "label": "Собственник",
+          "type": "text",
+          "property": "Собственник",
+          "columns": 3,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "СНИЛС",
+          "type": "number",
+          "property": "СНИЛС",
+          "columns": 3,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "ИНН",
+          "type": "number",
+          "property": "ИНН",
+          "columns": 3,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
+          "label": "Телефон заказчика",
+          "type": "phone",
+          "property": "ТелефонС",
+          "columns": 3,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Телефон представителя",
+          "type": "phone",
+          "property": "ТелефонР",
+          "columns": 3,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Адрес электронной почты",
+          "type": "email",
+          "property": "ЭлПочта",
+          "columns": 3,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        }
+      ],
+      "buttons": [
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Справочник представителей"
+        },
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Адрес"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "class": "switched_forms",
+      "style": "display:none",
+      "id": "ur",
+      "fields": [
+        {
+          "title": "Информация о заказчике (Юр. лица)",
+          "type": "",
+          "property": ""
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 12
+        },
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
+        {
+          "label": "Заказчик",
+          "type": "text",
+          "property": "Заказчик",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "В лице, на основании",
+          "type": "text",
+          "property": "В_Лице",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
+          "label": "Конкурс",
+          "type": "select",
+          "property": "Отметка_Конкурс",
+          "columns": 4,
+          "ColumnDataType": "bit",
+          "options": {
+            "raw": [
+              {
+                "value": "0",
+                "text": "Нет"
+              },
+              {
+                "value": "1",
+                "text": "Да"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Идентификатор договора",
+          "type": "text",
+          "property": "Идент_Договор",
+          "columns": 4,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Дата регистрации",
+          "type": "date",
+          "property": "Дата_Рождения",
+          "columns": 4,
+          "ColumnDataType": "datetime"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
+          "label": "Вид договора",
+          "type": "select",
+          "property": "Вид_Договора",
+          "columns": 4,
+          "ColumnDataType": "int",
+          "options": {
+            "raw": [
+              {
+                "value": "1",
+                "text": "Договор №"
+              },
+              {
+                "value": "2",
+                "text": "Мун. контракт №"
+              },
+              {
+                "value": "3",
+                "text": "Гос. контракт №"
+              },
+              {
+                "value": "4",
+                "text": "Договор возмездного выполнения работ"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Номер договора",
+          "type": "text",
+          "property": "Ном_Договора",
+          "columns": 4,
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Дата договора",
+          "type": "date",
+          "property": "Дата_Договора",
+          "columns": 4,
+          "ColumnDataType": "datetime"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 6
+        },
+        {
+          "label": "Юридичесский адрес",
+          "type": "text",
+          "property": "Выдан",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Почтовый адрес",
+          "type": "text",
+          "property": "Прописка",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Собственник",
+          "type": "text",
+          "property": "Собственник",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 3
+        },
+        {
+          "label": "СНИЛС",
+          "type": "number",
+          "property": "СНИЛС",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "ИНН",
+          "type": "number",
+          "property": "ИНН",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "КПП",
+          "type": "number",
+          "property": "КПП",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "БИК",
+          "type": "number",
+          "property": "БИК",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Расчетный счет",
+          "type": "number",
+          "property": "РС",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 3
+        },
+        {
+          "label": "Корреспонденский счет",
+          "type": "number",
+          "property": "КС",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "ОГРН",
+          "type": "number",
+          "property": "Номер",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Телефон заказчика",
+          "type": "phone",
+          "property": "ТелефонС",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Телефон представителя",
+          "type": "phone",
+          "property": "ТелефонР",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "label": "Адрес электронной почты",
+          "type": "email",
+          "property": "ЭлПочта",
+          "ColumnDataType": "nvarchar"
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        }
+      ],
+      "buttons": [
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Справочник представителей"
+        },
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Адрес"
+        }
+      ]
+    },
+
+
+    {
+      "method": "POST",
+      "fields": [
+        {
+          "title": "Сведения об объекте",
+          "type": "",
+          "property": ""
+        },
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
+        {
+          "label": "Местонахождение объекта",
+          "type": "text",
+          "property": "Местонахождение_Обьекта",
+          "columns": 3,
+          "ColumnDataType": "ntext"
+        }
+      ],
+      "buttons": [
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Адрес"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "fields": [
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
+        {
+          "label": "Перечень работ",
+          "type": "text",
+          "property": "Работы",
+          "columns": 3,
+          "ColumnDataType": "nvarchar"
+        }
+      ],
+      "buttons": [
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Перечень работ"
+        }
+      ]
     }
-  },
-  {
-    "label": "Код заявки",
-    "type": "number",
-    "property": "Код_Заявки",
-
-    "ColumnDataType": "int"
-  },
-  {
-    "label": "Номер заявки",
-    "type": "number",
-    "property": "Номер_Заявки",
-
-    "ColumnDataType": "int"
-  },
-  {
-    "label": "Дата заявки",
-    "type": "date",
-    "property": "Дата_Заявки",
-
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "Код заявки",
-    "type": "number",
-    "property": "Вид_Заказчик",
-    "ColumnDataType": "tinyint"
-  },
-  {
-    "label": "Заказчик",
-    "type": "text",
-    "property": "Заказчик",
-
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Местонахождение объекта",
-    "type": "text",
-    "property": "Местонахождение_Обьекта",
-
-    "ColumnDataType": "ntext"
-  },
-  {
-    "label": "ИНН",
-    "type": "number",
-    "property": "ИНН",
-
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "КПП",
-    "type": "number",
-    "property": "КПП",
-
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Серия паспорта",
-    "type": "number",
-    "property": "Серия",
-
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Номер паспорта",
-    "type": "number",
-    "property": "Номер",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Адрес регистрации",
-    "type": "text",
-    "property": "Прописка",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Расчетный счет",
-    "type": "number",
-    "property": "РС",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Корреспонденский счет",
-    "type": "number",
-    "property": "КС",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "БИК",
-    "type": "number",
-    "property": "БИК",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Фонд",
-    "type": "number",
-    "property": "Фонд",
-    "ColumnDataType": "tinyint"
-  },
-  {
-    "label": "Подразделение",
-    "type": "number",
-    "property": "Подразделение",
-    "ColumnDataType": "tinyint"
-  },
-  {
-    "label": "Автор",
-    "type": "text",
-    "property": "Автор",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Предствитель",
-    "type": "text",
-    "property": "В_Лице",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Дата Рождения",
-    "type": "date",
-    "property": "Дата_Рождения",
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "Дата оплаты",
-    "type": "date",
-    "property": "Дата_Оплата",
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "Квитанция оплата",
-    "type": "number",
-    "property": "Квитанция_Оплата",
-    "ColumnDataType": "int"
-  },
-  {
-    "label": "Дата доплаты",
-    "type": "date",
-    "property": "Дата_Доплата",
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "Квитанция дорлата",
-    "type": "number",
-    "property": "Квитанция_Доплата",
-    "ColumnDataType": "int"
-  },
-  {
-    "label": "Дата выхода техника",
-    "type": "date",
-    "property": "Дата_Техник",
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "Дата исполнения",
-    "type": "date",
-    "property": "Дата_Исполнения",
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "Вид инвентаризации",
-    "type": "number",
-    "property": "Вид_Инвентаризации",
-    "ColumnDataType": "int"
-  },
-  {
-    "label": "Выдан",
-    "type": "text",
-    "property": "Выдан",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Путь заявки",
-    "type": "text",
-    "property": "Путь_Заявки",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Путь договора заявки",
-    "type": "text",
-    "property": "Путь_ДоговораЗаявки",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Объекты",
-    "type": "text",
-    "property": "Объекты",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Работы",
-    "type": "text",
-    "property": "Работы",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Рабочий телефон",
-    "type": "phone",
-    "property": "ТелефонР",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Домашний телефон",
-    "type": "phone",
-    "property": "ТелефонД",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Сотовый телефон",
-    "type": "phone",
-    "property": "ТелефонС",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Номер задания",
-    "type": "text",
-    "property": "Номер_Задания",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Дата задания",
-    "type": "date",
-    "property": "Дата_Задания",
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "Собственник",
-    "type": "text",
-    "property": "Собственник",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Дата сдачи в архив",
-    "type": "date",
-    "property": "Дата_Архив",
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "Служебное поле для 1С с заказчиком",
-    "type": "text",
-    "property": "Абревиатура",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Дата оплаты для договора",
-    "type": "date",
-    "property": "Дата_Оплаты_Дог",
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "Срок исполнения заявки",
-    "type": "number",
-    "property": "Срок",
-    "ColumnDataType": "smallint"
-  },
-  {
-    "label": "Контактный телефон",
-    "type": "phone",
-    "property": "КТелефон",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Журнал выездов / неиспользуется поле",
-    "type": "text",
-    "property": "Журнал",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Исполнитель / не используется поле",
-    "type": "phone",
-    "property": "Исполнитель",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Примечание",
-    "type": "textarea",
-    "property": "Примечание",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Код БТИ",
-    "type": "select",
-    "property": "Код_БТИ",
-    "ColumnDataType": "int",
-    "options": {
-      "raw": [{
-        "value": "1",
-        "text": "Портал"
-      }, {
-        "value": "2",
-        "text": "Мфц"
-      }]
-    }
-  },
-  {
-    "label": "Виды деятельности",
-    "type": "number",
-    "property": "Вид_Деятельности",
-    "ColumnDataType": "smallint"
-  },
-  {
-    "label": "Контактное лицо",
-    "type": "text",
-    "property": "КонтактЛицо",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Комплексная заявка /1 - не комплексная, 2- комплексная",
-    "type": "number",
-    "property": "Признак_Компл",
-    "ColumnDataType": "smallint"
-  },
-  {
-    "label": "Код главной комплексной заявки",
-    "type": "number",
-    "property": "Код_Главной_Заявки",
-    "ColumnDataType": "int"
-  },
-  {
-    "label": "Этапы комплексной заявки",
-    "type": "number",
-    "property": "Этап_Компл",
-    "ColumnDataType": "int"
-  },
-  {
-    "label": "Признак соглашений между филиалами",
-    "type": "number",
-    "property": "Признак_Соглаш",
-    "ColumnDataType": "smallint"
-  },
-  {
-    "label": "Процент соглашений между филиалами",
-    "type": "number",
-    "property": "Процент_Соглаш",
-    "ColumnDataType": "float"
-  },
-  {
-    "label": "Фамилия",
-    "type": "text",
-    "property": "Фамилия",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Имя",
-    "type": "text",
-    "property": "Имя",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Отчество",
-    "type": "text",
-    "property": "Отчество",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Дата выдачи паспорта",
-    "type": "date",
-    "property": "Дата_Выдачи",
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "Отметка о выполнении / Нельзя исправить после установки",
-    "type": "number",
-    "property": "Отметка_Вып",
-    "ColumnDataType": "bit"
-  },
-  {
-    "label": "Номер заявки в АРМ",
-    "type": "text",
-    "property": "Номер_Заявки_АРМ",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Тот, кто поставил отметку о выполнении/ не используется",
-    "type": "text",
-    "property": "Автор_Вып",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Email",
-    "type": "email",
-    "property": "ЭлПочта",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Номер запроса",
-    "type": "text",
-    "property": "Номер_Запроса",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Дата выдачи заказчику",
-    "type": "date",
-    "property": "Дата_Выдачи_Заказчику",
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "Код Базы АРМ / Не используется",
-    "type": "number",
-    "property": "КодБазыАрм",
-    "ColumnDataType": "smallint"
-  },
-  {
-    "label": "Номер договора",
-    "type": "text",
-    "property": "Ном_Договора",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Вид договора",
-    "type": "number",
-    "property": "Вид_Договора",
-    "ColumnDataType": "int"
-  },
-  {
-    "label": "Дата договора",
-    "type": "date",
-    "property": "Дата_Договора",
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "Код заявки подгр / Не используется",
-    "type": "number",
-    "property": "КодЗаявкиПодгр",
-    "ColumnDataType": "int"
-  },
-  {
-    "label": "Отметка о конкурсе",
-    "type": "number",
-    "property": "Отметка_Конкурс",
-    "ColumnDataType": "bit"
-  },
-  {
-    "label": "Код представителя",
-    "type": "number",
-    "property": "Код_Представителя",
-    "ColumnDataType": "int"
-  },
-  {
-    "label": "Дата переноса",
-    "type": "date",
-    "property": "Дата_Переноса",
-    "ColumnDataType": "datetime"
-  },
-  {
-    "label": "СНИЛС",
-    "type": "number",
-    "property": "СНИЛС",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-    "label": "Идентификатор договора",
-    "type": "text",
-    "property": "Идент_Договор",
-    "ColumnDataType": "nvarchar"
-  },
-  {
-
-    "property": "upsize_ts",
-    "ColumnDataType": "timestamp"
-  }
-]
+  ]
+}
