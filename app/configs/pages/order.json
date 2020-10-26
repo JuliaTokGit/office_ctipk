@@ -41,26 +41,28 @@
         },
         {
           "type": "group_begin",
-          "property": "none",
-          "columns": 3
+          "property": "none"
         },
         {
           "label": "Номер заявки",
           "type": "number",
           "property": "Номер_Заявки",
-          "ColumnDataType": "int"
+          "ColumnDataType": "int",
+          "columns": 4          
         },
         {
           "label": "Номер запроса",
           "type": "text",
           "property": "Номер_Запроса",
-          "ColumnDataType": "nvarchar"
+          "ColumnDataType": "nvarchar",
+          "columns": 4
         },
         {
           "label": "Вид заявки",
           "type": "number",
           "property": "Вид_Инвентаризации",
-          "ColumnDataType": "int"
+          "ColumnDataType": "int",
+          "columns": 4
         },
         {
           "type": "group_end",
@@ -145,8 +147,9 @@
         {
           "type": "combo_performers",
           "url": "phpinfo",
-          "name": "test",
-          "property": "none"
+          "label": "Исполнители по видам работ",
+          "class":"btn-complete",
+          "property": "Код_Заявки"
         }
       ],
       "buttons": [
