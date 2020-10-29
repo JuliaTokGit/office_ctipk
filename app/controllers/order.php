@@ -7,8 +7,14 @@ if (!empty($filters['id'])){
     
     if (isset($_POST['action']) && $_POST['action']=='edit'){
         unset($_POST['action']);
-        $order->fill($_POST);
-        $order->save();    
+        $order->fill($_POST);        
+        if($order->state==$order->stage){
+            $order->stage=$order->stage+1;
+        }
+        if (!isset($_POST['state'])) {
+            $order->state=$order->stage;
+        }
+        $order->save();
     }    
 
     $context['order']=$order;    
@@ -16,14 +22,31 @@ if (!empty($filters['id'])){
   die(header ("Location: ".$path['base']."/orders"));
 }
 
-foreach ($page->properties->forms as &$form) {    
-    foreach ($form->fields as &$field) {
+
+foreach ($page->properties->forms as $key=>&$form) {
+    foreach ($form->fields as &$field) {        
         $field->{$field->type} = $field->property;
         $field->data = (object)['name' => 'obj', 'value' => $field->property];
         if(!empty($order->{$field->property})){
             $field->value=$order->{$field->property};
+            if ($field->type=='radio'){
+                foreach ($field->options as &$option) {
+                    if ($option->value==$field->value){
+                        $option->checked=true;
+                    }else{
+                        $option->checked=false;
+                    }
+                }
+            }
         }
         $form->mod_fields[] = $field;
     }
     $form->fields=$form->mod_fields;
+    if ($form->step==$order->state){
+        $form->active=true;
+    }
+    if ($form->step>$order->stage){
+        unset($page->properties->forms[$key]);
+    }
+    
 }

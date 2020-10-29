@@ -3,8 +3,8 @@ $(function(){
     $( this ).val($(this).data("value")).trigger("change");
   });
 });
-$('input[name="exampleRadios"]').on('click', function(e) {
-$(".switched_forms").hide();
-$($(this).val()).show();
-
+$('.switch_client').on('click', function(e) {
+  console.log('boo');
+  $(".switched_forms").hide();
+  $($(this).data("block")).show();
 });

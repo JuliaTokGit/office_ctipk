@@ -1,6 +1,6 @@
 <form role="form" {{#data}}data-{{name}}="{{value}}" {{/data}} class="{{class}}" style="{{style}}" {{#action}}action="{{.}}"{{/action}} {{#method}}method="{{.}}"{{/method}} {{#id}}id="{{.}}"{{/id}}>
 {{#fields}}
-{{>page.form_element}}		
+{{>page.disabled_form_element}}
 {{/fields}}
 
 
@@ -8,10 +8,9 @@
   <div class="col-sm-8">
   </div>
   <div class="col-sm-4 m-t-10 sm-m-t-10">
-      
-{{#buttons}}
- <button type="{{type}}" class="btn {{class}} btn-block m-t-5">{{text}}</button>
-{{/buttons}}
+  <input type="hidden" name="state" value={{step}}>
+  <button type="submit" class="btn btn-success btn-block m-t-5">Изменить</button>     
+
 
   </div>
 </div>

@@ -213,5 +213,5 @@ if (!empty($site->mustache_helpers)) {
     $helpers = new Spacewind\MustacheHelpers($engine, $context);
     $helpers->add($site->mustache_helpers);
 }
-
+// dd($context['page']->properties->forms);
 echo $engine->render($layout->getTemplate(), $context);

@@ -1,10 +1,25 @@
+{{#checkbox}}
+<input type="checkbox" class="form-check-input" >
+<label class="form-check-label" >{{text}}</label>
+{{/checkbox}}
+
+{{#radio}}
+<div class="form-check"> {{#options}}
+    <input class="form-check-input switch_client" type="radio" name="{{radio}}" {{#data}}data-{{name}}="{{value}}" {{/data}} data-block="{{block}}" id="{{id}}" value="{{value}}" {{#checked}}checked="checked"{{/checked}}>
+    <label class="form-check-label" for="{{id}}">
+        {{text}}
+    </label>
+{{/options}}
+</div>
+{{/radio}}
+
 {{#title_block}}
     <h3>{{title}}</h3>
 {{/title_block}}
+
 {{#combo_performers}}
         <button formaction="/performers-orders/order_id/{{value}}" type="submit" class="btn {{class}} btn-block m-t-5">{{label}}</button>
 {{/combo_performers}}
-
 
 {{#text}}
 	<label>{{label}}</label>
@@ -173,3 +188,4 @@
 	</span>
 
 {{/image}}
+

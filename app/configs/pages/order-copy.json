@@ -10,27 +10,22 @@
   "quickview": false,
   "forms": [
     {
-      "step":0,
-      "method": "POST",      
+      "method": "POST",
       "fields": [
-        {
-          "type": "hidden",
-          "property": "action",
-          "value": "edit"
-        },
+
         {
           "title": "Информация о заявке",
           "type": "title_block",
           "property": ""
-        },        
-        {
-          "type": "group_begin",
-          "property": "none",
-          "columns": 8
         },
         {
           "type": "group_begin",
           "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none",
+          "columns": 6
         },
         {
           "label": "Вид деятельности",
@@ -39,7 +34,12 @@
           "url": "/select-ajax/activity_types",
           "search": "true",
           "columns": 12
-        },        
+        },
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
+        },
         {
           "type": "group_end",
           "property": "none"
@@ -75,50 +75,48 @@
         },
         {
           "type": "group_begin",
-          "property": "none"
+          "property": "none",
+          "columns": 3
         },
         {
           "label": "Дата оформления",
           "type": "date",
           "property": "Дата_Заявки",
-          "ColumnDataType": "datetime",
-          "columns": 4
+          "ColumnDataType": "datetime"
         },
         {
           "label": "Дата оплаты",
           "type": "date",
           "property": "Дата_Оплата",
-          "ColumnDataType": "datetime",
-          "columns": 4
+          "ColumnDataType": "datetime"
         },
         {
           "type": "group_end",
-          "property": "none"
+          "property": "none",
+          "columns": 3
         },
         {
           "type": "group_begin",
-          "property": "none"
+          "property": "none",
+          "columns": 3
         },
         {
           "label": "Срок исполнения заявки",
           "type": "number",
           "property": "Срок",
-          "ColumnDataType": "smallint",
-          "columns": 4
+          "ColumnDataType": "smallint"
         },
         {
           "label": "Дата исполнения",
           "type": "date",
           "property": "Дата_Исполнения",
-          "ColumnDataType": "datetime",
-          "columns": 4
+          "ColumnDataType": "datetime"
         },
         {
           "label": "Дата выхода техника",
           "type": "date",
           "property": "Дата_Техник",
-          "ColumnDataType": "datetime",
-          "columns": 4
+          "ColumnDataType": "datetime"
         },
         {
           "type": "group_end",
@@ -126,39 +124,31 @@
         },
         {
           "type": "group_begin",
-          "property": "none"
+          "property": "none",
+          "columns": 3
         },
         {
           "label": "Дата оплаты для договора",
           "type": "date",
           "property": "Дата_Оплаты_Дог",
-          "ColumnDataType": "datetime",
-          "columns": 4
+          "ColumnDataType": "datetime"
         },
         {
           "label": "Дата сдачи в архив",
           "type": "date",
           "property": "Дата_Архив",
-          "ColumnDataType": "datetime",
-          "columns": 4
+          "ColumnDataType": "datetime"
         },
         {
           "label": "Дата выдачи заказчику",
           "type": "date",
           "property": "Дата_Выдачи_Заказчику",
-          "ColumnDataType": "datetime",
-          "columns": 4
+          "ColumnDataType": "datetime"
         },
-        
-        
-
         {
           "type": "group_end",
           "property": "none"
         },
-
-        
-
         {
           "type": "group_end",
           "property": "none"
@@ -167,39 +157,26 @@
           "type": "combo_performers",
           "url": "phpinfo",
           "label": "Исполнители по видам работ",
-          "class":"btn-complete m-t-30",
-          "property": "Код_Заявки",
-          "columns": 4
-        },
-        {
-          "type": "combo_performers",
-          "url": "phpinfo",
-          "label": "Перенос заявки",
           "class":"btn-complete",
-          "property": "Код_Заявки",
-          "columns": 4
-        },
-        {
-          "type": "combo_performers",
-          "url": "phpinfo",
-          "label": "Журнал выездов",
-          "class":"btn-complete",
-          "property": "Код_Заявки",
-          "columns": 4
+          "property": "Код_Заявки"
         }
-        
       ],
       "buttons": [
         {
           "type": "submit",
           "class": "btn btn-success",
-          "text": "Далее"
+          "text": "Перенос заявки"
+        },
+        {
+          "type": "submit",
+          "class": "btn btn-success",
+          "text": "Журнал выездов"
         }
       ]
     },
+
     {
       "method": "POST",
-      "step":1,
       "fields": [
         {
           "type": "hidden",
@@ -251,32 +228,35 @@
       ]
     },
     {
-      "step":2,
-      "fields": [
-        {          
-          "type": "radio",
-          "property": "Вид_Заказчик",
+      "method": "POST",
+      "radio":
+
+        {
           "options":[
             {
               "text":"Физическое лицо",
-              "block": "#fiz",
-              "value": 1,
+              "value": "#fiz",
               "id": "fizid",
               "checked":true
             },
             {
               "text":"Юридическое лицо",
-              "block": "#ur",
-              "value": 2,
+              "value": "#ur",
               "id": "urid"
             }
           ]
+        }
+      ,
+      "fields": [
+        {
+          "type": "hidden",
+          "property": "action",
+          "value": "edit"
         }
       ]
     },
     {
       "method": "POST",
-      "step":2,
       "id": "fiz",
       "class": "switched_forms",
       "style": "",
@@ -460,7 +440,6 @@
     },
     {
       "method": "POST",
-      "step":2,
       "class": "switched_forms",
       "style": "display:none",
       "id": "ur",
@@ -709,7 +688,6 @@
 
     {
       "method": "POST",
-      "step":3,
       "fields": [
         {
           "title": "Сведения об объекте",
@@ -739,7 +717,6 @@
     },
     {
       "method": "POST",
-      "step":4,
       "fields": [
         {
           "type": "hidden",

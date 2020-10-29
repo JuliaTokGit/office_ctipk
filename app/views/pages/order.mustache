@@ -1,3 +1,8 @@
 {{#page.forms}}
+{{#active}}
 {{>page.form}}
+{{/active}}
+{{^active}}
+{{>page.disabled_form}}
+{{/active}}
 {{/page.forms}}

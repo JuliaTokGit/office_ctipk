@@ -1,0 +1,190 @@
+{{#title_block}}
+    <h3>{{title}}</h3>
+{{/title_block}}
+
+{{#combo_performers}}
+        <button disabled="disabled" formaction="/performers-orders/order_id/{{value}}" type="submit" class="btn {{class}} btn-block m-t-5">{{label}}</button>
+{{/combo_performers}}
+
+{{#text}}
+	<label>{{label}}</label>
+	<span class="help">{{help}}</span>
+	<input disabled="disabled" type="text" name="{{text}}" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control" value="{{value}}">
+{{/text}}
+
+{{#hidden}}
+	<input type="hidden" name="{{hidden}}" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control" value="{{value}}"/>
+{{/hidden}}
+
+{{#textarea}}
+	<label>{{label}}</label>
+	<span class="help">{{help}}</span>
+	<textarea rows="4" name="{{textarea}}" disabled="disabled"  class="form-control" {{#data}}data-{{name}}="{{value}}" {{/data}}>{{value}}</textarea>
+{{/textarea}}
+
+{{#number}}
+	<label>{{label}}</label>
+	<input type="number" name="{{number}}" disabled="disabled"  min="{{min}}" max="{{max}}"{{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control" value="{{value}}{{^value}}{{default}}{{/value}}">
+{{/number}}
+
+{{#phone}}
+	<label>{{label}}</label>
+
+	<span class="help">{{help}}</span>
+	<input type="text" name="{{phone}}" disabled="disabled"  placeholder="+7(999) 999-9999" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control phone" value="{{value}}">
+{{/phone}}
+{{#email}}
+    <label>{{label}}</label>
+    <span class="help">{{help}}</span>
+    <input type="email" name="{{email}}" disabled="disabled"  placeholder="example@mail.com" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control email" value="{{value}}">
+{{/email}}
+
+{{#summernote}}
+	<div class="summernote-wrapper"> <label>{{label}}</label>
+		<textarea style="width:100%" disabled="disabled"  data-init-plugin="summernote" {{#data}}data-{{name}}="{{value}}" {{/data}} class="summernote" rows="6" name="{{summernote}}" >{{value}}</textarea>
+	</div>
+{{/summernote}}
+
+{{#select}}
+	<label>{{label}}</label>
+	<select disabled="disabled"  name="{{select}}{{#multiple}}[]{{/multiple}}" class="select2 full-width {{class}}" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2" data-theme="bootstrap" data-width="100%" {{#multiple}} multiple {{/multiple}}  {{^search}}data-disable-search="true"{{/search}} data-value="{{value}}">
+		{{{ options | generate-options }}}
+	</select>
+{{/select}}
+
+{{#select_ajax}}
+	<label>{{label}}</label>
+	<select disabled="disabled"  name="{{select_ajax}}" class="select2 full-width" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2ajax" data-theme="bootstrap" data-width="100%" data-url="{{url}}"{{^search}}data-disable-search="true"{{/search}}>
+	</select>
+{{/select_ajax}}
+
+{{#select_ajax_mod}}
+	<label>{{label}}</label>
+	<select disabled="disabled"  name="{{select_ajax_mod}}" class="select2 full-width" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2ajax" data-theme="bootstrap" data-width="100%" data-url="{{url}}//{{#filter}}{{.}}{{/filter}}{{^filter}}id{{/filter}}/{{value}}"{{^search}}data-disable-search="true"{{/search}}>
+	</select>
+{{/select_ajax_mod}}
+
+{{#button-list}}
+	<label>{{label}}</label>
+	<div class="btn-group" data-toggle="buttons"
+	 {{#data}}data-{{name}}="{{value}}" {{/data}} >
+		{{{ options | generate-buttons }}}
+	</div>
+{{/button-list}}
+{{#button}}
+    <button disabled="disabled"  type="{{type}}" class="btn {{class}} btn-block m-t-5">{{text}}</button>
+{{/button}}
+
+{{#password}}
+	<label>{{label}}</label>
+	<input disabled="disabled"  type="password" name="{{password}}" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control" value="{{value}}">
+{{/password}}
+
+{{#date}}
+	<label>{{label}}</label>
+	<input disabled="disabled"  type="date" name="{{date}}" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control">
+{{/date}}
+
+{{#datetime}}
+	<label>{{label}}</label>
+	<input disabled="disabled"  type="datetime-local" name="{{datetime}}" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control">
+{{/datetime}}
+
+{{#datepicker}}
+	<label>{{label}}</label>
+	<input disabled="disabled"  type="text" name="{{datepicker}}" data-init-plugin="datepicker" data-format="YYYY-MM-DD" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control datepicker" >
+{{/datepicker}}
+
+{{#datepickermssql}}
+	<label>{{label}}</label>
+	<input disabled="disabled"  type="text" name="{{datepickermssql}}" data-init-plugin="datepickermssql" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control datepicker" >
+{{/datepickermssql}}
+
+{{#file}}
+	<label>{{label}}</label>
+
+	<span class="btn btn-default btn-file  form-control">
+		<span class='text' {{#data}}data-{{name}}="{{filename}}" {{/data}}>{{btn-text}}</span><input disabled="disabled"  type="file" name="{{file}}" accept="{{accept}}" {{#multiple}}multiple{{/multiple}} />
+	</span>
+{{/file}}
+
+
+
+{{#daterangepicker}}
+	<label >{{label}}</label>
+	<span class="add-on input-group-addon">
+		<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+	</span>
+	<input disabled="disabled"  type="text" class="form-control daterangepicker" name="{{daterangepicker}}"  value="{{value}}" />
+{{/daterangepicker}}
+{{tumbler}}
+{{#image}}
+<style>
+.imageBox {
+    position: relative;
+    height: {{imagebox.height}};
+    width: {{imagebox.width}};
+    border:1px solid #aaa;
+    background: #fff;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    cursor:move;
+}
+
+.imageBox .thumbBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: {{thumbox.width}};
+    height: {{thumbox.height}};
+    margin-top: {{thumbox.top}};
+    margin-left: {{thumbox.left}};
+    border: 1px solid rgb(102, 102, 102);
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+    background: none repeat scroll 0% 0% transparent;
+}
+
+.imageBox .spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    line-height: 400px;
+    background: rgba(0,0,0,0.7);
+}
+</style>
+	<label>{{label}}</label>
+	<span class="help">{{help}}
+		<div class="imageBox_controls" style="float:right;display:none;">
+		    <input type="button" class="btnZoomIn" value="+" style="float: right">
+		    <input type="button" class="btnZoomOut" value="-" style="float: right">
+		</div>
+	</span>
+
+    <div id="photo_{{data.0.value}}" class="imageBox" style="display:none;">
+        <div class="thumbBox"></div>
+    </div>
+
+	<span class="btn btn-default btn-file  form-control">
+		<span class='text'>{{btn-text}}</span>
+		<input type="file" id="file" accept="{{accept}}" class="imagecrop" data-box="#photo_{{data.0.value}}" data-name="{{image}}"/>
+	</span>
+
+{{/image}}
+
+{{#checkbox}}
+<input type="checkbox" class="form-check-input" >
+<label class="form-check-label" >{{text}}</label>
+{{/checkbox}}
+
+{{#radio}}
+<div class="form-check"> {{#options}}
+    <input disabled="disabled"  class="form-check-input" type="radio" name="exampleRadios" id="{{id}}" value="{{value}}" {{#checked}}checked="checked"{{/checked}}>
+    <label class="form-check-label" for="{{id}}">
+        {{text}}
+    </label>
+{{/options}}
+</div>
+{{/radio}}
