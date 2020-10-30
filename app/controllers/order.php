@@ -24,6 +24,7 @@ if (!empty($filters['id'])){
 
 
 foreach ($page->properties->forms as $key=>&$form) {
+    $form->disabled=true;
     foreach ($form->fields as &$field) {        
         $field->{$field->type} = $field->property;
         $field->data = (object)['name' => 'obj', 'value' => $field->property];
@@ -43,7 +44,7 @@ foreach ($page->properties->forms as $key=>&$form) {
     }
     $form->fields=$form->mod_fields;
     if ($form->step==$order->state){
-        $form->active=true;
+        $form->disabled=false;
     }
     if ($form->step>$order->stage){
         unset($page->properties->forms[$key]);

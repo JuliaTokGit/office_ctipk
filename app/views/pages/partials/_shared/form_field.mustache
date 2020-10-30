@@ -1,11 +1,11 @@
 {{#checkbox}}
-<input type="checkbox" class="form-check-input" >
+<input type="checkbox" class="form-check-input"  {{#disabled}}disabled="disabled"{{/disabled}} />
 <label class="form-check-label" >{{text}}</label>
 {{/checkbox}}
 
 {{#radio}}
 <div class="form-check"> {{#options}}
-    <input class="form-check-input switch_client" type="radio" name="{{radio}}" {{#data}}data-{{name}}="{{value}}" {{/data}} data-block="{{block}}" id="{{id}}" value="{{value}}" {{#checked}}checked="checked"{{/checked}}>
+    <input class="form-check-input {{class}}" type="radio" name="{{radio}}" {{#data}}data-{{name}}="{{value}}" {{/data}} id="{{id}}" value="{{value}}" {{#checked}}checked="checked"{{/checked}} {{#disabled}}disabled="disabled"{{/disabled}}>
     <label class="form-check-label" for="{{id}}">
         {{text}}
     </label>
@@ -15,16 +15,18 @@
 
 {{#title_block}}
     <h3>{{title}}</h3>
+	<input type="hidden" name="state" value={{step}}>
+  	<button type="submit" class="btn btn-success btn-block m-t-5" {{#disabled}}disabled="disabled"{{/disabled}}>Изменить</button>
 {{/title_block}}
 
 {{#combo_performers}}
-        <button formaction="/performers-orders/order_id/{{value}}" type="submit" class="btn {{class}} btn-block m-t-5">{{label}}</button>
+        <button formaction="/performers-orders/order_id/{{value}}" type="submit" class="btn {{class}} btn-block m-t-5" {{#disabled}}disabled="disabled"{{/disabled}}>{{label}}</button>
 {{/combo_performers}}
 
 {{#text}}
 	<label>{{label}}</label>
 	<span class="help">{{help}}</span>
-	<input type="text" name="{{text}}" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control" value="{{value}}">
+	<input type="text" name="{{text}}" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control" value="{{value}}" {{#disabled}}disabled="disabled"{{/disabled}}>
 {{/text}}
 
 {{#hidden}}
@@ -34,48 +36,48 @@
 {{#textarea}}
 	<label>{{label}}</label>
 	<span class="help">{{help}}</span>
-	<textarea rows="4" name="{{textarea}}" class="form-control" {{#data}}data-{{name}}="{{value}}" {{/data}}>{{value}}</textarea>
+	<textarea rows="4" name="{{textarea}}" class="form-control" {{#data}}data-{{name}}="{{value}}" {{/data}}  {{#disabled}}disabled="disabled"{{/disabled}}>{{value}}</textarea>
 {{/textarea}}
 
 {{#number}}
 	<label>{{label}}</label>
-	<input type="number" name="{{number}}" min="{{min}}" max="{{max}}"{{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control" value="{{value}}{{^value}}{{default}}{{/value}}">
+	<input type="number" name="{{number}}" min="{{min}}" max="{{max}}"{{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control" value="{{value}}{{^value}}{{default}}{{/value}}" {{#disabled}}disabled="disabled"{{/disabled}}>
 {{/number}}
 
 {{#phone}}
 	<label>{{label}}</label>
 
 	<span class="help">{{help}}</span>
-	<input type="text" name="{{phone}}" placeholder="+7(999) 999-9999" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control phone" value="{{value}}">
+	<input type="text" name="{{phone}}" placeholder="+7(999) 999-9999" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control phone" value="{{value}}" {{#disabled}}disabled="disabled"{{/disabled}}>
 {{/phone}}
 {{#email}}
     <label>{{label}}</label>
     <span class="help">{{help}}</span>
-    <input type="email" name="{{email}}" placeholder="example@mail.com" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control email" value="{{value}}">
+    <input type="email" name="{{email}}" placeholder="example@mail.com" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control email" value="{{value}}" {{#disabled}}disabled="disabled"{{/disabled}}>
 {{/email}}
 
 {{#summernote}}
 	<div class="summernote-wrapper"> <label>{{label}}</label>
-		<textarea style="width:100%" data-init-plugin="summernote" {{#data}}data-{{name}}="{{value}}" {{/data}} class="summernote" rows="6" name="{{summernote}}" >{{value}}</textarea>
+		<textarea style="width:100%" data-init-plugin="summernote" {{#data}}data-{{name}}="{{value}}" {{/data}} class="summernote" rows="6" name="{{summernote}}" {{#disabled}}disabled="disabled"{{/disabled}} >{{value}}</textarea>
 	</div>
 {{/summernote}}
 
 {{#select}}
 	<label>{{label}}</label>
-	<select name="{{select}}{{#multiple}}[]{{/multiple}}" class="select2 full-width {{class}}" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2" data-theme="bootstrap" data-width="100%" {{#multiple}} multiple {{/multiple}}  {{^search}}data-disable-search="true"{{/search}} data-value="{{value}}">
+	<select name="{{select}}{{#multiple}}[]{{/multiple}}" class="select2 full-width {{class}}" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2" data-theme="bootstrap" data-width="100%" {{#multiple}} multiple {{/multiple}}  {{^search}}data-disable-search="true"{{/search}} data-value="{{value}}" {{#disabled}}disabled="disabled"{{/disabled}}>
 		{{{ options | generate-options }}}
 	</select>
 {{/select}}
 
 {{#select_ajax}}
 	<label>{{label}}</label>
-	<select name="{{select_ajax}}" class="select2 full-width" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2ajax" data-theme="bootstrap" data-width="100%" data-url="{{url}}"{{^search}}data-disable-search="true"{{/search}}>
+	<select name="{{select_ajax}}" class="select2 full-width" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2ajax" data-theme="bootstrap" data-width="100%" data-url="{{url}}"{{^search}}data-disable-search="true"{{/search}} {{#disabled}}disabled="disabled"{{/disabled}}>
 	</select>
 {{/select_ajax}}
 
 {{#select_ajax_mod}}
 	<label>{{label}}</label>
-	<select name="{{select_ajax_mod}}" class="select2 full-width" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2ajax" data-theme="bootstrap" data-width="100%" data-url="{{url}}//{{#filter}}{{.}}{{/filter}}{{^filter}}id{{/filter}}/{{value}}"{{^search}}data-disable-search="true"{{/search}}>
+	<select name="{{select_ajax_mod}}" class="select2 full-width" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2ajax" data-theme="bootstrap" data-width="100%" data-url="{{url}}//{{#filter}}{{.}}{{/filter}}{{^filter}}id{{/filter}}/{{value}}"{{^search}}data-disable-search="true"{{/search}} {{#disabled}}disabled="disabled"{{/disabled}}>
 	</select>
 {{/select_ajax_mod}}
 
@@ -87,39 +89,39 @@
 	</div>
 {{/button-list}}
 {{#button}}
-    <button type="{{type}}" class="btn {{class}} btn-block m-t-5">{{text}}</button>
+    <button type="{{type}}" class="btn {{class}} btn-block m-t-5" {{#disabled}}disabled="disabled"{{/disabled}}>{{text}}</button>
 {{/button}}
 
 {{#password}}
 	<label>{{label}}</label>
-	<input type="password" name="{{password}}" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control" value="{{value}}">
+	<input type="password" name="{{password}}" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control" value="{{value}}" {{#disabled}}disabled="disabled"{{/disabled}}>
 {{/password}}
 
 {{#date}}
 	<label>{{label}}</label>
-	<input type="date" name="{{date}}" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control">
+	<input type="date" name="{{date}}" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control" {{#disabled}}disabled="disabled"{{/disabled}}>
 {{/date}}
 
 {{#datetime}}
 	<label>{{label}}</label>
-	<input type="datetime-local" name="{{datetime}}" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control">
+	<input type="datetime-local" name="{{datetime}}" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control" {{#disabled}}disabled="disabled"{{/disabled}}>
 {{/datetime}}
 
 {{#datepicker}}
 	<label>{{label}}</label>
-	<input type="text" name="{{datepicker}}" data-init-plugin="datepicker" data-format="YYYY-MM-DD" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control datepicker" >
+	<input type="text" name="{{datepicker}}" data-init-plugin="datepicker" data-format="YYYY-MM-DD" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control datepicker"  {{#disabled}}disabled="disabled"{{/disabled}}>
 {{/datepicker}}
 
 {{#datepickermssql}}
 	<label>{{label}}</label>
-	<input type="text" name="{{datepickermssql}}" data-init-plugin="datepickermssql" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control datepicker" >
+	<input type="text" name="{{datepickermssql}}" data-init-plugin="datepickermssql" {{#data}}data-{{name}}="{{value}}" {{/data}} value="{{value}}" class="form-control datepicker"  {{#disabled}}disabled="disabled"{{/disabled}}>
 {{/datepickermssql}}
 
 {{#file}}
 	<label>{{label}}</label>
 
 	<span class="btn btn-default btn-file  form-control">
-		<span class='text' {{#data}}data-{{name}}="{{filename}}" {{/data}}>{{btn-text}}</span><input type="file" name="{{file}}" accept="{{accept}}" {{#multiple}}multiple{{/multiple}} />
+		<span class='text' {{#data}}data-{{name}}="{{filename}}" {{/data}}>{{btn-text}}</span><input type="file" name="{{file}}" accept="{{accept}}" {{#multiple}}multiple{{/multiple}}  {{#disabled}}disabled="disabled"{{/disabled}}/>
 	</span>
 {{/file}}
 
@@ -130,7 +132,7 @@
 	<span class="add-on input-group-addon">
 		<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
 	</span>
-	<input type="text" class="form-control daterangepicker" name="{{daterangepicker}}"  value="{{value}}" />
+	<input type="text" class="form-control daterangepicker" name="{{daterangepicker}}"  value="{{value}}"  {{#disabled}}disabled="disabled"{{/disabled}}/>
 {{/daterangepicker}}
 {{tumbler}}
 {{#image}}
@@ -184,7 +186,7 @@
 
 	<span class="btn btn-default btn-file  form-control">
 		<span class='text'>{{btn-text}}</span>
-		<input type="file" id="file" accept="{{accept}}" class="imagecrop" data-box="#photo_{{data.0.value}}" data-name="{{image}}"/>
+		<input type="file" id="file" accept="{{accept}}" class="imagecrop" data-box="#photo_{{data.0.value}}" data-name="{{image}}" {{#disabled}}disabled="disabled"{{/disabled}}/>
 	</span>
 
 {{/image}}

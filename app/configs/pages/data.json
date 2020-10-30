@@ -3,9 +3,6 @@
         "datafilters"
     ],
     "objects": {
-        "users": {
-            "name": "User"
-        },
         "uploads": {
             "name": "Upload"
         },
@@ -33,8 +30,8 @@
         "agreement": {
             "name": "Agreement"
         },
-        "table-users": {
-            "name": "TableUsers"
+        "users": {
+            "name": "CtiUser"
         },
         "table-works-orders": {
             "name": "TableWorksOrders"

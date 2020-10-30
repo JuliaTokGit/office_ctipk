@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Database\Eloquent\Model;
 
-class TableUsers extends Model
+class CtiUser extends Model
 {
     protected $connection='mssql';
     protected $table = 'Таблица_Пользователи';

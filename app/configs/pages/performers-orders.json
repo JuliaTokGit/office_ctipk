@@ -16,10 +16,35 @@
                 },
                 "fields": [
                     { "property": "Код_Заявки", "type":"number","label":"Код заявки"},
-                    { "property": "Исполнитель", "type":"text", "label":"Исполнитель"},
+                    {
+                        "label": "Исполнитель",
+                        "type": "select_ajax",
+                        "property": "Код_Исполнителя",
+                        "url": "/select-ajax/users",
+                        "search": "true"
+                      },
+                                        
                     { "property": "Вид_Работы", "type":"number", "label":"Вид Работы"},
-                    { "property": "Процент_Выручка", "type":"number", "label":"Процент"},
-                    { "property": "Доля_Выручка", "type":"number", "label":"Доля" }
+                    {
+                        "type": "group_begin",
+                        "property": "none"
+                    },
+                    { 
+                        "property": "Процент_Выручка", 
+                        "type":"number", 
+                        "label":"Процент",
+                        "columns":6
+                    },
+                    { 
+                        "property": "Доля_Выручка", 
+                        "type":"number", 
+                        "label":"Доля",
+                        "columns":6 
+                    },
+                    {
+                        "type": "group_begin",
+                        "property": "none"
+                    }
                 ],
 
                 "subheaders":{"delete":"Вы уверены что хотите удалить \"<span data-obj=filename></span>\"?"}

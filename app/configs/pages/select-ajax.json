@@ -1,9 +1,5 @@
 {
     "objects":{
-        "users":{
-            "name" : "User",
-            "text" : "fullname"
-        },
         "requests":{
             "name" : "Request",
             "text" : "name"
@@ -17,6 +13,11 @@
             "name": "Issuer",
             "text": "Наименование",
             "id": "Наименование"
+        },
+        "users":{
+            "name" : "CtiUser",
+            "text" : "ФИО",
+            "id": "Код"
         }
     },
     "title": "Выдача данных для селектов",
