@@ -42,6 +42,8 @@ if (isset($class)) {
         // print_r($selected);
         // die();
         $items = $class->all();
+    } elseif (isset($filters['work_group_id'])){
+        $items = $class->where('Код_Группы', $filters['work_group_id'])->get();
     } elseif (isset($filters['active'])){
         $items = $class->where('active', $filters['active'])->get();
     } else {

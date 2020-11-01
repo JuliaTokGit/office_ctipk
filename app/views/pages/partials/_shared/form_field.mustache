@@ -20,7 +20,7 @@
 {{/title_block}}
 
 {{#combo_performers}}
-        <button formaction="/performers-orders/order_id/{{value}}" type="submit" class="btn {{class}} btn-block m-t-5" {{#disabled}}disabled="disabled"{{/disabled}}>{{label}}</button>
+        <button formaction="/order-performers/order_id/{{value}}" type="submit" class="btn {{class}} btn-block m-t-5" {{#disabled}}disabled="disabled"{{/disabled}}>{{label}}</button>
 {{/combo_performers}}
 
 {{#text}}
@@ -71,9 +71,43 @@
 
 {{#select_ajax}}
 	<label>{{label}}</label>
-	<select name="{{select_ajax}}" class="select2 full-width" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2ajax" data-theme="bootstrap" data-width="100%" data-url="{{url}}"{{^search}}data-disable-search="true"{{/search}} {{#disabled}}disabled="disabled"{{/disabled}}>
+	<select name="{{select_ajax}}" class="select2 full-width {{class}}" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2ajax" data-theme="bootstrap" data-width="100%" data-url="{{url}}"{{^search}}data-disable-search="true"{{/search}} {{#disabled}}disabled="disabled"{{/disabled}}>
 	</select>
 {{/select_ajax}}
+
+
+
+
+{{#select_ajax_vydan}}
+<label>{{label}}</label>
+	<div class="row">	
+	
+	<div class="col-sm-10">
+	
+	<select name="{{select_ajax_vydan}}" class="select2 full-width" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2ajax" data-theme="bootstrap" data-width="100%" data-url="{{url}}"{{^search}}data-disable-search="true"{{/search}} {{#disabled}}disabled="disabled"{{/disabled}}>
+	</select>
+	</div>
+	<div class="col-sm-2">
+	<button formaction="/issuers" type="submit" class="btn btn-complete  full-width">Выдан</button>
+	</div>
+	</div>
+{{/select_ajax_vydan}}
+
+
+{{#select_ajax_address}}
+<label>{{label}}</label>
+	<div class="row">	
+	
+	<div class="col-sm-10">
+	
+	<select name="{{select_ajax_address}}" class="select2 full-width" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2ajax" data-theme="bootstrap" data-width="100%" data-url="{{url}}"{{^search}}data-disable-search="true"{{/search}} {{#disabled}}disabled="disabled"{{/disabled}}>
+	</select>
+	</div>
+	<div class="col-sm-2">
+	<button formaction="/address" type="submit" class="btn btn-complete  full-width">Адрес</button>
+	</div>
+	</div>
+{{/select_ajax_address}}
 
 {{#select_ajax_mod}}
 	<label>{{label}}</label>

@@ -328,3 +328,7 @@ fieldset[disabled] .form-control {
   background-color: #fff;
   border: 1px solid #ddd;
 }
+
+.panel.bordered {  
+  border: 2px solid #48b0f7;
+}

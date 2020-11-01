@@ -1,7 +1,7 @@
 <form role="form" {{#data}}data-{{name}}="{{value}}" {{/data}} class="{{class}}" style="{{style}}" {{#action}}action="{{.}}"{{/action}} {{#method}}method="{{.}}"{{/method}} {{#id}}id="{{.}}"{{/id}}>
 
 {{#panel}}
-<div class="panel {{#disabled}}disabled{{/disabled}} ">
+<div class="panel {{#disabled}}disabled{{/disabled}} {{#bordered}}bordered{{/bordered}} ">
 	<div class="panel-heading">
 		<div class="panel-title">
 			{{#title}}{{.}}{{/title}}

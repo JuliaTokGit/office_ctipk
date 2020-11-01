@@ -17,7 +17,8 @@ if (!empty($filters['id'])){
         $order->save();
     }    
 
-    $context['order']=$order;    
+    $context['order']=$order; 
+    $page->properties->datatables->default->dataUrl.='/doc_id/'.$filters['id'];      
 }else{
   die(header ("Location: ".$path['base']."/orders"));
 }
@@ -45,6 +46,7 @@ foreach ($page->properties->forms as $key=>&$form) {
     $form->fields=$form->mod_fields;
     if ($form->step==$order->state){
         $form->disabled=false;
+        $form->bordered=true;
     }
     if ($form->step>$order->stage){
         unset($page->properties->forms[$key]);

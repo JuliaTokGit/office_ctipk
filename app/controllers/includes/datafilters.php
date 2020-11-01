@@ -58,5 +58,8 @@ $datafilters=[
 	'order_id'=>function($value,$query){
 		return $query->where('Код_Заявки',$value);
 	},
+	'doc_id'=>function($value,$query){
+		return $query->where('Код_Док',$value);
+	},
 
 ];

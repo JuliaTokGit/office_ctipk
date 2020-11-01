@@ -2,8 +2,9 @@
   "title": "Заявка",
   "header": "Заявка",
   "bodyclass": "fixed-header",
-  "layout": "default",
-  "includes": [],
+  "jumbotron":false,
+  "layout": "default.dt",
+  "includes": ["dt-crud-modals"],
   "scripts": [
     "modals"
   ],
@@ -52,10 +53,51 @@
           "columns": 4          
         },
         {
+          "label": "Дата оформления",
+          "type": "date",
+          "property": "Дата_Заявки",
+          "columns": 4
+        },
+        {
+          "label": "Дата оплаты для договора",
+          "type": "date",
+          "property": "Дата_Оплаты_Дог",
+          "columns": 4
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
           "label": "Номер запроса",
           "type": "text",
           "property": "Номер_Запроса",
           "columns": 4
+        },
+        
+        {
+          "label": "Дата оплаты",
+          "type": "date",
+          "property": "Дата_Оплата",
+          "columns": 4
+        },
+        {
+          "label": "Дата сдачи в архив",
+          "type": "date",
+          "property": "Дата_Архив",
+          "columns": 4
+        },
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
         },
         {
           "label": "Вид заявки",
@@ -76,39 +118,27 @@
           "columns": 4
         },
         {
-          "type": "group_end",
-          "property": "none"
-        },
-        {
-          "type": "group_begin",
-          "property": "none"
-        },
-        {
-          "label": "Дата оформления",
-          "type": "date",
-          "property": "Дата_Заявки",
-          "columns": 4
-        },
-        {
-          "label": "Дата оплаты",
-          "type": "date",
-          "property": "Дата_Оплата",
-          "columns": 4
-        },
-        {
-          "type": "group_end",
-          "property": "none"
-        },
-        {
-          "type": "group_begin",
-          "property": "none"
-        },
-        {
           "label": "Срок исполнения заявки",
           "type": "number",
           "property": "Срок",
           "columns": 4
         },
+        {
+          "label": "Дата выдачи заказчику",
+          "type": "date",
+          "property": "Дата_Выдачи_Заказчику",
+          "columns": 4
+        },
+        
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        
         {
           "label": "Дата исполнения",
           "type": "date",
@@ -121,32 +151,7 @@
           "property": "Дата_Техник",
           "columns": 4
         },
-        {
-          "type": "group_end",
-          "property": "none"
-        },
-        {
-          "type": "group_begin",
-          "property": "none"
-        },
-        {
-          "label": "Дата оплаты для договора",
-          "type": "date",
-          "property": "Дата_Оплаты_Дог",
-          "columns": 4
-        },
-        {
-          "label": "Дата сдачи в архив",
-          "type": "date",
-          "property": "Дата_Архив",
-          "columns": 4
-        },
-        {
-          "label": "Дата выдачи заказчику",
-          "type": "date",
-          "property": "Дата_Выдачи_Заказчику",
-          "columns": 4
-        },
+        
         
         
 
@@ -160,6 +165,26 @@
         {
           "type": "group_end",
           "property": "none"
+        },
+        {
+          "label": "Тип заявки",
+          "type": "select",
+          "property": "Признак_Компл",
+          "class": "select_load",
+          "options": {
+            "null_value": true,
+            "raw": [
+              {
+                "value": "1",
+                "text": "Обычная"
+              },
+              {
+                "value": "2",
+                "text": "Комплексная"
+              }
+            ]
+          },
+          "columns": 4
         },
         {
           "type": "combo_performers",
@@ -196,60 +221,6 @@
       ]
     },
     {
-      "title": "Комплексная заявка",
-      "panel":true,
-      "method": "POST",
-      "step":1,
-      "fields": [
-        {
-          "type": "hidden",
-          "property": "action",
-          "value": "edit"
-        },
-        {
-          "label": "Тип заявки",
-          "type": "select",
-          "property": "Признак_Компл",
-          "class": "select_load",
-          "options": {
-            "null_value": true,
-            "raw": [
-              {
-                "value": "1",
-                "text": "Обычная"
-              },
-              {
-                "value": "2",
-                "text": "Комплексная"
-              }
-            ]
-          }
-        }
-      ],
-      "buttons": [
-        {
-          "type": "submit",
-          "class": "btn btn-success",
-          "text": "Этапы комплексной заявки"
-        },
-        {
-          "type": "submit",
-          "class": "btn btn-success",
-          "text": "По соглашению"
-        },
-        {
-          "type": "submit",
-          "class": "btn btn-success",
-          "text": "Исполнители по видам работ"
-        },
-        {
-          "type": "submit",
-          "class": "btn btn-success",
-          "text": "Отделы исполнители"
-        }
-      ]
-    },
-    {
       "title": "Информация о заказчике",
       "panel":true,
       "method": "POST",
@@ -264,7 +235,7 @@
           "options":[
             {
               "text":"Физическое лицо",
-              "class": "fiz switch_client",
+              "class": "fiz switch_client p-r-20",
               "value": 1,
               "id": "fizid",
               "checked":true,
@@ -275,7 +246,7 @@
             },
             {
               "text":"Юридическое лицо",
-              "class": "ur switch_client",
+              "class": "ur switch_client m-l-100",
               "value": 2,
               "id": "urid",
               "data":[
@@ -286,14 +257,15 @@
           ]
         },
         {
-          "type": "group_begin",
-          "property": "none"
-        },
-        {
           "type": "hidden",
           "property": "action",
           "value": "edit"
         },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        
         {
           "label": "Фамилия",
           "type": "text",
@@ -313,16 +285,31 @@
           "columns": 4
         },
         {
-          "label": "Дата Рождения",
-          "type": "date",
-          "property": "Дата_Рождения",
-          "columns": 3
+          "type": "group_end",
+          "property": "none"
         },
         {
           "label": "В лице, на основании",
           "type": "text",
-          "property": "В_Лице",
-          "columns": 4
+          "property": "В_Лице"
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        
+        
+        {
+          "label": "Вид документа",
+          "type": "text",
+          "property": "КС",
+          "columns": 9
+        },
+        {
+          "label": "Дата Рождения",
+          "type": "date",
+          "property": "Дата_Рождения",
+          "columns": 3
         },
         {
           "type": "group_end",
@@ -331,12 +318,6 @@
         {
           "type": "group_begin",
           "property": "none"
-        },
-        {
-          "label": "Вид документа",
-          "type": "text",
-          "property": "КС",
-          "columns": 3
         },
         {
           "label": "Серия паспорта",
@@ -351,29 +332,30 @@
           "columns": 3
         },
         {
-          "label": "Кем выдан",
-          "type": "select_ajax_mod",
-          "property": "Выдан",
-          "url": "/select-ajax/issued_by",
-          "filter": "text",
-          "search": "true",
-          "columns": 12
-        },
-        {
           "label": "Дата выдачи паспорта",
           "type": "date",
           "property": "Дата_Выдачи",
           "columns": 3
         },
-        {
-          "label": "Адрес регистрации",
-          "type": "text",
-          "property": "Прописка",
-          "columns": 3
-        },
+        
         {
           "type": "group_end",
           "property": "none"
+        },
+        
+        {
+          "label": "Кем выдан",
+          "type": "select_ajax_vydan",
+          "property": "Выдан",
+          "url": "/select-ajax/issued_by",
+          "filter": "text",
+          "search": "true"
+        },
+        
+        {
+          "label": "Адрес регистрации",
+          "type": "text",
+          "property": "Прописка"
         },
         {
           "type": "group_begin",
@@ -383,7 +365,7 @@
           "label": "Собственник",
           "type": "text",
           "property": "Собственник",
-          "columns": 3
+          "columns": 9
         },
         {
           "label": "СНИЛС",
@@ -391,12 +373,7 @@
           "property": "СНИЛС",
           "columns": 3
         },
-        {
-          "label": "ИНН",
-          "type": "number",
-          "property": "ИНН",
-          "columns": 3
-        },
+        
         {
           "type": "group_end",
           "property": "none"
@@ -424,20 +401,22 @@
           "columns": 3
         },
         {
+          "label": "ИНН",
+          "type": "number",
+          "property": "ИНН",
+          "columns": 3
+        },
+        {
           "type": "group_end",
           "property": "none"
         }
       ],
       "buttons": [
+        
         {
           "type": "submit",
           "class": "btn btn-success",
-          "text": "Справочник представителей"
-        },
-        {
-          "type": "submit",
-          "class": "btn btn-success",
-          "text": "Адрес"
+          "text": "Далее"
         }
       ]
     },
@@ -476,17 +455,13 @@
               ]
             }
           ]
-        },       
-        {
-          "type": "group_begin",
-          "property": "none",
-          "columns": 12
         },
         {
           "type": "hidden",
           "property": "action",
           "value": "edit"
-        },
+        },       
+                
         {
           "label": "Заказчик",
           "type": "text",
@@ -497,10 +472,7 @@
           "type": "text",
           "property": "В_Лице"
         },
-        {
-          "type": "group_end",
-          "property": "none"
-        },
+        
         {
           "type": "group_begin",
           "property": "none"
@@ -587,57 +559,98 @@
         },
         {
           "type": "group_begin",
-          "property": "none",
-          "columns": 6
+          "property": "none"
         },
         {
           "label": "Юридичесский адрес",
           "type": "text",
-          "property": "Выдан"
-        },
-        {
-          "label": "Почтовый адрес",
-          "type": "text",
-          "property": "Прописка"
-        },
-        {
-          "label": "Собственник",
-          "type": "text",
-          "property": "Собственник"
-        },
-        {
-          "type": "group_end",
-          "property": "none"
-        },
-        {
-          "type": "group_begin",
-          "property": "none",
-          "columns": 3
+          "property": "Выдан",
+          "columns": 9
         },
         {
           "label": "СНИЛС",
           "type": "number",
-          "property": "СНИЛС"
+          "property": "СНИЛС",
+          "columns": 3
         },
+        
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
+          "label": "Почтовый адрес",
+          "type": "text",
+          "property": "Прописка",
+          "columns": 9
+        },
+        
         {
           "label": "ИНН",
           "type": "number",
-          "property": "ИНН"
+          "property": "ИНН",
+          "columns": 3
+        },
+        
+        
+        
+        {
+          "type": "group_end",
+          "property": "none"
         },
         {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
+          "label": "Собственник",
+          "type": "text",
+          "property": "Собственник",
+          "columns": 9
+        },{
           "label": "КПП",
           "type": "number",
-          "property": "КПП"
+          "property": "КПП",
+          "columns": 3
+        },
+        
+        
+        
+        {
+          "type": "group_end",
+          "property": "none"
+        },
+        {
+          "type": "group_begin",
+          "property": "none"
+        },
+        {
+          "label": "Телефон заказчика",
+          "type": "phone",
+          "property": "ТелефонС",
+          "columns": 3
+        },
+        {
+          "label": "Телефон представителя",
+          "type": "phone",
+          "property": "ТелефонР",
+          "columns": 3
+        },
+        {
+          "label": "Адрес электронной почты",
+          "type": "email",
+          "property": "ЭлПочта",
+          "columns": 3
         },
         {
           "label": "БИК",
           "type": "number",
-          "property": "БИК"
-        },
-        {
-          "label": "Расчетный счет",
-          "type": "number",
-          "property": "РС"
+          "property": "БИК",
+          "columns": 3
         },
         {
           "type": "group_end",
@@ -645,33 +658,25 @@
         },
         {
           "type": "group_begin",
-          "property": "none",
+          "property": "none"
+        },
+        {
+          "label": "Расчетный счет",
+          "type": "number",
+          "property": "РС",
           "columns": 3
         },
         {
           "label": "Корреспонденский счет",
           "type": "number",
-          "property": "КС"
+          "property": "КС",
+          "columns": 3
         },
         {
           "label": "ОГРН",
           "type": "number",
-          "property": "Номер"
-        },
-        {
-          "label": "Телефон заказчика",
-          "type": "phone",
-          "property": "ТелефонС"
-        },
-        {
-          "label": "Телефон представителя",
-          "type": "phone",
-          "property": "ТелефонР"
-        },
-        {
-          "label": "Адрес электронной почты",
-          "type": "email",
-          "property": "ЭлПочта"
+          "property": "Номер",
+          "columns": 3
         },
         {
           "type": "group_end",
@@ -682,12 +687,7 @@
         {
           "type": "submit",
           "class": "btn btn-success",
-          "text": "Справочник представителей"
-        },
-        {
-          "type": "submit",
-          "class": "btn btn-success",
-          "text": "Адрес"
+          "text": "Далее"
         }
       ]
     },
@@ -706,16 +706,20 @@
         },
         {
           "label": "Местонахождение объекта",
-          "type": "text",
-          "property": "Местонахождение_Обьекта",
-          "columns": 3
+          "type": "textarea",
+          "property": "Местонахождение_Обьекта"
+        },
+        {
+          "label": "Перечень работ",
+          "type": "textarea",
+          "property": "Работы"
         }
       ],
       "buttons": [
         {
           "type": "submit",
           "class": "btn btn-success",
-          "text": "Адрес"
+          "text": "Далее"
         }
       ]
     },
@@ -741,9 +745,58 @@
         {
           "type": "submit",
           "class": "btn btn-success",
-          "text": "Перечень работ"
+          "text": "Разместить заявку"
         }
       ]
     }
-  ]
+  ],
+
+    "jsvars":{
+        "uploaded_url":"/assets/img/",
+        "dataurl":"/data/order-works/"
+    },
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "dataUrl":"/data/order-works/",
+            "panelTitle":"Работы",
+            "buttons": {
+                "create": true,
+                "edit": true,
+                "delete": true
+            },
+            "crud_modals": {
+                "titles": {
+                    "create": "Добавить",
+                    "edit": "Редактировать",
+                    "delete": "Удалить"
+                },
+                "fields": [
+                  {
+                    "label": "Группа работ",
+                    "class":"work-groups",
+                    "type": "select_ajax",
+                    "property": "none",
+                    "url": "/select-ajax/work_groups",
+                    "filter": "text",
+                    "search": "true"
+                  },
+                  {
+                    "label": "Работа",
+                    "class":"works",
+                    "type": "select_ajax",
+                    "property": "Код_Справочника",
+                    "url": "/select-ajax/",
+                    "filter": "text",
+                    "search": "true",
+                    "disabled":true
+                  }
+                ],
+
+                "subheaders": {
+                    "delete": "Вы уверены что хотите удалить \"<span data-obj=title></span>\"?"
+                }
+            }
+        }
+    }
 }

@@ -18,14 +18,14 @@
         "orders": {
             "name": "Order"
         },
-        "transfer-orders": {
-            "name": "TransferOrders"
+        "order-transfers": {
+            "name": "OrderTransfer"
         },
-        "departure-technicists": {
+        "technician-departures": {
             "name":"Order"
         },
-        "performers-orders": {
-            "name": "PerformersOrders"
+        "order-performers": {
+            "name": "OrderPerformer"
         },
         "agreement": {
             "name": "Agreement"
@@ -33,8 +33,8 @@
         "users": {
             "name": "CtiUser"
         },
-        "table-works-orders": {
-            "name": "TableWorksOrders"
+        "order-works": {
+            "name": "OrderWork"
         }
     },
     "upload_targets": {

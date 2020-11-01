@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Database\Eloquent\Model;
 
-class PerformersOrders extends Model
+class OrderPerformer extends Model
 {
     protected $connection='mssql';
     protected $table = 'Таблица_Исполнители_Заявка';

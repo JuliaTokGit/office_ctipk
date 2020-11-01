@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Database\Eloquent\Model;
 
-class TransferOrders extends Model
+class OrderTransfer extends Model
 {
     protected $connection='mssql';
     protected $table = 'Таблица_Перенос_Заявки';

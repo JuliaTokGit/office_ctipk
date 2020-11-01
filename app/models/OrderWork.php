@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Database\Eloquent\Model;
 
-class TableWorksOrders extends Model
+class OrderWork extends Model
 {
     protected $connection='mssql';
     protected $table = 'Таблица_Работы_Заявки';
@@ -10,4 +10,10 @@ class TableWorksOrders extends Model
     protected $hidden = ['upsize_ts'];
     protected $guarded = ['Код_Работы'];
     public $timestamps = false;
+    public $relations = ['inventarisation'];
+
+    public function inventarisation()
+    {
+        return $this->belongsTo('Inventarisation','КО');
+    }
 }
