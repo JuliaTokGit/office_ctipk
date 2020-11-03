@@ -4,11 +4,12 @@
   "bodyclass": "fixed-header",
   "jumbotron":false,
   "layout": "default.dt",
-  "includes": ["dt-crud-modals"],
+  "includes": ["filters"],
   "scripts": [
     "modals"
   ],
   "quickview": false,
+  "dataurl_nofilters":true,
   "forms": [
     {
       "title": "Информация о заявке",
@@ -753,8 +754,9 @@
 
     "jsvars":{
         "uploaded_url":"/assets/img/",
-        "dataurl":"/data/order-works/"
+        "dataurl":"/data/order-works"        
     },
+
     "datatables":{
         "default":{
             "tableId":"default",
@@ -772,13 +774,13 @@
                     "delete": "Удалить"
                 },
                 "fields": [
+                  
                   {
                     "label": "Группа работ",
                     "class":"work-groups",
                     "type": "select_ajax",
                     "property": "none",
                     "url": "/select-ajax/work_groups",
-                    "filter": "text",
                     "search": "true"
                   },
                   {
@@ -786,8 +788,7 @@
                     "class":"works",
                     "type": "select_ajax",
                     "property": "Код_Справочника",
-                    "url": "/select-ajax/",
-                    "filter": "text",
+                    "url": "/select-ajax/",                    
                     "search": "true",
                     "disabled":true
                   }
@@ -796,6 +797,7 @@
                 "subheaders": {
                     "delete": "Вы уверены что хотите удалить \"<span data-obj=title></span>\"?"
                 }
+
             }
         }
     }

@@ -44,13 +44,17 @@ boolselect = function ( data, type, full, meta )
 
 lections = function ( data, type, full, meta )
     { return `<a href="/lections/lesson_id/${full.id}">${data}</a>`; }
+    
+    show_inventarisation = function ( data, type, full, meta )
+    { return `${data?data.Наименование:''}`; }
 
     columns = [
-      {data: "Код_Работы", "name": "Код_Работы", title: "Код_Работы", visible:false},      
+      {data: "Код_Работы", "name": "Код_Работы", title: "Код_Работы", visible:false},
+      {data: "id", "name": "id", title: "id", visible:false},      
       {data: "Наименование","name": "Наименование",title: "Наименование"},
       {data: "Стоимость", "name": "Стоимость", title: "Стоимость"},
       {data: "Скидка", "name": "Скидка", title: "Скидка"},
-      {data: "inventarisation.Наименование", "name": "Вид_КО", title: "Вид_КО"},
+      {data: "inventarisation", "name": "Вид_КО", title: "Вид_КО", "render":show_inventarisation},
       {data: "Адрес_Объекта", "name": "Описание объекта", title: "Описание объекта"},
       {data: "Дата_Выдачи_Работы", "name": "Дата_Выдачи_Работы", title: "Дата_Выдачи_Работы"}, 
       

@@ -70,6 +70,7 @@ if (isset($filters['gl_account_id'])) {
 if (isset($filters['order_id'])) {    
     $context['page']->sub_header .= $separator.'Заявка: '.$filters['order_id']??''.' ';
     $context['header_content']=$context['header_content']??''.'<a href="/order/id/'.$filters['order_id'].'" class="btn btn-complete m-b-10">Вернуться в заявку</a> ';
+    dd($context['page']->properties->modal);
     hideInput('Код_Заявки', $filters['order_id']);
     $separator = ' | ';
 }

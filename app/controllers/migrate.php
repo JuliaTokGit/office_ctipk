@@ -183,6 +183,29 @@ $migrations['202010292'] = function () {
     return $info;
 };
 
+// $migrations['20201102'] = function () {
+//     $info="Добавим primary id ";
+//     DB::schema('mssql')->table('Таблица_Заявки', function ($table) {
+//         // $table->unsignedInteger('id');
+//         $table->bigIncrements('id')->first();
+//     });
+//     return $info;
+// };
+
+// $migrations['202011021'] = function () {
+//     $info="reseed ";
+//     DB::connection('mssql')->statement("DBCC CHECKIDENT ('Таблица_Заявки', RESEED, 10000000);");
+//     return $info;
+// };
+
+
+// $migrations['202011022'] = function () {
+//     $info="Скопируем Код_Заявки в id ";
+//     DB::connection('mssql')->statement(' SET IDENTITY_INSERT Таблица_Заявки ON; UPDATE Таблица_Заявки SET id = Код_Заявки; SET IDENTITY_INSERT Таблица_Заявки OFF;');    
+//     return $info;
+// };
+
+
 function execute($id) {
     global $migrations;
     echo 'Executing migration: '.$id.': ';

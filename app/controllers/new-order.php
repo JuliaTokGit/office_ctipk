@@ -1,10 +1,8 @@
 <?php
-$new_id=Order::max('Код_Заявки')+1;
 
 $order=new Order();
-$order->Код_Заявки=$new_id;
 $order->state=0;
 $order->stage=0;
 $order->save();
 
-exit(header ("Location: ".$path['base']."/order/id/".$new_id));
+exit(header ("Location: ".$path['base']."/order/id/".$order->Код_Заявки));

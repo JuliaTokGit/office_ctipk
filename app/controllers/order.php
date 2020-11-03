@@ -18,7 +18,10 @@ if (!empty($filters['id'])){
     }    
 
     $context['order']=$order; 
-    $page->properties->datatables->default->dataUrl.='/doc_id/'.$filters['id'];      
+    $page->properties->datatables->default->dataUrl.='/doc_id/'.$filters['id'];
+    $page->properties->datatables->default->crud_modals->fields[]=(object)[ "property"=>"Код_Док", "type"=>"hidden", "value"=>$filters['id']];
+    
+    // dd($page->properties->datatables->default->crud_modals);
 }else{
   die(header ("Location: ".$path['base']."/orders"));
 }
@@ -53,3 +56,5 @@ foreach ($page->properties->forms as $key=>&$form) {
     }
     
 }
+
+include_once $path['controllers'].'includes/dt-crud-modals.php';

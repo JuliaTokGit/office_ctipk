@@ -121,24 +121,24 @@ remove_from_campaign = function(data, form) {
 remove_row = function(data, form) {
   dat = jQuery.parseJSON(data);
   var tableId = form.data('tableid');
-  console.log(dat);
-  $(tableId).DataTable().row('#' + dat.id).remove().draw(false);
+  // console.log(dat);
+  $(tableId).DataTable().row('#' + dat.id).remove().clearPipeline().draw(false);
 }
 
 
 create = function(data, form) {
   data = jQuery.parseJSON(data);
-  console.log(data);
+  // console.log(data);
   var tableId = form.data('tableid');
   if ($.isArray(data)) {
     $.each(data, function(index, dat) {
       var row = $(tableId).DataTable().row.add(dat);
-      row.draw(false);
+      row.clearPipeline().draw(false);
     });
   } else {
     dat = data;
     var row = $(tableId).DataTable().row.add(dat);
-    row.draw(false);
+    row.clearPipeline().draw(false);
   }
   if (typeof childFormat !== 'undefined') {
     row.child(childFormat(row.data()), 'rowchild bg-master-lighter').show();
@@ -156,12 +156,13 @@ create = function(data, form) {
 }
 
 
-edit = function(data, form) {
-  console.log(form);
+edit = function(data, form) {  
   dat = jQuery.parseJSON(data);
   var tableId = form.data('tableid');
   var row = $(tableId).DataTable().row('#' + dat.id);
-  row.data(dat).draw(false);
+  // console.log(dat);
+  // row.data(dat).draw(false);
+  $(tableId).dataTable().fnUpdate(dat,row,undefined,false);
   if (row.child() !== undefined) {
     row.child(childFormat(row.data()), 'rowchild bg-master-lighter').show();
   }
@@ -173,7 +174,7 @@ edit = function(data, form) {
 
 del = function(data, form) {
   var tableId = form.data('tableid');
-  $(tableId).DataTable().row('.selected').remove().draw(false);
+  $(tableId).DataTable().row('.selected').remove().clearPipeline().draw(false);
   $(form.data('modal')).modal('hide');
   $('#modalDelete').modal('hide');
 }

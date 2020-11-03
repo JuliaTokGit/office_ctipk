@@ -7,6 +7,7 @@ class Order extends Model
     protected $connection='mssql';
     protected $table = 'Таблица_Заявки';
     protected $primaryKey = 'Код_Заявки';
+    public $incrementing = false;
     protected $title = 'Заказ';
     protected $hidden = ['upsize_ts'];
     protected $guarded = ['Код_Заявки'];
@@ -79,4 +80,20 @@ class Order extends Model
     public function getДатаПереносаAttribute($value){
         return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
+
+    public function getIdAttribute($value){
+        return $this->Код_Заявки;
+    }
+
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function ($order) {
+            $order->Код_Заявки=Order::max('Код_Заявки')+1;            
+        });
+
+    }
+
 }

@@ -4,6 +4,8 @@ use Spacewind\FileUploader;
 
 $result = [];
 
+unset($_POST['none']);
+
 foreach ($page->objects as $key => $object) {
     if (isset($filters[$key])) {
         if (!isset($object->denied) || !in_array($user->type->str_id, $object->denied)) {
@@ -243,8 +245,8 @@ if (isset($class)) {
                 }
                 break;
 
-            case 'delete':
-                $class->whereId($_POST['id'])->first()->delete();
+            case 'delete':                
+                $class->where($class->primaryKey,$_POST['id'])->first()->delete();
                 break;
 
             case 'reorder':
