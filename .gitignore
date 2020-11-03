@@ -35,3 +35,4 @@ desktop.ini
 composer.lock
 run/var/*
 *.lock
+settings.json
