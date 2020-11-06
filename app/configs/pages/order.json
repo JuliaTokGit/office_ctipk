@@ -37,6 +37,7 @@
           "property": "Вид_Деятельности",
           "url": "/select-ajax/activity_types",
           "search": "true",
+          "class":"select_load",
           "columns": 12
         },        
         {
@@ -226,7 +227,7 @@
       "panel":true,
       "method": "POST",
       "step":2,
-      "id": "fiz",
+      "form":{ "id": "fiz" },
       "class": "switched_forms",
       "style": "",
       "fields": [
@@ -236,21 +237,21 @@
           "options":[
             {
               "text":"Физическое лицо",
-              "class": "fiz switch_client p-r-20",
-              "value": 1,
-              "id": "fizid",
+              "class": "fiz switch_client",
+              "value": 1,              
               "checked":true,
-              "data":[
+              "id":"fizid",
+              "data":[                
                 {"name":"block", "value":"#fiz"},
                 {"name":"switch", "value":".fiz"}                
               ]
             },
             {
               "text":"Юридическое лицо",
-              "class": "ur switch_client m-l-100",
-              "value": 2,
-              "id": "urid",
-              "data":[
+              "class": "ur switch_client",
+              "id":"urid",
+              "value": 2,              
+              "data":[                
                 {"name":"block", "value":"#ur"},
                 {"name":"switch", "value":".ur"}                
               ]
@@ -428,7 +429,7 @@
       "step":2,
       "class": "switched_forms",
       "style": "display:none",
-      "id": "ur",
+      "form":{ "id": "ur" },
       "fields": [
         {          
           "type": "radio",
@@ -437,10 +438,10 @@
             {
               "text":"Физическое лицо",
               "class": "fiz switch_client",
-              "value": 1,
-              "id": "fizid",
+              "value": 1,              
               "checked":true,
-              "data":[
+              "id":"fizid",
+              "data":[                
                 {"name":"block", "value":"#fiz"},
                 {"name":"switch", "value":".fiz"}                
               ]
@@ -448,9 +449,9 @@
             {
               "text":"Юридическое лицо",
               "class": "ur switch_client",
-              "value": 2,
-              "id": "urid",
-              "data":[
+              "id":"urid",
+              "value": 2,              
+              "data":[                
                 {"name":"block", "value":"#ur"},
                 {"name":"switch", "value":".ur"}                
               ]
@@ -774,23 +775,68 @@
                     "delete": "Удалить"
                 },
                 "fields": [
-                  
                   {
                     "label": "Группа работ",
                     "class":"work-groups",
                     "type": "select_ajax",
-                    "property": "none",
+                    "property": "work.Код_Группы",
                     "url": "/select-ajax/work_groups",
                     "search": "true"
+                  },
+                  {                    
+                    "type": "hidden",
+                    "property": "Код_Справочника"
                   },
                   {
                     "label": "Работа",
                     "class":"works",
                     "type": "select_ajax",
                     "property": "Код_Справочника",
-                    "url": "/select-ajax/",                    
-                    "search": "true",
-                    "disabled":true
+                    "url": "",                    
+                    "search": "true"
+                  },
+                  {
+                    "label": "Жилое",
+                    "type": "select",
+                    "property": "Жилое",
+                    "disabled":false,
+                    "options": {
+                      "raw": [
+                        {
+                          "value": "1",
+                          "text": "Жилое"
+                        },
+                        {
+                          "value": "2",
+                          "text": "Нежилое"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Изготавливаемый документ",                    
+                    "type": "select_ajax",
+                    "property": "Изготавливаемый документ",
+                    "url": "/select-ajax/document_types"
+                  },
+                  {                   
+                    "label": "Вид стоимости работ",
+                    "type": "select",
+                    "class":"",
+                    "property": "Ориентировочная_Стоимость",
+                    
+                    "options": {
+                      "raw": [
+                        {
+                          "value": "1",
+                          "text": "Точная"
+                        },
+                        {
+                          "value": "2",
+                          "text": "Ориентировочная"
+                        }
+                      ]
+                    }
                   }
                 ],
 

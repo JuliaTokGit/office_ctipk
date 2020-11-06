@@ -1,6 +1,7 @@
 function loadData(data) {
   $.each(data, function(index, value) {
     target = $("[data-obj=" + index + "]");
+
     if ($.isArray(value)) {
 
       val = [];

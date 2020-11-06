@@ -5,7 +5,7 @@
 
 {{#radio}}
 <div class="form-check"> {{#options}}
-    <input class="form-check-input {{class}}" type="radio" name="{{radio}}" {{#data}}data-{{name}}="{{value}}" {{/data}} id="{{id}}" value="{{value}}" {{#checked}}checked="checked"{{/checked}} {{#disabled}}disabled="disabled"{{/disabled}}>
+    <input class="form-check-input {{class}}" type="radio" name="{{radio}}" {{#data}}data-{{name}}="{{value}}" {{/data}}  value="{{value}}" {{#id}}id="{{.}}"{{/id}} {{#checked}}checked="checked"{{/checked}} {{#disabled}}disabled="disabled"{{/disabled}}>
     <label class="form-check-label" for="{{id}}">
         {{text}}
     </label>
@@ -64,10 +64,17 @@
 
 {{#select}}
 	<label>{{label}}</label>
-	<select name="{{select}}{{#multiple}}[]{{/multiple}}" class="select2 full-width {{class}}" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2" data-theme="bootstrap" data-width="100%" {{#multiple}} multiple {{/multiple}}  {{^search}}data-disable-search="true"{{/search}} data-value="{{value}}" {{#disabled}}disabled="disabled"{{/disabled}}>
+	<select name="{{select}}{{#multiple}}[]{{/multiple}}" class="select2 full-width {{class}}" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2" data-theme="bootstrap" data-width="100%" {{#multiple}} multiple {{/multiple}} {{#value}}data-value="{{.}}"{{/value}} {{^search}}data-disable-search="true"{{/search}} {{#disabled}}disabled="disabled"{{/disabled}}>
 		{{{ options | generate-options }}}
 	</select>
 {{/select}}
+
+{{#select11}}
+	<label>{{label}}</label>
+	<select name="{{select}}{{#multiple}}[]{{/multiple}}" class="select2 full-width {{class}}" {{#data}}data-{{name}}="{{value}}" {{/data}} data-init-plugin="select2" data-theme="bootstrap" data-width="100%" {{#multiple}} multiple {{/multiple}}  {{^search}}data-disable-search="true"{{/search}} {{#value}}data-value="{{.}}"{{/value}} {{#disabled}}disabled="disabled"{{/disabled}}>
+		{{{ options | generate-options }}}
+	</select>
+{{/select11}}
 
 {{#select_ajax}}
 	<label>{{label}}</label>

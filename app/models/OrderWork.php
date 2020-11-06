@@ -11,7 +11,7 @@ class OrderWork extends Model
     protected $hidden = ['upsize_ts'];
     protected $guarded = ['Код_Работы'];
     public $timestamps = false;
-    public $relations = ['inventarisation'];
+    public $relations = ['inventarisation','work'];
     public $appends=['id'];
 
     public function inventarisation()
@@ -19,6 +19,10 @@ class OrderWork extends Model
         return $this->belongsTo('Inventarisation','КО');
     }
 
+    public function work()
+    {
+        return $this->belongsTo('Work','Код_Справочника');
+    }
 
     public function getIdAttribute(){
         return $this->Код_Работы;
@@ -27,10 +31,17 @@ class OrderWork extends Model
     public function setIdAttribute($value){
         $this->attributes['Код_Работы']=$value;
     }
+    
+    public function setWorkКодГруппыAttribute($value){        
+    }
 
     public function setКодСправочникаAttribute($value){
+        $work=Work::find($value);        
         $this->attributes['Код_Справочника']=$value;
-        $this->attributes['Наименование']=Work::find($value)->Наименование_Видов_Работ;
+        $this->attributes['Наименование']=$work->Наименование_Видов_Работ;
+        $this->attributes['Вид_Деятельности']=$work->Вид_Деятельности;
+        $this->attributes['КО']=$work->КО;
+        $this->attributes['Техник_Процент']=$work->Техник_Процент;
     }
 
     public static function boot()

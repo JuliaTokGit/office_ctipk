@@ -1,15 +1,39 @@
 $(function(){
+  
   $( ".select_load" ).each(function() {    
     $( this ).val($(this).data("value")).trigger("change");
   });
+
   if ($(".bordered").length){
     $([document.documentElement, document.body]).animate({
-            scrollTop:  $(".bordered").offset().top-50
-        }, 1000);
+      scrollTop:  $(".bordered").offset().top-50
+    }, 1000);
   }
 
   $('.switch_client:checked').click();
 
+  $('.work-groups').on('select2:select change', function(e) {
+    url="/select-ajax/works//work_group_id/"+this.value;    
+    valu=$(this).closest('form').find('input[name="Код_Справочника"]');
+    current=$(this).closest('form').find('.works');
+    $.ajax({
+      type: 'GET',
+      url:url 
+    }).then(function (data) {    
+      current.select2("destroy");
+      current.html("");
+      current.select2({            
+          data: data.results,
+          minimumResultsForSearch: (current.attr('data-disable-search') == 'true' ? -1 : 1),
+          tags: current.attr('data-tags') == 'true',
+      });    
+      current.val(valu.val());
+      current.select2().trigger('change');     
+    });
+    current.prop('disabled',false);
+  
+  });
+  
 });
 
 $('.switch_client').on('click', function(e) {
@@ -18,27 +42,7 @@ $('.switch_client').on('click', function(e) {
   $($(this).data("switch")).prop("checked",true);
 });
 
-$('.work-groups').on('select2:select', function(e) {
-  url="/select-ajax/works//work_group_id/"+this.value;
-  console.log(url);
-  current=$(".work");
-  $.ajax({
-    type: 'GET',
-    url:url 
-}).then(function (data) {
-   
-console.log(data);
-$(".works").html("");
-    $('.works').select2("destroy").select2({                
-       data: data.results,
-       minimumResultsForSearch: (current.attr('data-disable-search') == 'true' ? -1 : 1),
-       tags: current.attr('data-tags') == 'true',
-   });
-   $('.works').select2().trigger('change');
-  });
-  $('.works').prop('disabled',false);
 
-});
 boolselect = function ( data, type, full, meta )
 { return data==1?'Да':'Нет'; }
 
