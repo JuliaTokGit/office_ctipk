@@ -19,9 +19,9 @@
   	<button type="submit" class="btn btn-success btn-block m-t-5" {{#disabled}}disabled="disabled"{{/disabled}}>Изменить</button>
 {{/title_block}}
 
-{{#combo_performers}}
-        <button formaction="/order-performers/order_id/{{value}}" type="submit" class="btn {{class}} btn-block m-t-5" {{#disabled}}disabled="disabled"{{/disabled}}>{{label}}</button>
-{{/combo_performers}}
+{{#filtered_button}}
+        <button formaction="{{url}}{{value}}" type="submit" class="btn {{class}} btn-block m-t-5" {{#disabled}}disabled="disabled"{{/disabled}}>{{label}}</button>
+{{/filtered_button}}
 
 {{#text}}
 	<label>{{label}}</label>
@@ -95,7 +95,7 @@
 	</select>
 	</div>
 	<div class="col-sm-2">
-	<button formaction="/issuers" type="submit" class="btn btn-complete  full-width">Выдан</button>
+	<button formaction="/issuers/order_back/{{order.id}}" type="submit" class="btn btn-complete  full-width">Выдан</button>
 	</div>
 	</div>
 {{/select_ajax_vydan}}

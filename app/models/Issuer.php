@@ -6,6 +6,7 @@ class Issuer extends Model
     protected $connection='mssql';
     protected $table = 'Справочник_Кем_Выдан_Паспорт';
     protected $primaryKey = 'Код_Записи';
+    public $incrementing = false;
     protected $title = 'Наименование';
     protected $hidden = ['upsize_ts'];
     protected $guarded = ['Код_Записи'];

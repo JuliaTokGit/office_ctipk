@@ -1,0 +1,30 @@
+{
+    "title": "Кем Выдан",
+    "header": "Кем Выдан",
+    "bodyclass": "fixed-header",
+    "layout": "default.datatables",
+    "includes":["dt-crud-modals","filters"],
+    "datatables":{
+        "default":{
+            "tableId":"default",
+            "buttons" : {"create":true,"edit":true,"delete":true},
+            "crud_modals":{
+                "titles":{
+                    "create":"Добавить",
+                    "edit":"Редактировать",
+                    "delete":"Удалить"
+                },
+                "fields": [
+                    
+                    {
+                        "label": "Название",
+                        "type":"text",
+                        "property": "Название"
+                    }
+                ],
+
+                "subheaders":{"delete":"Вы уверены что хотите удалить \"<span data-obj=filename></span>\"?"}
+            }
+        }
+    }
+}

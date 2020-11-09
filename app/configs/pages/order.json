@@ -189,24 +189,24 @@
           "columns": 4
         },
         {
-          "type": "combo_performers",
-          "url": "phpinfo",
+          "type": "filtered_button",
+          "url": "/order-performers/order_id/",
           "label": "Исполнители по видам работ",
           "class":"btn-complete m-t-30",
           "property": "Код_Заявки",
           "columns": 4
         },
         {
-          "type": "combo_performers",
-          "url": "phpinfo",
+          "type": "filtered_button",
+          "url": "/order-transfers/order_id/",
           "label": "Перенос заявки",
           "class":"btn-complete",
           "property": "Код_Заявки",
           "columns": 4
         },
         {
-          "type": "combo_performers",
-          "url": "phpinfo",
+          "type": "filtered_button",
+          "url": "/order-transfers/order_id/",
           "label": "Журнал выездов",
           "class":"btn-complete",
           "property": "Код_Заявки",
@@ -218,7 +218,7 @@
         {
           "type": "submit",
           "class": "btn btn-success",
-          "text": "Далее"
+          "text": "Сохранить"
         }
       ]
     },
@@ -418,7 +418,7 @@
         {
           "type": "submit",
           "class": "btn btn-success",
-          "text": "Далее"
+          "text": "Сохранить"
         }
       ]
     },
@@ -689,7 +689,7 @@
         {
           "type": "submit",
           "class": "btn btn-success",
-          "text": "Далее"
+          "text": "Сохранить"
         }
       ]
     },
@@ -721,33 +721,7 @@
         {
           "type": "submit",
           "class": "btn btn-success",
-          "text": "Далее"
-        }
-      ]
-    },
-    {
-      "title": "Работы",
-      "panel":true,
-      "method": "POST",
-      "step":4,
-      "fields": [
-        {
-          "type": "hidden",
-          "property": "action",
-          "value": "edit"
-        },
-        {
-          "label": "Перечень работ",
-          "type": "text",
-          "property": "Работы",
-          "columns": 3
-        }
-      ],
-      "buttons": [
-        {
-          "type": "submit",
-          "class": "btn btn-success",
-          "text": "Разместить заявку"
+          "text": "Сохранить"
         }
       ]
     }

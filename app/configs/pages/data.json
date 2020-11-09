@@ -35,6 +35,9 @@
         },
         "order-works": {
             "name": "OrderWork"
+        },
+        "issuers": {
+            "name": "Issuer"
         }
     },
     "upload_targets": {

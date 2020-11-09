@@ -28,6 +28,31 @@ class Order extends Model
         'Дата_Переноса',
     ];
     protected $dateFormat = 'Y-m-d H:i:s.v';
+    public $appends=['id'];
+
+    protected $casts = [
+        'Дата_Заявки'     => 'date:Y-m-d',
+        'Дата_Рождения'=> 'date:Y-m-d',
+        'Дата_Оплата'=> 'date:Y-m-d',
+        'Дата_Доплата'=> 'date:Y-m-d',
+        'Дата_Техник'=> 'date:Y-m-d',
+        'Дата_Исполнения'=> 'date:Y-m-d',
+        'Дата_Задания'=> 'date:Y-m-d',
+        'Дата_Архив'=> 'date:Y-m-d',
+        'Дата_Оплаты_Дог'=> 'date:Y-m-d',
+        'Дата_Выдачи'=> 'date:Y-m-d',
+        'Дата_Выдачи_Заказчику'=> 'date:Y-m-d',
+        'Дата_Договора'=> 'date:Y-m-d',
+        'Дата_Переноса'=> 'date:Y-m-d',
+    ];
+
+    public function getIdAttribute($value){
+        return $this->Код_Заявки;
+    }
+
+    public function setIdAttribute($value){
+        $this->attributes['Код_Заявки']=$value;
+    }
 
     public function getДатаЗаявкиAttribute($value){
         return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
@@ -81,9 +106,6 @@ class Order extends Model
         return empty($value)?'':Carbon::createFromFormat('Y-m-d H:i:s.v', $value)->format('Y-m-d');
     }
 
-    public function getIdAttribute($value){
-        return $this->Код_Заявки;
-    }
 
 
     public static function boot()

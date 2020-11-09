@@ -12,4 +12,5 @@ columns=[
     { data: "Заказчик", "name":"Заказчик", title:"Заказчик", defaultContent:""  },    
     { data: "Работы", "name":"Работы", title:"Работы", defaultContent:""},
     { data: "Код_Заявки", "name":"Код_Заявки", title:"Код Заявки",render: show_edit },
+    { data: "Дата_Заявки", "name":"Дата_Заявки", title:"Дата_Заявки", defaultContent:""},
 ];

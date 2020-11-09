@@ -3,7 +3,7 @@
     "header": "Перенос заявки",
     "bodyclass": "fixed-header",
     "layout": "default.datatables",
-    "includes":["dt-crud-modals"],
+    "includes":["dt-crud-modals","filters"],
     "datatables":{
         "default":{
             "tableId":"default",
@@ -24,7 +24,7 @@
                     {
                         "label": "Перенос срока с",
                         "type":"date",
-                        "property": "Дата_переноса"
+                        "property": "Дата_Переноса"
                     },
                     {
                         "label": "Дата служебной записки",

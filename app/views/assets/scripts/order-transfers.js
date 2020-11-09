@@ -1,4 +1,6 @@
 columns=[
+    { data: "Код_Переноса", "name":"Код_Переноса", title:"Код Переноса" , visible:false},
+    {data: "id", "name": "id", title: "id", visible:false}, 
     { data: "Код_Переноса", "name":"Код_Переноса", title:"Код Переноса" },
     { data: "Код_Заявки", "name":"Код_Заявки", title:"Код заявки" },
     { data: "Дата_Переноса", "name":"Дата_Переноса", title:"Дата Переноса", defaultContent:""  },
