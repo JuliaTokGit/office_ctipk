@@ -28,6 +28,7 @@
         "ioslist": "plugins/jquery-ios-list/jquery.ioslist.min.js",
         "imagesloaded": "plugins/imagesloaded/imagesloaded.pkgd.min.js",
         "pace": "plugins/pace/pace.min.js",
+        "cropbox": "plugins/cropbox/cropbox-min.js",
         "jsoneditor": [
             "plugins/jsoneditor/jsoneditor.min.js",
             "plugins/jsoneditor/jsoneditor.lang.ru.js"
@@ -37,7 +38,10 @@
             "plugins/trumbowyg/trumbowyg.js",
             "plugins/trumbowyg/langs/ru.min.js"
         ],
-        "inputmask": "plugins/Inputmask-3.x/dist/jquery.inputmask.bundle.js"
+        "elessar": "plugins/elessar/elessar.js",
+        "inputmask": "plugins/Inputmask-3.x/dist/jquery.inputmask.bundle.js",
+        "formbuilder":"plugins/formbuilder/form-builder.min.js",
+        "formrender":"plugins/formbuilder/form-render.min.js"
     },
     "styles": {
         "boostrapv3": "plugins/boostrapv3/css/bootstrap.min.css",
@@ -60,6 +64,9 @@
         "tooltipster": "plugins/tooltipster/css/tooltipster.bundle.min.css",
         "daterangepicker": "plugins/bootstrap-daterangepicker/daterangepicker.css",
         "pace": "plugins/pace/pace-theme-flash.css",
-        "trumbowyg": "plugins/trumbowyg/ui/trumbowyg.css"
+        "trumbowyg": "plugins/trumbowyg/ui/trumbowyg.css",
+        "elessar": [
+            "plugins/elessar/elessar.css"
+        ]
     }
 }

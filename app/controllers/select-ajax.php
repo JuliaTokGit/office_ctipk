@@ -37,11 +37,22 @@ if (isset($class)) {
         $items = $class->where('user_type_id', $filters['user_type_id'])->get();
     } elseif (isset($filters['text'])) {
         // print_r($class->where($text, urldecode($filters['text']))->first());
-        // die();
-        $selected = $class->where($text, $filters['text'])->first()->{$id};
+        // die();    
+        
+        $sel = $class->where($text, $filters['text'])->first();
+        
         // print_r($selected);
         // die();
         $items = $class->all();
+        if(is_null($sel)){
+            $new=new $object->name();
+            $new->{$id}=$filters['text']; 
+            $new->{$text}=$filters['text'];
+            $items->push($new);
+            $selected=$new->{$id};
+        }else{
+            $selected=$sel->{$id};
+        }
     } elseif (isset($filters['work_group_id'])){
         $items = $class->where('Код_Группы', $filters['work_group_id'])->get();
     } elseif (isset($filters['active'])){
