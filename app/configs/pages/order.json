@@ -206,7 +206,7 @@
         },
         {
           "type": "filtered_button",
-          "url": "/order-transfers/order_id/",
+          "url": "/departure-technicists/order_id/",
           "label": "Журнал выездов",
           "class":"btn-complete",
           "property": "Код_Заявки",
@@ -685,11 +685,19 @@
           "property": "none"
         }
       ],
+
       "buttons": [
         {
           "type": "submit",
           "class": "btn btn-success",
           "text": "Сохранить"
+        }
+      ],
+      "butturl": [
+        {
+          "type": "",
+          "namebut": "text",
+          "url": "/"
         }
       ]
     },

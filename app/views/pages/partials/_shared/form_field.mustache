@@ -133,6 +133,10 @@
     <button type="{{type}}" class="btn {{class}} btn-block m-t-5" {{#disabled}}disabled="disabled"{{/disabled}}>{{text}}</button>
 {{/button}}
 
+{{#butturl}}
+    <a class="btn" href="{{url}}">{{namebut}}</a>
+{{/butturl}}
+
 {{#password}}
 	<label>{{label}}</label>
 	<input type="password" name="{{password}}" {{#data}}data-{{name}}="{{value}}" {{/data}} class="form-control" value="{{value}}" {{#disabled}}disabled="disabled"{{/disabled}}>

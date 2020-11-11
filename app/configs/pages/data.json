@@ -21,7 +21,7 @@
         "order-transfers": {
             "name": "OrderTransfer"
         },
-        "technician-departures": {
+        "departure-technicists": {
             "name":"Order"
         },
         "order-performers": {

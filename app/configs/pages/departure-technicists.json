@@ -3,7 +3,7 @@
     "header": "Журнал выездов",
     "bodyclass": "fixed-header",
     "layout": "default.datatables",
-    "includes":["dt-crud-modals"],
+    "includes":["dt-crud-modals","filters"],
     "datatables":{
         "default":{
             "tableId":"default",
