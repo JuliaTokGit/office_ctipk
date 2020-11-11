@@ -36,3 +36,4 @@ composer.lock
 run/var/*
 *.lock
 settings.json
+docker.session.sql
