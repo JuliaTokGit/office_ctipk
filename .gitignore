@@ -37,3 +37,6 @@ run/var/*
 *.lock
 settings.json
 docker.session.sql
+.idea/
+.vscode/
+Таблица_Заявки.xlsx
