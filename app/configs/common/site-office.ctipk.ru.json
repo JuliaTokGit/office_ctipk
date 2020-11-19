@@ -15,7 +15,7 @@
     "connections":{
       "default":{
       	"driver" : "mysql",
-      	"host"      : "localhost",
+      	"host"      : "db",
       	"database"  : "office",
       	"username"  : "office",
         "password"  : "office",
