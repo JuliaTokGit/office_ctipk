@@ -226,7 +226,7 @@
       "title": "Информация о заказчике",
       "panel":true,
       "method": "POST",
-      "step":2,
+      "step":1,
       "form":{ "id": "fiz" },
       "class": "switched_forms",
       "style": "",
@@ -426,7 +426,7 @@
       "title": "Информация о заказчике",
       "panel":true,
       "method": "POST",
-      "step":2,
+      "step":1,
       "class": "switched_forms",
       "style": "display:none",
       "form":{ "id": "ur" },
@@ -700,7 +700,7 @@
       "title": "Сведения об объекте",
       "panel":true,
       "method": "POST",
-      "step":3,
+      "step":2,
       "fields": [
         {
           "type": "hidden",
