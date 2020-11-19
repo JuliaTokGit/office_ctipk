@@ -692,13 +692,6 @@
           "class": "btn btn-success",
           "text": "Сохранить"
         }
-      ],
-      "butturl": [
-        {
-          "type": "",
-          "namebut": "text",
-          "url": "/"
-        }
       ]
     },
 
