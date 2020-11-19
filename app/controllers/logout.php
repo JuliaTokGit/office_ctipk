@@ -1,4 +1,5 @@
 <?php
 
-$container->sentinel->logout();
+// $container->sentinel->logout();
+$user->logout();
 header ("Location: ".$path['base']."/");
