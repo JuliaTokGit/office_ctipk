@@ -224,6 +224,7 @@ $migrations['201907143'] = function () {
 
 $migrations['201907144'] = function () {
     $info="Таблица для User ";
+    DB::schema()->dropIfExists('users');
     DB::schema()->create('users', function ($table) {
         $table->increments('id');
         $table->string('username')->index();
