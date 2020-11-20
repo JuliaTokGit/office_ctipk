@@ -7,7 +7,8 @@
     "quickview":false,
     "datatables":{
         "default":{
-            "tableId":"default"
+            "tableId":"default",
+            "dataUrl":"/data/orders//actual/"
         }
     }
 }

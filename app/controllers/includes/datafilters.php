@@ -62,4 +62,9 @@ $datafilters=[
 		return $query->where('Код_Док',$value);
 	},
 
+	// 'actual'=>function($value,$query){
+	// 	return $query->where('stage','>=',3);
+	// },
+
+
 ];

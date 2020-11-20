@@ -277,6 +277,14 @@ if (isset($class)) {
             });
         }
 
+        
+        if (isset($filters['actual'])) {
+            
+            $data = $data->where('stage','>=',3);            
+            $total = $total->where('stage','>=',3);
+        }
+
+
         if (!isset($class->filesdb)) {
             foreach ($filters as $filter => $value) {
                 if ($db::schema()->hasColumn($class->getTable(), $filter)) {
