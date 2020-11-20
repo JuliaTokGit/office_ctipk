@@ -789,10 +789,15 @@
                     }
                   },
                   {
+                    "type": "group_begin",
+                    "property": "none"
+                  },
+                  {
                     "label": "Изготавливаемый документ",
                     "type": "select",
                     "property": "Изготавливаемый_Документ",
                     "class":"",
+                    "columns":6,
                     "options": {
                       "raw": [
                         {
@@ -823,6 +828,7 @@
                     "type": "select",
                     "property": "Цель",
                     "class":"",
+                    "columns":6,
                     "options": {
                       "raw": [
                         {
@@ -840,12 +846,20 @@
                       ]
                     }
                   },
+                  {
+                    "type": "group_end",
+                    "property": "none"
+                  },
+                  {
+                    "type": "group_begin",
+                    "property": "none"
+                  },
                   {                   
                     "label": "Вид стоимости работ",
                     "type": "select",
                     "class":"",
                     "property": "Ориентировочная_Стоимость",
-                    
+                    "columns":6,
                     "options": {
                       "raw": [
                         {
@@ -858,6 +872,36 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "property": "Стоимость",
+                    "type":"number",
+                    "label":"Стоимость",
+                    "columns":6
+                  },
+                  {
+                    "type": "group_end",
+                    "property": "none"
+                  },
+                  {
+                    "type": "group_begin",
+                    "property": "none"
+                  },
+                  {
+                    "property": "Кол",
+                    "type":"number",
+                    "label":"Количество",
+                    "columns":6
+                  },
+                  {
+                    "property": "Кол_Бланк",
+                    "type":"number",
+                    "label":"Количество объектов/документов",
+                    "columns":6
+                  },
+                  {
+                    "type": "group_end",
+                    "property": "none"
                   }
                 ],
 
