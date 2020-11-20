@@ -7,6 +7,7 @@ columns=[
     { data: "lastname", name:"lastname", title:"Фамилия" },
     { data: "firstname", name:"firstname", title:"Имя" },
     { data: "username", name:"username", title:"Email" },
+    { data: "cti_user_id", name:"cti_user_id", title:"cti_user_id" },
     { data: "description", name:"description", title:"Описание" },
     { data: "upload", name:"upload", title:"Фото", render:pic},
     { data: "type.name", name:"user_type_id", title:"Тип", defaultContent:""   },

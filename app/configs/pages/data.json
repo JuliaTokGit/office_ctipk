@@ -31,6 +31,9 @@
             "name": "Agreement"
         },
         "users": {
+            "name": "User"
+        },
+        "cti_users": {
             "name": "CtiUser"
         },
         "order-works": {
