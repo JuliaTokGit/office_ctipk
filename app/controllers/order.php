@@ -26,13 +26,14 @@ if (!empty($filters['id'])){
   die(header ("Location: ".$path['base']."/orders"));
 }
 
-$i=0;
+//$i=0;
 foreach ($page->properties->forms as $key=>&$form) {
     $form->disabled=true;
-    if ($i<2) {
+    /*if ($i<2) {
     $form->buttons = (object)['type' => 'submit', 'class' => 'btn btn-success', 'text' => 'Далее'];
         }
     $i++;
+    */
     foreach ($form->fields as &$field) {
         $field->{$field->type} = $field->property;
         $field->data = (object)['name' => 'obj', 'value' => $field->property];
@@ -56,13 +57,16 @@ foreach ($page->properties->forms as $key=>&$form) {
     if ($form->step==$order->state){
         $form->disabled=false;
         $form->bordered=true;
-
+        if ($order->state==$order->stage){
+            $form->buttons = (object)['type' => 'submit', 'class' => 'btn btn-success', 'text' => 'Далее'];
+        }
     }
 
     if ($form->step>$order->stage){
         unset($page->properties->forms[$key]);
 
     }
+
     
 }
 
