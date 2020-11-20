@@ -15,11 +15,24 @@
     "connections":{
       "default":{
       	"driver" : "mysql",
-      	"host"      : "localhost",
+      	"host"      : "db",
       	"database"  : "office",
       	"username"  : "office",
-        "password"  : "@lvbybcnhfnjh",
+        "password"  : "office",
       	"password1"  : "fq1qn271ghnwTUpi",
+      	"charset"   : "utf8",
+      	"collation" : "utf8_unicode_ci",
+      	"prefix"    : "",
+      	"timezone"  : "+05:00",
+          "strict":false
+      },
+      "mssql":{
+      	"driver" : "sqlsrv",
+        "host"      : "192.168.101.163",
+        "port"      : 1433,
+      	"database"  : "web",
+      	"username"  : "sa",
+      	"password"  : "Ctipk1",
       	"charset"   : "utf8",
       	"collation" : "utf8_unicode_ci",
       	"prefix"    : "",
