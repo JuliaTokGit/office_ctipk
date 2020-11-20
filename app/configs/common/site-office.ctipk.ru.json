@@ -30,7 +30,7 @@
       	"driver" : "sqlsrv",
         "host"      : "192.168.101.163",
         "port"      : 1433,
-      	"database"  : "zajvki",
+      	"database"  : "web",
       	"username"  : "sa",
       	"password"  : "Ctipk1",
       	"charset"   : "utf8",
