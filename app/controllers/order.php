@@ -17,7 +17,7 @@ if (!empty($filters['id'])){
         $order->save();
     }    
 
-    $context['order']=$order; 
+    $context['order']=$order;
     $page->properties->datatables->default->dataUrl.='/doc_id/'.$filters['id'];
     $page->properties->datatables->default->crud_modals->fields[]=(object)[ "property"=>"Код_Док", "type"=>"hidden", "value"=>$filters['id']];
     
@@ -26,10 +26,14 @@ if (!empty($filters['id'])){
   die(header ("Location: ".$path['base']."/orders"));
 }
 
-
+$i=0;
 foreach ($page->properties->forms as $key=>&$form) {
     $form->disabled=true;
-    foreach ($form->fields as &$field) {        
+    if ($i<2) {
+    $form->buttons = (object)['type' => 'submit', 'class' => 'btn btn-success', 'text' => 'Далее'];
+        }
+    $i++;
+    foreach ($form->fields as &$field) {
         $field->{$field->type} = $field->property;
         $field->data = (object)['name' => 'obj', 'value' => $field->property];
         if(!empty($order->{$field->property})){
@@ -46,13 +50,18 @@ foreach ($page->properties->forms as $key=>&$form) {
         }
         $form->mod_fields[] = $field;
     }
+
     $form->fields=$form->mod_fields;
+
     if ($form->step==$order->state){
         $form->disabled=false;
         $form->bordered=true;
+
     }
+
     if ($form->step>$order->stage){
         unset($page->properties->forms[$key]);
+
     }
     
 }
