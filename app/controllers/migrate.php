@@ -159,7 +159,7 @@ $migrations['20200625'] = function () {
     return $info;
 };
 
-$migrations['20201029'] = function () {
+$migrations['120201029'] = function () {
     $info="Добавим флаг активной заявки ";
     DB::schema('mssql')->table('Таблица_Заявки', function ($table) {
         $table->boolean('active')->default(false);
@@ -167,7 +167,7 @@ $migrations['20201029'] = function () {
     return $info;
 };
 
-$migrations['202010291'] = function () {
+$migrations['1202010291'] = function () {
     $info="Добавим этапы заявки ";
     DB::schema('mssql')->table('Таблица_Заявки', function ($table) {
         $table->unsignedInteger('state')->default(99);
@@ -175,7 +175,7 @@ $migrations['202010291'] = function () {
     return $info;
 };
 
-$migrations['202010292'] = function () {
+$migrations['1202010292'] = function () {
     $info="Добавим этап показа заявки ";
     DB::schema('mssql')->table('Таблица_Заявки', function ($table) {
         $table->unsignedInteger('stage')->default(99);
