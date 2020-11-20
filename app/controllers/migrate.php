@@ -269,14 +269,13 @@ $migrations['201907146'] = function () use ($user) {
     return $info;
 };
 
-$migrations['20201119'] = function () {
+$migrations['20201120'] = function () {
     $info="Связь с CtiUser в User ";
     DB::schema()->table('users', function ($table) {
         $table->unsignedInteger('cti_user_id')->index();
     });
     return $info;
 };
-
 
 
 function execute($id) {
