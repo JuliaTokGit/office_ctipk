@@ -105,7 +105,7 @@ $db->setEventDispatcher(new Dispatcher(new Container()));
 $db->setAsGlobal();
 $db->bootEloquent();
 $db::connection()->enableQueryLog();
-
+$db::connection('mssql')->statement('SET DATEFORMAT YMD');
 
 
 
