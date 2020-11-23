@@ -12,7 +12,7 @@ class Order extends Model
     protected $hidden = ['upsize_ts'];
     protected $guarded = ['Код_Заявки'];
     public $timestamps = false;
-    // protected $dateFormat = 'Y-m-d H:i:s.v';
+    protected $dateFormat = 'Y-m-d H:i:s.v';
     public $appends=['id'];
 
     protected $casts = [
