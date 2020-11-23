@@ -12,14 +12,17 @@ class CustomDate implements CastsAttributes
     public function set($model, $key, $value, $attributes)    
     {                
         if (empty($value)){
-            $result=null;
+            return [$key => null];
+            // $result=null;
             
         }else{
             // $timezone = new DateTimeZone("UTC");
             // $date = new DateTime("now", $timezone);
             // $result=$date->format("Y-m-d\TH:i:s");
-            $result=Carbon::createFromFormat('Y-m-d', $value)->format('Y-m-d H:i:s.v');            
+            // $result=;
+            // dd($result);
+            return [$key => Carbon::createFromFormat('Y-m-d', $value)->format('Y-m-d H:i:s.v')];
         }
-        return [$key => $result];
+        
     }
 }
