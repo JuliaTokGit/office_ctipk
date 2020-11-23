@@ -309,9 +309,7 @@ if (!DB::schema()->hasTable('migrations')) {
     });
 }
 
-$options = getopt("n:");
-
-if (empty($options['n'])) {
+if (empty($filters['id'])) {
     foreach ($migrations as $key => $migration) {
         if(stripos($key,'harmful') !== false) {
             throw new \Exception("Migrations consists harmful entries, please, run script manually.");
@@ -324,5 +322,5 @@ if (empty($options['n'])) {
         }
     }
 } else {
-    execute($options['n']);
+    execute($filters['id']);
 }
