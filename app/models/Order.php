@@ -7,7 +7,7 @@ class Order extends Model
     protected $connection='mssql';
     protected $table = 'Таблица_Заявки';
     protected $primaryKey = 'Код_Заявки';
-    public $incrementing = false;
+    // public $incrementing = false;
     protected $title = 'Заказ';
     protected $hidden = ['upsize_ts'];
     protected $guarded = ['Код_Заявки'];
@@ -31,22 +31,22 @@ class Order extends Model
         'Дата_Переноса'=> CustomDate::class,
     ];
 
-    public function getIdAttribute($value){
-        return $this->Код_Заявки;
-    }
+    // public function getIdAttribute($value){
+    //     return $this->Код_Заявки;
+    // }
 
-    public function setIdAttribute($value){
-        $this->attributes['Код_Заявки']=$value;
-    }
+    // public function setIdAttribute($value){
+    //     $this->attributes['Код_Заявки']=$value;
+    // }
 
-    public static function boot()
-    {
-        parent::boot();
+    // public static function boot()
+    // {
+    //     parent::boot();
 
-        self::creating(function ($order) {
-            $order->Код_Заявки=Order::max('Код_Заявки')+1;            
-        });
+    //     self::creating(function ($order) {
+    //         $order->Код_Заявки=Order::max('Код_Заявки')+1;            
+    //     });
 
-    }
+    // }
 
 }
