@@ -6,7 +6,6 @@ class Work extends Model
     protected $connection='mssql';
     protected $table = 'Таблица_Работ_Заявка';
     protected $primaryKey = 'Код_Работы';
-    public $incrementing = false;
     protected $title = 'Справочник структурированных работ';
     protected $hidden = ['upsize_ts'];
     protected $guarded = ['Код_Работы'];
@@ -18,13 +17,4 @@ class Work extends Model
         return $this->belongsTo('Inventarisation','Код_Группы');
     }
 
-    public static function boot()
-    {
-        parent::boot();
-
-        self::creating(function ($work) {
-            $work->Код_Работы=Work::max('Код_Работы')+1;            
-        });
-
-    }
 }

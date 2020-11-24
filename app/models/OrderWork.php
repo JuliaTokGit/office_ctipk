@@ -5,8 +5,7 @@ class OrderWork extends Model
 {
     protected $connection='mssql';
     protected $table = 'Таблица_Работы_Заявки';
-    public $primaryKey = 'Код_Работы';
-    public $incrementing = false;
+    public $primaryKey = 'Код_Работы';    
     protected $title = 'Таблица работы заявки';
     protected $hidden = ['upsize_ts'];
     protected $guarded = ['Код_Работы'];
@@ -44,13 +43,4 @@ class OrderWork extends Model
         $this->attributes['Техник_Процент']=$work->Техник_Процент;
     }
 
-    public static function boot()
-    {
-        parent::boot();
-
-        self::creating(function ($order_work) {
-            $order_work->Код_Работы=OrderWork::max('Код_Работы')+1;            
-        });
-
-    }
 }

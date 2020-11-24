@@ -12,15 +12,15 @@ class OrderPerformer extends Model
     protected $hidden = ['upsize_ts'];
     protected $guarded = ['Код_Исполнителя'];
     public $timestamps = false;
-    // public $appends=['id'];
+    public $appends=['id'];
 
-    // public function getIdAttribute(){
-    //     return $this->Код_Исполнителя;
-    // }
+    public function getIdAttribute(){
+        return $this->Код_Исполнителя;
+    }
 
-    // public function setIdAttribute($value){
-    //     $this->attributes['Код_Исполнителя']=$value;
-    // }
+    public function setIdAttribute($value){
+        $this->attributes['Код_Исполнителя']=$value;
+    }
 
     // public static function boot()
     // {

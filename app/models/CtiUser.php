@@ -6,7 +6,6 @@ class CtiUser extends Model
     protected $connection='mssql';
     protected $table = 'Таблица_Пользователи';
     protected $primaryKey = 'Код';
-    public $incrementing = false;
     protected $title = 'Таблица_Пользователи';
     protected $hidden = ['upsize_ts'];
     protected $guarded = ['Код'];

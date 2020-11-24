@@ -13,7 +13,7 @@ class Order extends Model
     protected $guarded = ['Код_Заявки'];
     public $timestamps = false;
     protected $dateFormat = 'Y-m-d';
-    // public $appends=['id'];
+    public $appends=['id'];
 
     protected $casts = [
         'Дата_Заявки'     => CustomDate::class,
@@ -31,22 +31,14 @@ class Order extends Model
         'Дата_Переноса'=> CustomDate::class,
     ];
 
-    // public function getIdAttribute($value){
-    //     return $this->Код_Заявки;
-    // }
+    public function getIdAttribute($value){
+        return $this->Код_Заявки;
+    }
 
-    // public function setIdAttribute($value){
-    //     $this->attributes['Код_Заявки']=$value;
-    // }
+    public function setIdAttribute($value){
+        $this->attributes['Код_Заявки']=$value;
+    }
 
-    // public static function boot()
-    // {
-    //     parent::boot();
 
-    //     self::creating(function ($order) {
-    //         $order->Код_Заявки=Order::max('Код_Заявки')+1;            
-    //     });
-
-    // }
 
 }
