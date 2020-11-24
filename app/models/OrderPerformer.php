@@ -12,7 +12,7 @@ class OrderPerformer extends Model
     protected $hidden = ['upsize_ts'];
     protected $guarded = ['Код_Исполнителя'];
     public $timestamps = false;
-    public $appends=['id'];
+    // public $appends=['id'];
 
     // public function getIdAttribute(){
     //     return $this->Код_Исполнителя;
