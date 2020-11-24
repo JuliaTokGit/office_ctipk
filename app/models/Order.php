@@ -13,7 +13,7 @@ class Order extends Model
     protected $guarded = ['Код_Заявки'];
     public $timestamps = false;
     protected $dateFormat = 'Y-m-d';
-    public $appends=['id'];
+    // public $appends=['id'];
 
     protected $casts = [
         'Дата_Заявки'     => CustomDate::class,
