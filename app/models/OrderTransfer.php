@@ -16,6 +16,7 @@ class OrderTransfer extends Model
         'Дата_Служебной'=> CustomDate::class,
     ];
     protected $dateFormat = 'Y-m-d H:i:s.v';    
+    public $appends=['id'];
 
     public function getIdAttribute(){
         return $this->Код_Переноса;
